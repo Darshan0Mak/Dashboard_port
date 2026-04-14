@@ -401,10 +401,11 @@ function DownloadButton() {
           <p className="text-white font-bold text-base sm:text-lg leading-tight">
             {clicked ? "Downloading…" : "Download Resume"}
           </p>
+
           <p className="text-white/60 text-[11px] font-medium">
             {clicked
               ? "Your download will start shortly"
-              : "PDF · Updated 2025"}
+              : `PDF · Updated ${new Date().getFullYear()}`}
           </p>
         </div>
 

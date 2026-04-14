@@ -11,7 +11,7 @@ import StatsCard from "../stats";
 import ServicesOffering from "../serviceOffering/page";
 import RecentWorkCard from "../RecentWorkCard/page";
 import ArticleCard from "../linkedInArticle/page";
-import Headshot from "../../../public/images/headshot-image.webp";
+import Headshot from "../../../public/images/headshot-image-01.webp";
 import ProjectImage from "../../../public/images/portfolio-2.webp";
 
 // ─── useInView ────────────────────────────────────────────────────────────────

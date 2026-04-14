@@ -173,14 +173,12 @@ function ProjectCard({ project, index, visible }) {
 
           {/* "View Project" pill that appears on hover */}
           <div
-            className="absolute bottom-3 left-1/2 -translate-x-1/2 flex items-center gap-1.5 px-4 py-2 rounded-full text-xs font-semibold text-white transition-all duration-300 whitespace-nowrap"
+            className="absolute bottom-3 left-3 flex items-center gap-2 px-3 py-1.5 rounded-lg text-[11px] font-medium text-white transition-all duration-300 backdrop-blur-md"
             style={{
-              background: cs.text,
+              background: "rgba(0,0,0,0.4)",
+              border: "1px solid rgba(255,255,255,0.1)",
               opacity: hovered ? 1 : 0,
-              transform: hovered
-                ? "translateY(0) translateX(-50%)"
-                : "translateY(8px) translateX(-50%)",
-              boxShadow: `0 4px 20px ${cs.text}66`,
+              transform: hovered ? "translateY(0)" : "translateY(6px)",
             }}
           >
             View Project
