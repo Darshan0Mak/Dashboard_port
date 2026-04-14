@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Contact Form Submission | Darshan Makwana</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div
+      style="
+        font-family: Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI',
+          Roboto, Arial, sans-serif;
+        line-height: 1.6;
+        color: #333333;
+        margin: 0 auto;
+        padding: 20px;
+        background-color: #fafafa;
+      "
+    >
+      <div
+        style="
+          background-color: #ffffff;
+          border-radius: 8px;
+          margin: 0 auto;
+          max-width: 600px;
+          border: 1px solid #e5e5e5;
+          overflow: hidden;
+        "
+      >
+        <div
+          style="
+            background-color: #f4e6fb;
+            color: #a33bd6;
+            padding: 30px;
+            text-align: center;
+          "
+        >
+          <img
+            src="https://darshanmakwana.netlify.app/assets/images/logo.svg"
+            alt="Logo"
+            height="60"
+            style="margin-bottom: 10px"
+          />
+          <h1
+            style="
+              margin: 0;
+              font-size: 24px;
+              font-weight: 700;
+              font-family: Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI',
+                Roboto, Arial, sans-serif;
+            "
+          >
+            Contact Form Submission
+          </h1>
+        </div>
+
+        <div style="padding: 40px 30px">
+          <div
+            style="
+              color: #888888;
+              font-size: 13px;
+              text-align: right;
+              margin-bottom: 30px;
+              font-style: italic;
+            "
+          >
+            Received: <%= new Date().toLocaleDateString('en-US', { year:
+            'numeric', month: 'long', day: 'numeric' }) %> at <%= new
+            Date().toLocaleTimeString('en-US', { hour: '2-digit', minute:
+            '2-digit', hour12: true }) %>
+          </div>
+
+          <div style="margin-bottom: 25px">
+            <div
+              style="
+                font-weight: 700;
+                color: #a33bd6;
+                font-size: 14px;
+                text-transform: uppercase;
+                letter-spacing: 0.5px;
+                margin-bottom: 6px;
+                display: block;
+              "
+            >
+              Full Name
+            </div>
+            <div
+              style="
+                font-size: 16px;
+                color: #333333;
+                word-wrap: break-word;
+                line-height: 1.4;
+                padding-bottom: 8px;
+                border-bottom: 1px solid #f0f0f0;
+              "
+            >
+              <%= fullName %>
+            </div>
+          </div>
+
+          <div style="margin-bottom: 25px">
+            <div
+              style="
+                font-weight: 700;
+                color: #a33bd6;
+                font-size: 14px;
+                text-transform: uppercase;
+                letter-spacing: 0.5px;
+                margin-bottom: 6px;
+                display: block;
+              "
+            >
+              Email Address
+            </div>
+            <div
+              style="
+                font-size: 16px;
+                color: #333333;
+                word-wrap: break-word;
+                line-height: 1.4;
+                padding-bottom: 8px;
+                border-bottom: 1px solid #f0f0f0;
+              "
+            >
+              <%= emailAddress %>
+            </div>
+          </div>
+
+          <div style="margin-bottom: 25px">
+            <div
+              style="
+                font-weight: 700;
+                color: #a33bd6;
+                font-size: 14px;
+                text-transform: uppercase;
+                letter-spacing: 0.5px;
+                margin-bottom: 6px;
+                display: block;
+              "
+            >
+              Subject
+            </div>
+            <div
+              style="
+                font-size: 16px;
+                color: #333333;
+                word-wrap: break-word;
+                line-height: 1.4;
+                padding-bottom: 8px;
+                border-bottom: 1px solid #f0f0f0;
+              "
+            >
+              <%= subject || 'Not specified' %>
+            </div>
+          </div>
+
+          <div style="margin-bottom: 25px">
+            <div
+              style="
+                font-weight: 700;
+                color: #a33bd6;
+                font-size: 14px;
+                text-transform: uppercase;
+                letter-spacing: 0.5px;
+                margin-bottom: 6px;
+                display: block;
+              "
+            >
+              Message
+            </div>
+            <div
+              style="
+                background-color: #fafafa;
+                padding: 20px;
+                border-radius: 4px;
+                margin: 15px 0;
+              "
+            >
+              <div
+                style="
+                  font-size: 16px;
+                  color: #333333;
+                  word-wrap: break-word;
+                  line-height: 1.4;
+                  border-bottom: none;
+                "
+              >
+                <%- messageContent.replace(/\n/g, '<br />') %>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div
+          style="
+            padding: 20px 30px;
+            text-align: center;
+            background-color: #f8f8f8;
+            color: #666666;
+            font-size: 12px;
+          "
+        >
+          This email was automatically generated from Darshan Makwana's website's contact
+          form.<br />
+          Please respond directly to the sender's email address mentioned above.
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

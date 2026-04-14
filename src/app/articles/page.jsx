@@ -335,7 +335,7 @@ export default function ArticlesPage() {
         }}
       />
 
-      <div className="relative z-10 w-full max-w-6xl mx-auto px-4 sm:px-6 my-14 sm:py-20">
+      <div className="relative z-10 w-full max-w-300 mx-auto px-4 sm:px-6 mt-14 py-20 sm:py-20">
         {/* ── Header ── */}
         <div className="text-center mb-12 sm:mb-16">
           <p

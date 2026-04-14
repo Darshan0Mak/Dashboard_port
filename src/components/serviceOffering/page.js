@@ -66,14 +66,14 @@ export default function ServicesOffering() {
         ))}
       </div>
 
-      <div className="flex flex-col sm:flex-row sm:justify-between gap-3">
+      {/* <div className="flex flex-col sm:flex-row sm:justify-between gap-3">
         <div>
           <p className="para-label">Specializing</p>
           <h3 className="text-xl sm:text-2xl md:text-3xl font-bold text-gray-900 dark:text-white">
             Service Offering
           </h3>
         </div>
-      </div>
+      </div> */}
     </div>
   );
 }

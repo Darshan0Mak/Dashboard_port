@@ -217,3 +217,16 @@ html {
     @apply text-xs sm:text-sm text-gray-600 dark:text-[#C7D2FE] uppercase;
   }
 }
+
+@keyframes liquidFlow {
+  0% {
+    background-position: 200% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.animate-liquid {
+  animation: liquidFlow 3s linear infinite;
+}

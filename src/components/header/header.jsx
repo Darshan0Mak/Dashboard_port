@@ -16,8 +16,7 @@ export default function Header() {
     { name: "Portfolio", href: "/portfolio" },
     {
       name: "Resume",
-      href: "./DarshanMakwana_Sr.UI-UX_Designer_5_Years.pdf",
-      external: true,
+      href: "/resume",
     },
     { name: "Articles", href: "/articles" },
   ];
@@ -71,7 +70,7 @@ export default function Header() {
             >
               <span className="absolute inset-[-1000%] animate-[spin_2s_linear_infinite] bg-[conic-gradient(from_90deg_at_50%_50%,#006fee_0%,#b249f8_50%,#FF1CF7_100%)]" />
               <span className="inline-flex h-full w-full cursor-pointer items-center justify-center rounded-xl bg-gray-900 dark:bg-slate-950 px-7 text-white font-medium backdrop-blur-3xl gap-2">
-                Contact Us
+                Contact Me
                 <svg
                   stroke="currentColor"
                   fill="currentColor"

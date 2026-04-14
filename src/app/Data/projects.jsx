@@ -3,7 +3,7 @@ const projects = [
   {
     id: "ui-1",
     title: "Barbaros Barbers Davos",
-    category: "Web Design",
+    category: "UI / UX Design",
 
     thumbnail: "/images/ui-1.jpg",
     banner: "/images/barbaros-barber-banner.jpg",
@@ -38,11 +38,11 @@ const projects = [
   },
   {
     id: "ui2",
-    title: "Barbaros Barbers Davos",
-    category: "Web Design",
+    title: "Minddeft Technologies Pvt Ltd",
+    category: "UI / UX Design",
 
-    thumbnail: "/images/ui-1.jpg",
-    banner: "/images/barbaros-barber-banner.jpg",
+    thumbnail: "/images/minddeft.webp",
+    banner: "/images/minddeft-banner.webp",
 
     summary:
       "A bold and modern landing page for Barbaros Barbers Davos, crafted to reflect strength, masculinity, and premium quality through dark visuals and striking red accents.",
@@ -59,7 +59,7 @@ const projects = [
     outcome:
       "The final design delivers a premium look and feel, improving brand perception and creating a strong visual identity online.",
 
-    elementImages: ["/images/e-barbaros-01.jpg", "/images/e-barbaros-02.jpg"],
+    elementImages: ["/images/e-minddeft-01.webp", "/images/e-minddeft-02.webp"],
 
     tech: [
       "UI Design",
@@ -71,6 +71,7 @@ const projects = [
 
     behance:
       "https://www.behance.net/gallery/130100457/Creative-Homepage-Design",
+    liveLink: "https://minddeft.com/",
   },
   {
     id: "ui-3",

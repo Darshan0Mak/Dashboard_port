@@ -1,13 +1,13 @@
 import { Inter, Oswald } from "next/font/google";
 import { ThemeProvider } from "next-themes";
 import "./globals.css";
-import Header from "@/components/header/header";
-import Footer from "@/components/footer/footer";
 import Image from "next/image";
 import LeftBg from "../../public/images/docs-left.png";
 import RightBg from "../../public/images/docs-right.png";
 import { config } from "@fortawesome/fontawesome-svg-core";
 import "@fortawesome/fontawesome-svg-core/styles.css";
+import Header from "@/components/header";
+import Footer from "@/components/footer";
 config.autoAddCss = false;
 
 const inter = Inter({
@@ -21,7 +21,10 @@ const oswald = Oswald({
 });
 
 export const metadata = {
-  title: "Darshan Makwana - Portfolio",
+  title: {
+    default: "Darshan Makwana - Portfolio",
+    template: "%s | Darshan Makwana - Portfolio",
+  },
   description:
     "Selected works and UI design explorations by Darshan Makwana, specializing in clean, user-centric digital products.",
 };

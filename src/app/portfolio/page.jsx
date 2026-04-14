@@ -117,7 +117,7 @@ function ProjectCard({ project, index, visible }) {
         ref={cardRef}
         className="relative rounded-2xl overflow-hidden flex flex-col h-full border transition-all duration-500"
         style={{
-          background: "var(--card-bg, rgba(255,255,255,0.6))",
+          background: "var(--card-bg, rgba(255,255,255,0.1))",
           borderColor: hovered ? cs.border : "rgba(0,0,0,0.07)",
           boxShadow: hovered
             ? `0 20px 60px -12px ${cs.text}30, 0 4px 16px -4px rgba(0,0,0,0.08)`
@@ -372,7 +372,7 @@ function FilterBtn({ label, active, count, onClick }) {
   return (
     <button
       onClick={onClick}
-      className="relative flex items-center gap-2 px-4 py-2 rounded-full text-xs font-semibold uppercase tracking-wider border transition-all duration-200 whitespace-nowrap flex-shrink-0"
+      className="relative flex items-center gap-2 px-4 py-2 rounded-full text-xs font-semibold uppercase tracking-wider border transition-all duration-200 whitespace-nowrap shrink-0 cursor-pointer"
       style={
         active
           ? {
@@ -383,7 +383,7 @@ function FilterBtn({ label, active, count, onClick }) {
             }
           : {
               background: "transparent",
-              color: "var(--muted,#888)",
+              color: "#C7D2FE",
               borderColor: "rgba(0,0,0,0.10)",
             }
       }
@@ -394,7 +394,7 @@ function FilterBtn({ label, active, count, onClick }) {
         style={
           active
             ? { background: "rgba(255,255,255,0.25)", color: "#fff" }
-            : { background: "rgba(0,0,0,0.06)", color: "var(--muted,#888)" }
+            : { background: "rgba(0,0,0,0.06)", color: "#C7D2FE" }
         }
       >
         {count}

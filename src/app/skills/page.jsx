@@ -9,8 +9,6 @@ const CATEGORIES = [
   { id: "all", label: "All" },
   { id: "visual", label: "Visual Design" },
   { id: "proto", label: "Prototyping" },
-  { id: "research", label: "Research" },
-  { id: "handoff", label: "Dev Handoff" },
   { id: "code", label: "Code & Markup" },
   { id: "AI", label: "AI Tools" },
 ];
@@ -428,9 +426,12 @@ export default function Skills() {
 
   return (
     <div className="w-full min-h-screen">
-      <div className="w-full max-w-6xl mx-auto px-4 sm:px-6 my-14 sm:py-24">
+      <div className="relative z-10 w-full max-w-300 mx-auto px-4 sm:px-6 my-14 py-20 sm:py-20">
         {/* ── Header ── */}
         <div className="text-center mb-14 sm:mb-20">
+          <p className="text-xs font-bold uppercase tracking-[0.2em] text-gray-400 dark:text-gray-500 mb-4">
+            Tools & Technologies
+          </p>
           <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold font-heading uppercase leading-tight tracking-tight text-gray-900 dark:text-white">
             Design &amp; Development
             <br className="hidden sm:block" />

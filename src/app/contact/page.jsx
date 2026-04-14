@@ -5,6 +5,69 @@ import { useState, useEffect } from "react";
 export default function ContactPage() {
   const [headerVisible, setHeaderVisible] = useState(false);
 
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    subject: "",
+    message: "",
+  });
+
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitStatus, setSubmitStatus] = useState("idle");
+  const [submitResult, setSubmitResult] = useState("");
+
+  const handleInputChange = (e) => {
+    const { name, value } = e.target;
+    setFormData((prev) => ({
+      ...prev,
+      [name]: value,
+    }));
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setIsSubmitting(true);
+
+    try {
+      const res = await fetch("/api/send-mail", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(formData),
+      });
+
+      if (res.status === 500) {
+        setSubmitStatus("error");
+        setSubmitResult("Something went wrong. Please try again later.");
+        return;
+      }
+
+      const data = await res.json();
+
+      if (!data.success) {
+        setSubmitStatus("error");
+        setSubmitResult(
+          data.message || "Something went wrong. Please try again later.",
+        );
+        return;
+      }
+
+      setSubmitStatus("success");
+      setSubmitResult(
+        data.message ||
+          "Contact form submitted successfully! I'll get back to you soon.",
+      );
+      setFormData({ name: "", email: "", subject: "", message: "" });
+    } catch (error) {
+      setSubmitStatus("error");
+      setSubmitResult(
+        error.message ||
+          "An unexpected error occurred. Please try again later.",
+      );
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
+
   useEffect(() => {
     const t = setTimeout(() => setHeaderVisible(true), 80);
     return () => clearTimeout(t);
@@ -121,14 +184,21 @@ export default function ContactPage() {
 
           {/* ── Right Side: Contact Form ── */}
           <div className="lg:col-span-7">
-            <form className="grid grid-cols-1 sm:grid-cols-2 gap-6 p-8 rounded-3xl border border-black/5 dark:border-white/5 bg-white/50 dark:bg-white/5 backdrop-blur-xl shadow-2xl shadow-blue-500/5">
+            <form
+              onSubmit={handleSubmit}
+              className="grid grid-cols-1 sm:grid-cols-2 gap-6 p-8 rounded-3xl border border-black/5 dark:border-white/5 bg-white/50 dark:bg-white/5 backdrop-blur-xl shadow-2xl shadow-blue-500/5"
+            >
               <div className="flex flex-col gap-2">
                 <label className="text-[10px] font-bold uppercase tracking-wider text-gray-400">
                   Name
                 </label>
                 <input
+                  required
                   type="text"
                   placeholder="John Doe"
+                  name="name"
+                  value={formData.name}
+                  onChange={handleInputChange}
                   className="bg-transparent border-b border-black/10 dark:border-white/10 py-3 focus:outline-none focus:border-blue-500 transition-colors text-gray-900 dark:text-white"
                 />
               </div>
@@ -137,8 +207,12 @@ export default function ContactPage() {
                   Email
                 </label>
                 <input
+                  required
                   type="email"
                   placeholder="john@example.com"
+                  name="email"
+                  value={formData.email}
+                  onChange={handleInputChange}
                   className="bg-transparent border-b border-black/10 dark:border-white/10 py-3 focus:outline-none focus:border-blue-500 transition-colors text-gray-900 dark:text-white"
                 />
               </div>
@@ -147,8 +221,12 @@ export default function ContactPage() {
                   Subject
                 </label>
                 <input
+                  required
                   type="text"
                   placeholder="Project Inquiry"
+                  name="subject"
+                  value={formData.subject}
+                  onChange={handleInputChange}
                   className="bg-transparent border-b border-black/10 dark:border-white/10 py-3 focus:outline-none focus:border-blue-500 transition-colors text-gray-900 dark:text-white"
                 />
               </div>
@@ -157,14 +235,32 @@ export default function ContactPage() {
                   Message
                 </label>
                 <textarea
+                  required
                   rows={4}
                   placeholder="Tell me about your project..."
+                  name="message"
+                  value={formData.message}
+                  onChange={handleInputChange}
                   className="bg-transparent border-b border-black/10 dark:border-white/10 py-3 focus:outline-none focus:border-blue-500 transition-colors text-gray-900 dark:text-white resize-none"
                 />
               </div>
-              <button className="sm:col-span-2 mt-4 bg-blue-600 hover:bg-blue-700 text-white font-bold py-4 rounded-2xl transition-all active:scale-[0.98] shadow-xl shadow-blue-600/20">
-                Send Message
+              <button
+                type="submit"
+                className="cursor-pointer disabled:cursor-not-allowed sm:col-span-2 mt-4 bg-blue-600 hover:bg-blue-700 disabled:bg-blue-400 text-white font-bold py-4 rounded-2xl transition-all active:scale-[0.98] shadow-xl shadow-blue-600/20"
+                disabled={isSubmitting}
+              >
+                {/* TODO: Add a loader here */}
+                {isSubmitting ? "Sending..." : "Send Message"}
               </button>
+
+              {(submitStatus === "success" || submitStatus === "error") &&
+                !isSubmitting && (
+                  <span
+                    className={`text-sm ${submitStatus === "error" ? "text-red-500" : "text-green-500"} col-span-2`}
+                  >
+                    {submitResult}
+                  </span>
+                )}
             </form>
           </div>
         </div>
