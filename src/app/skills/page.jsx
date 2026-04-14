@@ -373,11 +373,12 @@ function SkillCard({ skill, index, visible }) {
 
       {/* Years + use case — slides up on hover */}
       <div
-        className="absolute bottom-0 left-0 right-0 px-5 py-4 rounded-b-2xl transition-all duration-300 ease-out z-20"
+        className="absolute inset-x-0 bottom-0 px-5 py-4 rounded-b-2xl transition-all duration-300 ease-out z-20 flex flex-col justify-end"
         style={{
-          background: `linear-gradient(to bottom, ${skill.color}00 0%, ${skill.color}f0 100%)`,
+          background: `linear-gradient(to top, ${skill.color}f5 0%, ${skill.color}cc 60%, transparent 100%)`,
           transform: hovered ? "translateY(0%)" : "translateY(100%)",
           opacity: hovered ? 1 : 0,
+          backdropFilter: "blur(6px)",
         }}
       >
         <p className="text-[10px] font-semibold uppercase tracking-wider text-white/70 mb-1">

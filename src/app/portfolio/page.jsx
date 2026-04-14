@@ -59,17 +59,17 @@ const CAT_COLORS = {
     bg: "rgba(127,119,221,0.10)",
     border: "rgba(127,119,221,0.25)",
   },
-  "UI Design": {
+  "UI / UX Design": {
     text: "#1D9E75",
     bg: "rgba(29,158,117,0.10)",
     border: "rgba(29,158,117,0.25)",
   },
-  Branding: {
+  "Social Media Design": {
     text: "#EF9F27",
     bg: "rgba(239,159,39,0.10)",
     border: "rgba(239,159,39,0.25)",
   },
-  Mobile: {
+  "App Design": {
     text: "#D4537E",
     bg: "rgba(212,83,126,0.10)",
     border: "rgba(212,83,126,0.25)",
@@ -370,30 +370,35 @@ function FilterBtn({ label, active, count, onClick }) {
   return (
     <button
       onClick={onClick}
-      className="relative flex items-center gap-2 px-4 py-2 rounded-full text-xs font-semibold uppercase tracking-wider border transition-all duration-200 whitespace-nowrap shrink-0 cursor-pointer"
-      style={
-        active
-          ? {
-              background: cs.text,
-              color: "#fff",
-              borderColor: "transparent",
-              boxShadow: `0 4px 16px ${cs.text}44`,
-            }
-          : {
-              background: "transparent",
-              color: "#C7D2FE",
-              borderColor: "rgba(0,0,0,0.10)",
-            }
-      }
+      className={`
+    relative flex items-center gap-2 px-4 py-2 rounded-full 
+    text-xs font-semibold uppercase tracking-wider 
+    transition-all duration-200 whitespace-nowrap shrink-0 cursor-pointer
+
+    border
+
+    ${
+      active
+        ? `
+        bg-[var(--accent)] text-white border-transparent 
+        shadow-md shadow-[var(--accent)]/30
+      `
+        : `
+        bg-transparent 
+        text-gray-700 dark:text-gray-300 
+        border-gray-300 dark:border-white/10
+        hover:bg-gray-100 dark:hover:bg-white/5
+      `
+    }
+  `}
     >
       {label}
       <span
-        className="text-[9px] px-1.5 py-0.5 rounded-full font-bold"
-        style={
-          active
-            ? { background: "rgba(255,255,255,0.25)", color: "#fff" }
-            : { background: "rgba(0,0,0,0.06)", color: "#C7D2FE" }
-        }
+        className="
+    ml-1 px-1.5 py-0.75 rounded-full text-[10px] font-semibold
+    bg-gray-200 text-gray-800
+    dark:bg-white/10 dark:text-gray-300
+  "
       >
         {count}
       </span>

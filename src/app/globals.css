@@ -230,3 +230,11 @@ html {
 .animate-liquid {
   animation: liquidFlow 3s linear infinite;
 }
+
+:root {
+  --accent: #6366f1; /* Indigo (light mode) */
+}
+
+.dark {
+  --accent: #8b5cf6; /* Slightly brighter for dark mode */
+}

@@ -1,7 +1,21 @@
+"use client";
 import projects from "@/app/Data/projects";
 import Image from "next/image";
 import Link from "next/link";
 import Logo from "../../../../public/images/logo.svg";
+
+const scrollToSection = (id) => {
+  const el = document.getElementById(id);
+  if (!el) return;
+
+  const yOffset = -80; // adjust based on your UI
+  const y = el.getBoundingClientRect().top + window.pageYOffset + yOffset;
+
+  window.scrollTo({
+    top: y,
+    behavior: "smooth",
+  });
+};
 
 export default function ProjectDetail({ params }) {
   const project = projects.find((p) => p.id === params.id);
@@ -223,26 +237,26 @@ export default function ProjectDetail({ params }) {
         </div>
 
         {/* Links */}
-        <a
-          href="#info"
+        <button
+          onClick={() => scrollToSection("info")}
           className="px-3 py-1.5 rounded-lg text-sm text-white/60 hover:bg-white/10 hover:text-white transition"
         >
           Info
-        </a>
+        </button>
 
-        <a
-          href="#elements"
+        <button
+          onClick={() => scrollToSection("elements")}
           className="px-3 py-1.5 rounded-lg text-sm text-white/60 hover:bg-white/10 hover:text-white transition"
         >
           Elements
-        </a>
+        </button>
 
-        <a
-          href="#tech"
+        <button
+          onClick={() => scrollToSection("tech")}
           className="px-3 py-1.5 rounded-lg text-sm text-white/60 hover:bg-white/10 hover:text-white transition"
         >
           Tags
-        </a>
+        </button>
 
         {/* Divider */}
         <div className="w-px h-4 bg-white/10 mx-1" />

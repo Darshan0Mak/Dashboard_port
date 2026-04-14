@@ -32,7 +32,7 @@ const EXPERIENCE = [
     company: "Minddeft Technologies",
     period: "2023 - Present",
     type: "Full-time",
-    desc: "Leading UX for 10+ SaaS products. Built and maintained a cross-platform design system used by 4 development teams. Reduced onboarding drop-off by 28% through research-driven redesign.",
+    desc: "As a Senior UI/UX Designer, I've delivered end-to-end digital products for 15+ startups across Fintech, EdTech, and E-commerce. I lead a team of 3 to bridge the gap between complex wireframing and high-fidelity web design, ensuring seamless developer handoffs. By managing direct client relationships and high-level design strategy, I transform ambitious ideas into polished, market-ready SaaS solutions.",
     tags: ["Figma", "Design Systems", "SaaS", "User Research", "Web Design"],
   },
   {
@@ -40,7 +40,7 @@ const EXPERIENCE = [
     company: "Coreway Technologies",
     period: "2021 - 2022",
     type: "Full-time",
-    desc: "Delivered end-to-end product design for startups across fintech, edtech, and e-commerce. Managed client relationships and shipped 15+ projects from wireframe to handoff.",
+    desc: "As a Senior UI/UX Designer, I deliver end-to-end product strategy for startups across Fintech, EdTech, and E-commerce, shipping 15+ projects from concept to final handoff. I specialize in high-impact web design, transforming complex wireframes into polished, developer-ready interfaces. By managing direct client relationships, I ensure every SaaS solution aligns with business goals and premium aesthetic standards.",
     tags: ["Figma", "Photoshop", "Prototyping", "Branding"],
   },
   {
@@ -48,7 +48,7 @@ const EXPERIENCE = [
     company: "Digital Science Web Technologies Pvt Ltd.",
     period: "2019 - 2021",
     type: "Full-time",
-    desc: "Created brand identities, marketing collateral, and web UI for 30+ clients. First exposure to UX thinking — ran guerrilla usability sessions that shaped product decisions.",
+    desc: "Developed brand identities and web UI for 30+ clients on 99designs, ensuring high-quality marketing and digital assets. I introduced UX thinking to the workflow by running guerrilla usability sessions that directly shaped product decisions. This role established my foundation in blending visual design with user-centric problem-solving.",
     tags: ["Illustrator", "Photoshop", "UI Design", "Branding"],
   },
 ];
@@ -58,7 +58,7 @@ const EDUCATION = [
     degree: "Bachelor of Instrumentation & Control Engineering",
     school: "Gujarat University",
     period: "2015 — 2019",
-    desc: "Foundation in computer science and software principles. Developed an early interest in interface design through personal projects.",
+    desc: "Leveraged a background in Instrumentation and Control Engineering to build a strong foundation in logic and systems architecture. I bridged the gap between engineering principles and digital design through personal projects, evolving a technical interest into a career in UI/UX.",
   },
 ];
 
