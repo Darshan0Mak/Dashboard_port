@@ -22,6 +22,14 @@ export async function POST(req) {
       `contact-form-email.ejs`,
     );
 
+    console.log({
+      host: process.env.SMTP_HOST,
+      port: Number(process.env.SMTP_PORT ?? 587),
+      secure: Number(process.env.SMTP_PORT) === 465, // true for 465, false for other ports
+      auth: { user: process.env.SMTP_USER },
+      to: process.env.CONTACT_FORM_RECIPIENT,
+    });
+
     const html = await ejs.renderFile(templatePath, {
       fullName: body.name,
       emailAddress: body.email,
@@ -35,8 +43,6 @@ export async function POST(req) {
       subject: "Website Contact Form Submission | Darshan Makwana's Portfolio",
       html,
     };
-
-    console.log({ mailOptions: { ...mailOptions, html: undefined, body } });
 
     await transporter.sendMail(mailOptions);
 
