@@ -54,7 +54,7 @@ function useMagnet(strength = 0.35) {
 
 // ─── Category pill ─────────────────────────────────────────────────────────────
 const CAT_COLORS = {
-  "UX Design": {
+  "Logo Design": {
     text: "#7F77DD",
     bg: "rgba(127,119,221,0.10)",
     border: "rgba(127,119,221,0.25)",

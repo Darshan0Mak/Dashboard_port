@@ -8,6 +8,7 @@ import { config } from "@fortawesome/fontawesome-svg-core";
 import "@fortawesome/fontawesome-svg-core/styles.css";
 import Header from "@/components/header";
 import Footer from "@/components/footer";
+import GoogleAnalytics from "@/components/GoogleAnalytics/GoogleAnalytics";
 config.autoAddCss = false;
 
 const inter = Inter({
@@ -37,6 +38,8 @@ export default function RootLayout({ children }) {
       suppressHydrationWarning
     >
       <body className="font-sans font-body antialiased relative overflow-x-hidden">
+        <GoogleAnalytics />
+
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
           {/* Left Sticky Background Image */}
           <div className="fixed top-0 left-[-180px] h-full w-auto scale-150 pointer-events-none -z-10 opacity-70">

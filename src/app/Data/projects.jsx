@@ -39,7 +39,7 @@ const projects = [
   {
     id: "ui2",
     title: "Minddeft Technologies Pvt Ltd",
-    category: "UI / UX Design",
+    category: "Web Design",
 
     thumbnail: "/images/minddeft.webp",
     banner: "/images/minddeft-banner.webp",
@@ -76,7 +76,7 @@ const projects = [
   {
     id: "ui-3",
     title: "Grapevine",
-    category: "Web Design",
+    category: "UI / UX Design",
 
     //Thumbnail
     thumbnail: "/images/ui-2.jpg",
@@ -102,6 +102,71 @@ const projects = [
 
     behance: "https://www.behance.net/gallery/130396259/landing-page-Design",
   },
+  {
+    id: "ui3",
+    title: "RNMKR",
+    category: "UI / UX Design",
+
+    thumbnail: "/images/ui-3.webp",
+    banner: "/images/RNMKR-banner.webp",
+
+    summary:
+      "A sleek, high-impact landing page built with a dark, premium aesthetic and refined gold accents. The design uses bold visuals, strong typography, and structured sections to create a clear and engaging flow. It highlights credibility, program value, and user trust through strategic content placement and hierarchy. Overall, the layout delivers a powerful, professional feel suited for an elite, results-focused offering.",
+
+    // ✅ ADD THIS
+    problem:
+      "Lack of clear messaging, weak hierarchy, and low engagement can reduce credibility and conversions in high-ticket programs.",
+
+    // ✅ ADD THIS
+    solution:
+      "A strategically designed layout with strong typography, visual hierarchy, and focused sections that guide users toward key actions.",
+
+    // ✅ ADD THIS
+    outcome:
+      "Improved user engagement, stronger brand perception, and higher conversion potential for a results-driven program.",
+
+    elementImages: ["/images/e-RNMKR-01.webp", "/images/e-RNMKR-02.webp"],
+
+    tech: [
+      "UI Design",
+      "Responsive Design",
+      "Interaction Design",
+      "Photoshop",
+      "Figma",
+    ],
+
+    behance:
+      "https://www.behance.net/gallery/130100457/Creative-Homepage-Design",
+  },
+  // {
+  //   id: "ui-3",
+  //   title: "Grapevine",
+  //   category: "Web Design",
+
+  //   //Thumbnail
+  //   thumbnail: "/images/ui-2.jpg",
+
+  //   // 🔥 Hero banner
+  //   banner: "/images/grapevine-banner.jpg",
+
+  //   // 🔥 Short intro (use first paragraph)
+  //   summary:
+  //     "This project features a modern, dark-themed SaaS landing page for a data-driven financial platform. The design emphasizes clarity, strong visual hierarchy, and conversion through bold typography, subtle gradients, and immersive dashboard visuals, ensuring a consistent and trustworthy user experience across devices.",
+
+  //   // 🔥 Elements section
+  //   elementsText:
+  //     "The website elements focus on strong typography, clear hierarchy, and impactful imagery to create a memorable first impression while maintaining usability.",
+
+  //   elementImages: [
+  //     "/images/e-grapevine-01.webp",
+  //     "/images/e-grapevine-02.webp", // duplicate or second layout image
+  //   ],
+
+  //   // 🔥 Tech / tools
+  //   tech: ["UI Design", "Web Design", "Figma", "Photoshop", "Illustrator"],
+
+  //   behance: "https://www.behance.net/gallery/130396259/landing-page-Design",
+  // },
 
   // Social Media Design
   {
@@ -145,6 +210,39 @@ const projects = [
 
     // 🔥 Hero banner
     banner: "/images/SocialBanner.webp",
+
+    // 🔥 Short intro (use first paragraph)
+    summary:
+      "Transforming ideas into scroll-stopping visuals. My social media designs are built to spark curiosity, boost engagement, and make brands stand out in a crowded digital space.",
+
+    // 🔥 Elements section
+    elementsText:
+      "The website elements focus on strong typography, clear hierarchy, and impactful imagery to create a memorable first impression while maintaining usability.",
+
+    elementImages: [
+      "/images/e-grapevine-01.webp",
+      "/images/e-grapevine-02.webp", // duplicate or second layout image
+    ],
+
+    // 🔥 Tech / tools
+    tech: ["UI Design", "Web Design", "Figma", "Photoshop", "Illustrator"],
+
+    behance: "https://www.behance.net/gallery/130396259/landing-page-Design",
+  },
+  // Logo Design
+  {
+    id: "logo-1",
+    title: "Brand Identity Design",
+    category: "Logo Design",
+
+    //Thumbnail
+    thumbnail: "/images/UniCredLogo.webp",
+
+    //year
+    year: "2025",
+
+    // 🔥 Hero banner
+    banner: "/images/unuicred-banner.webp",
 
     // 🔥 Short intro (use first paragraph)
     summary:

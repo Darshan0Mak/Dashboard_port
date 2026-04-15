@@ -1,6 +1,6 @@
 import projects from "@/data/projects";
 
-export default function ProjectDetail({ params }) {
+export default async function ProjectDetail({ params }) {
   const project = projects.find((p) => p.id === params.id);
 
   if (!project) return <p className="p-8">Project not found.</p>;

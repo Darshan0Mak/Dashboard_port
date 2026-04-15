@@ -17,7 +17,7 @@ const scrollToSection = (id) => {
   });
 };
 
-export default function ProjectDetail({ params }) {
+export default async function ProjectDetail({ params }) {
   const project = projects.find((p) => p.id === params.id);
 
   if (!project) {
@@ -60,7 +60,7 @@ export default function ProjectDetail({ params }) {
         </h1>
 
         {project.summary && (
-          <p className="relative z-10 text-white/45 text-lg max-w-md mx-auto leading-relaxed mt-6 mb-10">
+          <p className="relative z-10 text-white/45 text-lg max-w-4xl mx-auto leading-relaxed mt-6 mb-10">
             {project.summary}
           </p>
         )}
@@ -141,7 +141,7 @@ export default function ProjectDetail({ params }) {
               <p className="text-[11px] uppercase tracking-[.14em] text-[#443dfc] font-semibold mb-2">
                 {label}
               </p>
-              <p className="text-white/70 text-[1.05rem] leading-[1.75] max-w-160">
+              <p className="text-white/70 text-[1.05rem] leading-[1.75] max-w-3xl lg:max-w-5xl">
                 {text}
               </p>
             </div>
