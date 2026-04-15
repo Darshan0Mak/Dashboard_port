@@ -12,7 +12,7 @@ export default function GoogleAnalytics() {
       <Script
         id="google-analytics"
         strategy="afterInteractive"
-        _dangerouslySetInnerHTML={{
+        dangerouslySetInnerHTML={{
           __html: `
             window.dataLayer = window.dataLayer || [];
             function gtag(){dataLayer.push(arguments);}
