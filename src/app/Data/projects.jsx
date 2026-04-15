@@ -39,7 +39,7 @@ const projects = [
   {
     id: "ui2",
     title: "Minddeft Technologies Pvt Ltd",
-    category: "Web Design",
+    category: "UI / UX Design",
 
     thumbnail: "/images/minddeft.webp",
     banner: "/images/minddeft-banner.webp",
@@ -172,7 +172,7 @@ const projects = [
   {
     id: "social-2",
     title: "Instagram Campaign",
-    category: "Social Media Design",
+    category: "Visual Design",
 
     //Thumbnail
     thumbnail: "/images/Social01.webp",
@@ -203,7 +203,7 @@ const projects = [
   {
     id: "app-1",
     title: "Application UI Design",
-    category: "App Design",
+    category: "App Interfaces",
 
     //Thumbnail
     thumbnail: "/images/App01.webp",
@@ -233,7 +233,7 @@ const projects = [
   {
     id: "logo-1",
     title: "Brand Identity Design",
-    category: "Logo Design",
+    category: "Brand Identity",
 
     //Thumbnail
     thumbnail: "/images/UniCredLogo.webp",
