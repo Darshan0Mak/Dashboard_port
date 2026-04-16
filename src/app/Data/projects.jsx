@@ -281,14 +281,14 @@ const projects = [
       "The website elements focus on strong typography, clear hierarchy, and impactful imagery to create a memorable first impression while maintaining usability.",
 
     elementImages: [
-      "/images/e-grapevine-01.webp",
-      "/images/e-grapevine-02.webp", // duplicate or second layout image
+      "/images/e-UniCred-01.webp",
+      "/images/e-UniCred-02.webp", // duplicate or second layout image
     ],
 
     // 🔥 Tech / tools
     tech: ["UI Design", "Web Design", "Figma", "Photoshop", "Illustrator"],
 
-    behance: "https://www.behance.net/gallery/130396259/landing-page-Design",
+    behance: "https://www.behance.net/gallery/247687015/Unicred-Logo-Design",
   },
 ];
 

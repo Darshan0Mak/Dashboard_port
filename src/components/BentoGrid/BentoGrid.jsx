@@ -134,7 +134,7 @@ function ProfileCard() {
           <div className="md:col-span-4 flex flex-col gap-2 w-full">
             <Link
               href="/portfolio"
-              className="flex items-center justify-between px-6 py-4 rounded-2xl bg-gray-900 dark:bg-white text-white dark:text-gray-900 text-sm font-bold transition-all hover:bg-[#3b82f6] dark:hover:bg-[#3b82f6] dark:hover:text-black group"
+              className="flex items-center justify-between px-6 py-4 rounded-2xl dark:bg-white/10 bg-black/10 text-gray text-sm font-bold transition-all hover:bg-[#3b82f6] hover:dark:bg-[#3b82f6] hover:text-white group"
             >
               View Work
               <svg
@@ -142,7 +142,7 @@ function ProfileCard() {
                 height="16"
                 viewBox="0 0 14 14"
                 fill="none"
-                className="group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform"
+                className="transition-transform group-hover:translate-x-1 group-hover:-translate-y-1"
               >
                 <path
                   d="M3 11L11 3M11 3H5M11 3V9"
