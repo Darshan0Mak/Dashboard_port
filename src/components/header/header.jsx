@@ -21,11 +21,15 @@ export default function Header() {
     { name: "Articles", href: "/articles" },
   ];
 
-  const { theme, setTheme } = useTheme();
+  const { theme, setTheme, systemTheme } = useTheme();
 
   useEffect(() => {
     setMounted(true);
   }, []);
+
+  useEffect(() => {
+    setTheme(systemTheme);
+  }, [systemTheme]);
 
   return (
     <header className="fixed top-0 left-0 w-full z-50">
