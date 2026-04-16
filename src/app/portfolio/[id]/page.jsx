@@ -3,6 +3,7 @@ import projects from "@/app/Data/projects";
 import Image from "next/image";
 import Link from "next/link";
 import Logo from "../../../../public/images/logo.svg";
+import React from "react";
 
 const scrollToSection = (id) => {
   const el = document.getElementById(id);
@@ -17,8 +18,9 @@ const scrollToSection = (id) => {
   });
 };
 
-export default async function ProjectDetail({ params }) {
-  const project = projects.find((p) => p.id === params.id);
+export default function ProjectDetail({ params }) {
+  const { id } = React.use(params);
+  const project = projects.find((p) => p.id === id);
 
   if (!project) {
     return (

@@ -86,11 +86,11 @@ export default function ContactPage() {
         }}
       />
 
-      <div className="relative z-10 w-full max-w-6xl mx-auto px-4 sm:px-6 py-14 sm:py-24">
+      <div className="relative z-10 w-full max-w-300 mx-auto px-4 sm:px-6 my-14 py-20 sm:py-20">
         {/* ── Header ── */}
         <div className="mb-12 sm:mb-20 text-center lg:text-left">
           <p
-            className="text-xs font-bold uppercase tracking-[0.2em] text-blue-500 dark:text-blue-400 mb-4"
+            className="text-xs font-bold uppercase tracking-[0.2em] text-gray-400 dark:text-gray-500 mb-4"
             style={{
               opacity: headerVisible ? 1 : 0,
               transform: headerVisible ? "translateY(0)" : "translateY(10px)",

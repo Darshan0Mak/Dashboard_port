@@ -1,7 +1,7 @@
 // app/data/projects.js
 const projects = [
   {
-    id: "ui-1",
+    id: "barbaros-barbers-davos",
     title: "Barbaros Barbers Davos",
     category: "UI / UX Design",
 
@@ -37,7 +37,7 @@ const projects = [
       "https://www.behance.net/gallery/130100457/Creative-Homepage-Design",
   },
   {
-    id: "ui2",
+    id: "minddeft-technologies-pvt-ltd",
     title: "Minddeft Technologies Pvt Ltd",
     category: "UI / UX Design",
 
@@ -74,7 +74,7 @@ const projects = [
     liveLink: "https://minddeft.com/",
   },
   {
-    id: "ui-3",
+    id: "grapevine",
     title: "Grapevine",
     category: "UI / UX Design",
 
@@ -103,7 +103,7 @@ const projects = [
     behance: "https://www.behance.net/gallery/130396259/landing-page-Design",
   },
   {
-    id: "ui3",
+    id: "rnmkr",
     title: "RNMKR",
     category: "UI / UX Design",
 
@@ -169,7 +169,7 @@ const projects = [
 
   // Social Media Design
   {
-    id: "social-1",
+    id: "instagram-campaign",
     title: "Instagram Campaign",
     category: "Visual Design",
 
@@ -198,7 +198,7 @@ const projects = [
     behance: "https://www.behance.net/gallery/130396259/landing-page-Design",
   },
   {
-    id: "social-2",
+    id: "article-visuals",
     title: "Article Visuals",
     category: "Visual Design",
 
@@ -229,7 +229,7 @@ const projects = [
 
   // Mobile App
   {
-    id: "app-1",
+    id: "app-ui-design",
     title: "Application UI Design",
     category: "App Interfaces",
 
@@ -259,7 +259,7 @@ const projects = [
   },
   // Logo Design
   {
-    id: "logo-1",
+    id: "brand-identity-design",
     title: "Brand Identity Design",
     category: "Brand Identity",
 

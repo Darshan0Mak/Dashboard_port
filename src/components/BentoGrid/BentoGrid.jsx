@@ -134,7 +134,7 @@ function ProfileCard() {
           <div className="md:col-span-4 flex flex-col gap-2 w-full">
             <Link
               href="/portfolio"
-              className="flex items-center justify-between px-6 py-4 rounded-2xl bg-gray-900 dark:bg-white text-white dark:text-gray-900 text-sm font-bold transition-all hover:bg-emerald-600 dark:hover:bg-emerald-400 dark:hover:text-black group"
+              className="flex items-center justify-between px-6 py-4 rounded-2xl bg-gray-900 dark:bg-white text-white dark:text-gray-900 text-sm font-bold transition-all hover:bg-[#3b82f6] dark:hover:bg-[#3b82f6] dark:hover:text-black group"
             >
               View Work
               <svg
@@ -548,7 +548,7 @@ function TechStackCard() {
             Engine Room
           </p>
           <h3 className="text-2xl font-bold text-gray-900 dark:text-white">
-            Mastery<span className="text-[#C7D2FE]">.</span>stack
+            Mastery<span className="text-[#1769FF]">.</span>stack
           </h3>
         </div>
 
