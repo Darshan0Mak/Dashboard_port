@@ -135,8 +135,7 @@ const projects = [
       "Figma",
     ],
 
-    behance:
-      "https://www.behance.net/gallery/130100457/Creative-Homepage-Design",
+    behance: "https://www.behance.net/gallery/247683441/RNMKR",
   },
   // {
   //   id: "ui-3",
@@ -170,8 +169,37 @@ const projects = [
 
   // Social Media Design
   {
-    id: "social-2",
+    id: "social-1",
     title: "Instagram Campaign",
+    category: "Visual Design",
+
+    //Thumbnail
+    thumbnail: "/images/Social01.webp",
+
+    // 🔥 Hero banner
+    banner: "/images/SocialBanner.webp",
+
+    // 🔥 Short intro (use first paragraph)
+    summary:
+      "Transforming ideas into scroll-stopping visuals. My social media designs are built to spark curiosity, boost engagement, and make brands stand out in a crowded digital space.",
+
+    // 🔥 Elements section
+    elementsText:
+      "The website elements focus on strong typography, clear hierarchy, and impactful imagery to create a memorable first impression while maintaining usability.",
+
+    elementImages: [
+      "/images/e-grapevine-01.webp",
+      "/images/e-grapevine-02.webp", // duplicate or second layout image
+    ],
+
+    // 🔥 Tech / tools
+    tech: ["UI Design", "Web Design", "Figma", "Photoshop", "Illustrator"],
+
+    behance: "https://www.behance.net/gallery/130396259/landing-page-Design",
+  },
+  {
+    id: "social-2",
+    title: "Article Visuals",
     category: "Visual Design",
 
     //Thumbnail

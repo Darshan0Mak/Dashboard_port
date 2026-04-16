@@ -54,7 +54,7 @@ function useMagnet(strength = 0.35) {
 
 // ─── Category pill ─────────────────────────────────────────────────────────────
 const CAT_COLORS = {
-  "Logo Design": {
+  "Brand Identity": {
     text: "#7F77DD",
     bg: "rgba(127,119,221,0.10)",
     border: "rgba(127,119,221,0.25)",
@@ -64,12 +64,12 @@ const CAT_COLORS = {
     bg: "rgba(29,158,117,0.10)",
     border: "rgba(29,158,117,0.25)",
   },
-  "Social Media Design": {
+  "Visual Design": {
     text: "#EF9F27",
     bg: "rgba(239,159,39,0.10)",
     border: "rgba(239,159,39,0.25)",
   },
-  "App Design": {
+  "App Interfaces": {
     text: "#D4537E",
     bg: "rgba(212,83,126,0.10)",
     border: "rgba(212,83,126,0.25)",

@@ -383,7 +383,13 @@ function DownloadButton() {
           }}
         >
           {clicked ? (
-            <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+            <svg
+              width="16"
+              height="16"
+              viewBox="0 0 16 16"
+              fill="none"
+              style={{ transform: "rotate(180deg)" }}
+            >
               <path
                 d="M3 8l4 4 6-7"
                 stroke="white"
