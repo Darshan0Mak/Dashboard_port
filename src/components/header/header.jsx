@@ -7,9 +7,67 @@ import { useTheme } from "next-themes";
 import HeadLogo from "../../../public/images/logo.svg";
 import Image from "next/image";
 
+import { useRef } from "react";
+
 export default function Header() {
   const [isOpen, setIsOpen] = useState(false);
-  const [mounted, setMounted] = useState(false); // 👈 for hydration fix
+  const [mounted, setMounted] = useState(false);
+
+  const btnRef = useRef(null);
+  const { theme, setTheme, systemTheme } = useTheme();
+
+  const toggleTheme = () => {
+    const isDark = theme === "dark";
+    const btn = btnRef.current;
+    const { top, left, width, height } = btn.getBoundingClientRect();
+    const x = left + width / 2;
+    const y = top + height / 2;
+
+    const maxRadius = Math.hypot(
+      Math.max(x, window.innerWidth - x),
+      Math.max(y, window.innerHeight - y),
+    );
+
+    if (!document.startViewTransition) {
+      setTheme(isDark ? "light" : "dark");
+      return;
+    }
+
+    // ✅ apply class manually BEFORE transition so snapshot is correct
+    const root = document.documentElement;
+    root.classList.add("transitioning");
+
+    const transition = document.startViewTransition(() => {
+      setTheme(isDark ? "light" : "dark");
+      // ✅ force the class immediately so next-themes doesn't lag
+      root.classList.remove("dark");
+      if (isDark) {
+        root.classList.remove("dark");
+      } else {
+        root.classList.add("dark");
+      }
+    });
+
+    transition.ready.then(() => {
+      document.documentElement.animate(
+        {
+          clipPath: [
+            `circle(0px at ${x}px ${y}px)`,
+            `circle(${maxRadius}px at ${x}px ${y}px)`,
+          ],
+        },
+        {
+          duration: 500,
+          easing: "ease-in-out",
+          pseudoElement: "::view-transition-new(root)", // ✅ always new, no reversal
+        },
+      );
+    });
+
+    transition.finished.then(() => {
+      root.classList.remove("transitioning");
+    });
+  };
 
   const navItems = [
     { name: "Skills", href: "/skills" },
@@ -20,8 +78,6 @@ export default function Header() {
     },
     { name: "Articles", href: "/articles" },
   ];
-
-  const { theme, setTheme, systemTheme } = useTheme();
 
   useEffect(() => {
     setMounted(true);
@@ -101,7 +157,8 @@ export default function Header() {
             {/* ✅ Theme Toggle (hydration safe) */}
             {mounted && (
               <button
-                onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
+                ref={btnRef}
+                onClick={toggleTheme}
                 className="p-2 rounded-full bg-gray-200 dark:bg-black/30 text-gray-800 dark:text-white hover:scale-110 transition"
               >
                 {theme === "dark" ? <Sun size={20} /> : <Moon size={20} />}

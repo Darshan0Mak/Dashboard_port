@@ -38,11 +38,12 @@ export default function RootLayout({ children }) {
       suppressHydrationWarning
     >
       <body className="font-sans font-body antialiased relative overflow-x-hidden">
+        {/* <div className="overflow-auto no-scrollbar h-screen"> */}
         <GoogleAnalytics />
 
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
           {/* Left Sticky Background Image */}
-          <div className="fixed top-0 left-[-180px] h-full w-auto scale-150 pointer-events-none -z-10 opacity-70">
+          <div className="fixed top-0 -left-45 h-full w-auto scale-150 pointer-events-none -z-10 opacity-70">
             <Image
               src={LeftBg}
               alt="Left Background"
@@ -53,7 +54,7 @@ export default function RootLayout({ children }) {
           </div>
 
           {/* Right Sticky Background Image */}
-          <div className="fixed top-0 right-[-30px] h-full w-auto scale-250 pointer-events-none -z-10 opacity-50">
+          <div className="fixed top-0 -right-7.5 h-full w-auto scale-250 pointer-events-none -z-10 opacity-50">
             <Image
               src={RightBg}
               alt="Right Background"
@@ -67,6 +68,7 @@ export default function RootLayout({ children }) {
           {children}
           <Footer />
         </ThemeProvider>
+        {/* </div> */}
       </body>
     </html>
   );

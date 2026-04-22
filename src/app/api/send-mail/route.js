@@ -24,7 +24,7 @@ export async function POST(req) {
 
     const html = await ejs.renderFile(templatePath, {
       fullName: body.name,
-      emailAddress: body.email,
+      emailAddress: body.email.toLowerCase(),
       subject: body.subject,
       messageContent: body.message,
     });

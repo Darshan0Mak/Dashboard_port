@@ -238,3 +238,16 @@ html {
 .dark {
   --accent: #8b5cf6; /* Slightly brighter for dark mode */
 }
+::view-transition-old(root),
+::view-transition-new(root) {
+  animation: none;
+  mix-blend-mode: normal;
+}
+
+/* ✅ prevents flicker during transition */
+.transitioning::view-transition-old(root) {
+  z-index: 1;
+}
+.transitioning::view-transition-new(root) {
+  z-index: 9999;
+}
