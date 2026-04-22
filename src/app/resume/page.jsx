@@ -596,7 +596,7 @@ export default function ResumePage() {
               </div>
 
               {/* Languages */}
-              <div>
+              {/* <div>
                 <SectionHeading accent="#10b981">Languages</SectionHeading>
                 <div className="flex flex-col gap-3">
                   {[
@@ -626,7 +626,7 @@ export default function ResumePage() {
                     </div>
                   ))}
                 </div>
-              </div>
+              </div> */}
             </div>
           </div>
 

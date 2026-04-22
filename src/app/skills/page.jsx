@@ -15,7 +15,7 @@ const CATEGORIES = [
 
 const STATS = [
   { value: "6+", label: "Years Experience" },
-  { value: "15", label: "Tools Mastered" },
+  { value: "20+", label: "End-to-End Products Designed" },
   { value: "3", label: "Design Systems Built" },
   { value: "50+", label: "Products Shipped" },
 ];
@@ -320,7 +320,7 @@ function SkillCard({ skill, index, visible }) {
         </div>
 
         {/* Tier badge */}
-        <span
+        {/* <span
           className="text-[10px] font-semibold uppercase tracking-wider px-2 py-0.5 rounded-full flex-shrink-0"
           style={{
             background:
@@ -333,7 +333,7 @@ function SkillCard({ skill, index, visible }) {
           }}
         >
           {skill.tier}
-        </span>
+        </span> */}
       </div>
 
       {/* Title + description */}
@@ -347,7 +347,7 @@ function SkillCard({ skill, index, visible }) {
       </div>
 
       {/* Proficiency bar */}
-      <div className="relative z-10">
+      {/* <div className="relative z-10">
         <div className="flex items-center justify-between mb-1.5">
           <span className="text-[10px] font-medium uppercase tracking-wider text-gray-400">
             Proficiency
@@ -369,7 +369,7 @@ function SkillCard({ skill, index, visible }) {
             }}
           />
         </div>
-      </div>
+      </div> */}
 
       {/* Years + use case — slides up on hover */}
       <div
@@ -447,7 +447,7 @@ export default function Skills() {
         {/* ── Stats row ── */}
         <div
           ref={statsRef}
-          className="grid grid-cols-2 sm:grid-cols-4 gap-3 sm:gap-4 mb-14 sm:mb-20"
+          className="grid grid-cols-2 sm:grid-cols-4 gap-3 sm:gap-4 mb-14 sm:mb-20 text-center"
         >
           {STATS.map((s, i) => (
             <StatCard key={s.label} {...s} index={i} visible={statsVisible} />
@@ -467,11 +467,11 @@ export default function Skills() {
         </div>
 
         {/* ── Count label ── */}
-        <p className="text-center text-xs text-gray-400 dark:text-gray-600 mb-8 uppercase tracking-widest font-medium">
+        {/* <p className="text-center text-xs text-gray-400 dark:text-gray-600 mb-8 uppercase tracking-widest font-medium">
           {filtered.length} tool{filtered.length !== 1 ? "s" : ""}
           {activeFilter !== "all" &&
             ` in ${CATEGORIES.find((c) => c.id === activeFilter)?.label}`}
-        </p>
+        </p> */}
 
         {/* ── Skills grid ── */}
         <div

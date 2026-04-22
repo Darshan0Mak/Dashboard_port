@@ -5,7 +5,7 @@ export default function UIUXHeroBanner({ project }) {
   return (
     <section
       id="info"
-      className="relative min-h-[90vh] flex flex-col items-center justify-center text-center px-6 pt-32 pb-16 bg-white dark:bg-[#0C0C0F] overflow-hidden"
+      className="relative min-h-[90vh] flex flex-col items-center justify-center text-center px-4 sm:px-6 lg:px-8 pt-28 pb-16"
     >
       {/* Blue Ambient Glow */}
       <div className="absolute -top-24 left-1/2 -translate-x-1/2 w-full max-w-4xl h-96 bg-indigo-500/10 blur-[120px] pointer-events-none" />
