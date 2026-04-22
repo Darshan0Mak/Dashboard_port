@@ -260,7 +260,7 @@ function LinkedInCard() {
               Connection Est. 2026
             </span>
           </div>
-          <div className="font-mono text-[10px] text-[#C7D2FE] bg-[#C7D2FE]/5 px-2 py-0.5 border border-[#C7D2FE]/20">
+          <div className="font-mono text-[10px] text-[#1769FF] bg-[#1769FF]/5 px-2 py-0.5 border border-[#1769FF]/20">
             {hovered ? "SIGNAL STRENGTH: 100%" : "3 NEW UPDATES"}
           </div>
         </div>
@@ -485,12 +485,7 @@ function TechStackCard() {
             <div key={tool.name}>
               {/* Label */}
               <div className="flex justify-between items-end mb-1">
-                <span
-                  className="font-mono text-[10px] transition-colors"
-                  style={{
-                    color: hovered ? tool.color : "rgba(255,255,255,0.6)",
-                  }}
-                >
+                <span className="font-mono text-[10px] text-gray-900 dark:text-white">
                   {tool.name}
                 </span>
 

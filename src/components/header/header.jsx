@@ -84,7 +84,7 @@ export default function Header() {
   }, []);
 
   useEffect(() => {
-    setTheme(systemTheme);
+    if (theme === "system") setTheme(systemTheme);
   }, [systemTheme]);
 
   return (
