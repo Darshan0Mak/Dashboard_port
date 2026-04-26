@@ -441,96 +441,136 @@ function BehanceCard() {
 
 // ─── Tech Stack Card ─────────────────────────────────────────────────────────
 function TechStackCard() {
-  const [hovered, setHovered] = useState(false);
-  const [animate, setAnimate] = useState(false);
-
-  // Your core stack
   const tools = [
-    { name: "Figma", level: "95%", color: "#F24E1E" },
-    { name: "Photoshop", level: "95%", color: "#31A8FF" },
-    { name: "Javascript", level: "80%", color: "#F7DF1E" },
-    { name: "Tailwind", level: "90%", color: "#38BDF8" },
+    {
+      name: "Figma",
+      category: "UI / UX Design",
+      tier: "daily",
+      iconBg: "rgba(242,78,30,0.12)",
+      iconBorder: "rgba(242,78,30,0.22)",
+      icon: (
+        <svg viewBox="0 0 38 57" className="w-3.5 h-3.5" fill="none">
+          <path
+            d="M19 28.5C19 25.6 20.1 22.9 22.1 20.9C24.1 18.9 26.8 17.8 29.7 17.8C32.6 17.8 35.3 18.9 37.3 20.9C39.3 22.9 40.4 25.6 40.4 28.5C40.4 31.4 39.3 34.1 37.3 36.1C35.3 38.1 32.6 39.2 29.7 39.2C26.8 39.2 24.1 38.1 22.1 36.1C20.1 34.1 19 31.4 19 28.5Z"
+            fill="#1ABCFE"
+          />
+          <path
+            d="M-2.4 47.2C-2.4 44.3-1.3 41.6 0.7 39.6C2.7 37.6 5.4 36.5 8.3 36.5H19V47.2C19 50.1 17.9 52.8 15.9 54.8C13.9 56.8 11.2 57.9 8.3 57.9C5.4 57.9 2.7 56.8 0.7 54.8C-1.3 52.8-2.4 50.1-2.4 47.2Z"
+            fill="#0ACF83"
+          />
+          <path
+            d="M19 0V17.8H29.7C32.6 17.8 35.3 16.7 37.3 14.7C39.3 12.7 40.4 10 40.4 7.1C40.4 4.2 39.3 1.5 37.3-0.5C35.3-2.5 32.6-3.6 29.7-3.6L19 0Z"
+            fill="#FF7262"
+          />
+          <path
+            d="M-2.4 7.1C-2.4 10-1.3 12.7 0.7 14.7C2.7 16.7 5.4 17.8 8.3 17.8H19V-3.6H8.3C5.4-3.6 2.7-2.5 0.7-0.5C-1.3 1.5-2.4 4.2-2.4 7.1Z"
+            fill="#F24E1E"
+          />
+          <path
+            d="M-2.4 28.5C-2.4 31.4-1.3 34.1 0.7 36.1C2.7 38.1 5.4 39.2 8.3 39.2H19V17.8H8.3C5.4 17.8 2.7 18.9 0.7 20.9C-1.3 22.9-2.4 25.6-2.4 28.5Z"
+            fill="#A259FF"
+          />
+        </svg>
+      ),
+    },
+    {
+      name: "Photoshop",
+      category: "Image Editing",
+      tier: "daily",
+      iconBg: "rgba(49,168,255,0.1)",
+      iconBorder: "rgba(49,168,255,0.22)",
+      icon: (
+        <svg viewBox="0 0 24 24" className="w-3.5 h-3.5" fill="#31A8FF">
+          <circle cx="12" cy="12" r="10" />
+          <rect x="9" y="8" width="2" height="8" fill="#0a0a0a" />
+          <rect x="13" y="8" width="2" height="8" fill="#0a0a0a" />
+        </svg>
+      ),
+    },
+    {
+      name: "JavaScript",
+      category: "Frontend Dev",
+      tier: "proficient",
+      iconBg: "rgba(247,223,30,0.1)",
+      iconBorder: "rgba(247,223,30,0.25)",
+      icon: (
+        <svg viewBox="0 0 24 24" className="w-3.5 h-3.5">
+          <rect width="24" height="24" rx="3" fill="#F7DF1E" />
+          <path
+            d="M6 17.5c.4.7.9 1.2 1.9 1.2 1 0 1.6-.5 1.6-1.2 0-.8-.6-1.1-1.7-1.6l-.6-.2c-1.6-.7-2.7-1.6-2.7-3.4 0-1.7 1.3-3 3.3-3 1.4 0 2.4.5 3.1 1.8l-1.7 1.1c-.4-.7-.8-1-1.4-1-.6 0-1 .4-1 1 0 .7.4 1 1.4 1.4l.6.3c1.9.8 3 1.7 3 3.5 0 2-1.6 3.2-3.7 3.2-2.1 0-3.4-1-4.1-2.3L6 17.5zm8.5.2c.3.5.6.9 1.2.9.6 0 .9-.2.9-1.1V11h2.1v6.6c0 1.9-1.1 2.7-2.7 2.7-1.4 0-2.3-.7-2.7-1.6l1.2-1z"
+            fill="#323330"
+          />
+        </svg>
+      ),
+    },
+    {
+      name: "Tailwind CSS",
+      category: "CSS Framework",
+      tier: "daily",
+      iconBg: "rgba(56,189,248,0.1)",
+      iconBorder: "rgba(56,189,248,0.25)",
+      icon: (
+        <svg viewBox="0 0 24 24" fill="#38BDF8" className="w-3.5 h-3.5">
+          <path d="M12.001 4.8c-3.2 0-5.2 1.6-6 4.8 1.2-1.6 2.6-2.2 4.2-1.8.913.228 1.565.89 2.288 1.624C13.666 10.618 15.027 12 18.001 12c3.2 0 5.2-1.6 6-4.8-1.2 1.6-2.6 2.2-4.2 1.8-.913-.228-1.565-.89-2.288-1.624C16.337 6.182 14.976 4.8 12.001 4.8zm-6 7.2c-3.2 0-5.2 1.6-6 4.8 1.2-1.6 2.6-2.2 4.2-1.8.913.228 1.565.89 2.288 1.624 1.177 1.194 2.538 2.576 5.512 2.576 3.2 0 5.2-1.6 6-4.8-1.2 1.6-2.6 2.2-4.2 1.8-.913-.228-1.565-.89-2.288-1.624C10.337 13.382 8.976 12 6.001 12z" />
+        </svg>
+      ),
+    },
   ];
 
-  // Animate on mount
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      setAnimate(true);
-    }, 200);
-    return () => clearTimeout(timer);
-  }, []);
+  const tierStyles = {
+    daily: "bg-[#1769FF]/10 border-[#1769FF]/30 text-[#7EB3FF]",
+    proficient: "bg-[#C7D2FE]/[0.05] border-[#C7D2FE]/20 text-[#C7D2FE]/65",
+  };
 
   return (
-    <BentoCard
-      className="group relative col-span-1 flex flex-col justify-between overflow-hidden border border-white/5 bg-[#0a0a0a] p-5 transition-all duration-500 hover:border-[#C7D2FE]/30 sm:p-6"
-      onMouseEnter={() => setHovered(true)}
-      onMouseLeave={() => setHovered(false)}
-    >
+    <BentoCard className="group relative col-span-1 flex flex-col justify-between overflow-hidden border border-white/5 bg-[#0a0a0a] p-5 transition-all duration-500 hover:border-[#C7D2FE]/30 sm:p-6">
       {/* HUD corners */}
       <div className="absolute top-0 left-0 h-2 w-2 border-t border-l border-white/20 group-hover:border-[#C7D2FE]" />
       <div className="absolute bottom-0 right-0 h-2 w-2 border-b border-r border-white/20 group-hover:border-[#C7D2FE]" />
 
       {/* Header */}
-      <div className="relative z-10 mb-6">
+      <div className="relative z-10 mb-5">
         <div className="flex items-center gap-2 mb-4">
           <span className="h-1.5 w-1.5 animate-pulse bg-[#C7D2FE] rounded-full" />
-          <span className="font-mono text-[10px] tracking-widest text-gray-400 dark:text-gray-500 uppercase">
+          <span className="font-mono text-[10px] tracking-widest text-white/25 uppercase">
             System_Core
           </span>
         </div>
 
-        {/* Stack */}
-        <div className="space-y-3">
-          {tools.map((tool, index) => (
-            <div key={tool.name}>
-              {/* Label */}
-              <div className="flex justify-between items-end mb-1">
-                <span className="font-mono text-[10px] text-gray-900 dark:text-white">
+        {/* Tool rows */}
+        <div className="divide-y divide-white/[0.04]">
+          {tools.map((tool) => (
+            <div
+              key={tool.name}
+              className="flex items-center gap-2.5 py-2 first:pt-0 last:pb-0"
+            >
+              {/* Icon */}
+              <div
+                className="w-[26px] h-[26px] rounded-md flex items-center justify-center flex-shrink-0"
+                style={{
+                  background: tool.iconBg,
+                  border: `0.5px solid ${tool.iconBorder}`,
+                }}
+              >
+                {tool.icon}
+              </div>
+
+              {/* Name + category */}
+              <div className="flex-1 min-w-0">
+                <p className="font-mono text-[11px] font-bold text-white leading-none">
                   {tool.name}
-                </span>
-
-                <span className="font-mono text-[9px] text-white/40">
-                  {tool.level}
-                </span>
+                </p>
+                <p className="font-mono text-[8px] text-white/25 uppercase tracking-widest mt-0.5">
+                  {tool.category}
+                </p>
               </div>
 
-              {/* Progress Bar */}
-              <div className="h-0.5 w-full bg-white/5 overflow-hidden relative">
-                <div
-                  className="h-full origin-left transition-transform duration-1000 ease-[cubic-bezier(0.22,1,0.36,1)] relative overflow-hidden"
-                  style={{
-                    transform: animate
-                      ? `scaleX(${parseInt(tool.level) / 100})`
-                      : "scaleX(0)",
-                    transitionDelay: `${index * 120}ms`,
-                  }}
-                >
-                  {/* Gradient Flow Layer */}
-                  <div
-                    className="absolute inset-0 animate-liquid"
-                    style={{
-                      background: `linear-gradient(
-          90deg,
-          ${tool.color},
-          ${tool.color}cc,
-          ${tool.color},
-          ${tool.color}aa
-        )`,
-                      backgroundSize: "200% 100%",
-                    }}
-                  />
-
-                  {/* Glow Overlay */}
-                  <div
-                    className="absolute inset-0"
-                    style={{
-                      boxShadow: hovered
-                        ? `0 0 10px ${tool.color}, 0 0 20px ${tool.color}66`
-                        : "none",
-                    }}
-                  />
-                </div>
-              </div>
+              {/* Tier badge */}
+              <span
+                className={`font-mono text-[8px] px-2 py-0.5 rounded-full border uppercase tracking-wider flex-shrink-0 ${tierStyles[tool.tier]}`}
+              >
+                {tool.tier === "daily" ? "Daily" : "Proficient"}
+              </span>
             </div>
           ))}
         </div>
@@ -539,20 +579,18 @@ function TechStackCard() {
       {/* Footer */}
       <div className="relative z-10 flex items-end justify-between border-t border-white/5 pt-4">
         <div>
-          <p className="text-[10px] uppercase tracking-[0.2em] font-bold text-gray-400 dark:text-gray-500 mb-1">
+          <p className="text-[10px] uppercase tracking-[0.2em] font-bold text-white/20 mb-1">
             Engine Room
           </p>
-          <h3 className="text-2xl font-bold text-gray-900 dark:text-white">
+          <h3 className="text-2xl font-bold text-white">
             Mastery<span className="text-[#1769FF]">.</span>stack
           </h3>
         </div>
-
         <AnimatedIconButton href="/skills" />
       </div>
 
       {/* Grid BG */}
       <div className="pointer-events-none absolute inset-0 opacity-[0.05] bg-[linear-gradient(to_right,#808080_1px,transparent_1px),linear-gradient(to_bottom,#808080_1px,transparent_1px)] bg-[size:14px_24px]" />
-
       {/* Scanline */}
       <div className="pointer-events-none absolute inset-0 opacity-[0.03] bg-[linear-gradient(rgba(18,16,16,0)_50%,rgba(0,0,0,0.25)_50%)] bg-[length:100%_2px]" />
     </BentoCard>
