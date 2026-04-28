@@ -584,10 +584,10 @@ function TechStackCard() {
       {/* Footer */}
       <div className="relative z-10 flex items-end justify-between border-t border-white/5 pt-4">
         <div>
-          <p className="text-[10px] uppercase tracking-[0.2em] font-bold text-white/20 mb-1">
+          <p className="text-[10px] uppercase tracking-[0.2em] font-bold text-gray-400 dark:text-gray-500 mb-1">
             Engine Room
           </p>
-          <h3 className="text-2xl font-bold text-white">
+          <h3 className="text-2xl font-bold text-gray-900 dark:text-white">
             Mastery<span className="text-[#1769FF]">.</span>stack
           </h3>
         </div>

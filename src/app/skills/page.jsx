@@ -73,19 +73,6 @@ const SKILLS = [
     color: "#D4537E",
     colorBg: "rgba(212,83,126,0.08)",
   },
-  {
-    id: 5,
-    title: "InVision",
-    image: "/images/invision.webp",
-    categories: ["proto"],
-    years: "3 yrs",
-    proficiency: 70,
-    tier: "Secondary",
-    useCase: "Click-through prototypes, client feedback, design reviews",
-    description: "Collaborative prototyping & feedback",
-    color: "#D85A30",
-    colorBg: "rgba(216,90,48,0.08)",
-  },
 
   // ── Code & Markup ──────────────────────────────────────
   {
@@ -160,7 +147,7 @@ const SKILLS = [
     title: "Freepik AI",
     image: "/images/freepik-ai.webp",
     categories: ["AI"],
-    years: "4 yrs",
+    years: "3 yrs",
     proficiency: 95,
     tier: "Primary",
     useCase: "concept visuals, client presentations, art direction",
@@ -186,7 +173,7 @@ const SKILLS = [
     title: "ChatGPT",
     image: "/images/chatgpt.webp",
     categories: ["AI"],
-    years: "2 yrs",
+    years: "3 yrs",
     proficiency: 90,
     tier: "Primary",
     useCase:
@@ -278,113 +265,98 @@ function SkillCard({ skill, index, visible }) {
 
   return (
     <div
-      className="group relative flex flex-col gap-3 p-5 rounded-2xl border border-white/10 dark:border-white/5 bg-white/70 dark:bg-white/3 backdrop-blur-sm overflow-hidden cursor-default"
+      className="group relative flex flex-col p-5 rounded-2xl border bg-white/70
+             dark:bg-white/3 backdrop-blur-sm overflow-hidden cursor-default"
       style={{
+        borderColor: hovered ? `${skill.color}55` : "rgba(255,255,255,0.1)",
+        boxShadow: hovered
+          ? `0 0 0 1px ${skill.color}22, 0 8px 24px ${skill.color}18`
+          : "none",
         opacity: visible ? 1 : 0,
         transform: visible
           ? "translateY(0) scale(1)"
           : "translateY(24px) scale(0.97)",
-        transition: `opacity 0.45s ease ${(index % 4) * 0.07}s, transform 0.45s ease ${(index % 4) * 0.07}s`,
+        transition: `
+      opacity 0.45s ease ${(index % 4) * 0.07}s,
+      transform 0.45s ease ${(index % 4) * 0.07}s,
+      border-color 0.2s ease,
+      box-shadow 0.25s ease
+    `,
       }}
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
     >
-      {/* Coloured glow on hover */}
+      {/* Ambient glow */}
       <div
-        className="absolute inset-0 rounded-2xl pointer-events-none transition-opacity duration-300"
+        className="absolute inset-0 rounded-2xl pointer-events-none"
         style={{
-          background: `radial-gradient(circle at 50% 0%, ${skill.color}22 0%, transparent 70%)`,
+          background: `radial-gradient(ellipse 80% 60% at 50% 120%, ${skill.color}28 0%, transparent 70%)`,
           opacity: hovered ? 1 : 0,
+          transition: "opacity 0.3s ease",
         }}
       />
 
-      {/* Top row */}
-      <div className="flex items-start justify-between gap-2 relative z-10">
-        {/* Icon */}
-        <div
-          className="w-10 h-10 rounded-xl flex items-center justify-center flex-shrink-0 overflow-hidden"
-          style={{
-            background: skill.colorBg,
-            border: `1px solid ${skill.color}33`,
-          }}
-        >
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img
-            src={skill.image}
-            alt={skill.title}
-            className="w-6 h-6 object-contain"
-            onError={(e) => {
-              e.currentTarget.style.display = "none";
-            }}
-          />
-        </div>
-
-        {/* Tier badge */}
-        {/* <span
-          className="text-[10px] font-semibold uppercase tracking-wider px-2 py-0.5 rounded-full flex-shrink-0"
-          style={{
-            background:
-              skill.tier === "Primary" ? `${skill.color}18` : "transparent",
-            color:
-              skill.tier === "Primary"
-                ? skill.color
-                : "var(--muted-text, #888)",
-            border: `1px solid ${skill.tier === "Primary" ? skill.color + "44" : "transparent"}`,
-          }}
-        >
-          {skill.tier}
-        </span> */}
-      </div>
-
-      {/* Title + description */}
-      <div className="relative z-10">
-        <p className="text-sm font-semibold text-gray-900 dark:text-white leading-snug">
-          {skill.title}
-        </p>
-        <p className="mt-0.5 text-[11px] text-gray-400 dark:text-gray-500 leading-relaxed">
-          {skill.description}
-        </p>
-      </div>
-
-      {/* Proficiency bar */}
-      {/* <div className="relative z-10">
-        <div className="flex items-center justify-between mb-1.5">
-          <span className="text-[10px] font-medium uppercase tracking-wider text-gray-400">
-            Proficiency
-          </span>
-          <span
-            className="text-[10px] font-semibold"
-            style={{ color: skill.color }}
-          >
-            {skill.proficiency}%
-          </span>
-        </div>
-        <div className="h-1 w-full rounded-full bg-gray-100 dark:bg-white/5 overflow-hidden">
+      {/* ── TOP BLOCK — grows to fill available space ── */}
+      <div className="relative z-10 flex flex-col gap-3 flex-1">
+        {/* Top row: icon + tier */}
+        <div className="flex items-start justify-between gap-2">
           <div
-            className="h-full rounded-full transition-all duration-700 ease-out"
+            className="w-10 h-10 rounded-xl flex items-center justify-center
+                   flex-shrink-0 overflow-hidden"
             style={{
-              width: hovered || visible ? `${skill.proficiency}%` : "0%",
-              background: skill.color,
-              transitionDelay: hovered ? "0ms" : `${300 + index * 40}ms`,
+              background: skill.colorBg,
+              border: `1px solid ${skill.color}33`,
             }}
-          />
+          >
+            <img
+              src={skill.image}
+              alt={skill.title}
+              className="w-6 h-6 object-contain"
+              onError={(e) => {
+                e.currentTarget.style.display = "none";
+              }}
+            />
+          </div>
+          <span
+            className="text-[10px] font-semibold uppercase tracking-wider
+                   px-2 py-0.5 rounded-full flex-shrink-0"
+            style={{
+              background:
+                skill.tier === "Primary" ? `${skill.color}18` : "transparent",
+              color:
+                skill.tier === "Primary"
+                  ? skill.color
+                  : "var(--muted-text, #888)",
+              border: `1px solid ${skill.tier === "Primary" ? skill.color + "44" : "transparent"}`,
+            }}
+          >
+            {skill.tier}
+          </span>
         </div>
-      </div> */}
 
-      {/* Years + use case — slides up on hover */}
+        {/* Title + description */}
+        <div>
+          <p className="text-sm font-semibold text-gray-900 dark:text-white leading-snug">
+            {skill.title}
+          </p>
+          <p className="mt-0.5 text-[11px] text-gray-400 dark:text-gray-500 leading-relaxed">
+            {skill.description}
+          </p>
+        </div>
+      </div>
+
+      {/* ── BOTTOM BLOCK — always pinned to bottom ── */}
       <div
-        className="absolute inset-x-0 bottom-0 px-5 py-4 rounded-b-2xl transition-all duration-300 ease-out z-20 flex flex-col justify-end"
-        style={{
-          background: `linear-gradient(to top, ${skill.color}f5 0%, ${skill.color}cc 60%, transparent 100%)`,
-          transform: hovered ? "translateY(0%)" : "translateY(100%)",
-          opacity: hovered ? 1 : 0,
-          backdropFilter: "blur(6px)",
-        }}
+        className="relative z-10 mt-4 pt-3 border-t"
+        style={{ borderColor: `${skill.color}25` }}
       >
-        <p className="text-[10px] font-semibold uppercase tracking-wider text-white/70 mb-1">
+        <p
+          className="text-[10px] font-semibold uppercase tracking-wider mb-1"
+          style={{ color: skill.color }}
+        >
           {skill.years} · How I use it
         </p>
-        <p className="text-[11px] text-white/90 leading-relaxed">
+        <p className="text-[11px] text-gray-400 dark:text-gray-500 leading-relaxed">
           {skill.useCase}
         </p>
       </div>
@@ -477,6 +449,7 @@ export default function Skills() {
         <div
           ref={gridRef}
           className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4 sm:gap-5"
+          // no items-start — let rows stretch to match tallest card
         >
           {filtered.map((skill, i) => (
             <SkillCard
