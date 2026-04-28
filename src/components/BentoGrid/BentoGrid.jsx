@@ -532,13 +532,13 @@ function TechStackCard() {
       <div className="relative z-10 mb-5">
         <div className="flex items-center gap-2 mb-4">
           <span className="h-1.5 w-1.5 animate-pulse bg-[#C7D2FE] rounded-full" />
-          <span className="font-mono text-[10px] tracking-widest text-white/25 uppercase">
+          <span className="font-mono text-[10px] tracking-widest text-gray-400 dark:text-gray-500 uppercase">
             System_Core
           </span>
         </div>
 
         {/* Tool rows */}
-        <div className="divide-y divide-white/[0.04]">
+        <div className="divide-y divide-gray-200 dark:divide-white/10">
           {tools.map((tool) => (
             <div
               key={tool.name}
@@ -546,7 +546,7 @@ function TechStackCard() {
             >
               {/* Icon */}
               <div
-                className="w-[26px] h-[26px] rounded-md flex items-center justify-center flex-shrink-0"
+                className="w-6.5 h-6.5 rounded-md flex items-center justify-center shrink-0"
                 style={{
                   background: tool.iconBg,
                   border: `0.5px solid ${tool.iconBorder}`,
@@ -557,17 +557,22 @@ function TechStackCard() {
 
               {/* Name + category */}
               <div className="flex-1 min-w-0">
-                <p className="font-mono text-[11px] font-bold text-white leading-none">
+                <p className="font-mono text-[11px] font-bold text-gray-900 dark:text-white leading-none">
                   {tool.name}
                 </p>
-                <p className="font-mono text-[8px] text-white/25 uppercase tracking-widest mt-0.5">
+                <p className="font-mono text-[8px] text-gray-500 dark:text-white/30 uppercase tracking-widest mt-0.5">
                   {tool.category}
                 </p>
               </div>
 
               {/* Tier badge */}
               <span
-                className={`font-mono text-[8px] px-2 py-0.5 rounded-full border uppercase tracking-wider flex-shrink-0 ${tierStyles[tool.tier]}`}
+                className={`font-mono text-[8px] px-2 py-0.5 rounded-full border uppercase tracking-wider shrink-0
+        ${
+          tool.tier === "daily"
+            ? "border-green-500/30 text-green-600 dark:text-green-400"
+            : "border-blue-500/30 text-blue-600 dark:text-blue-400"
+        }`}
               >
                 {tool.tier === "daily" ? "Daily" : "Proficient"}
               </span>

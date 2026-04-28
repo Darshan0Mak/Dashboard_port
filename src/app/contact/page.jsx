@@ -107,7 +107,7 @@ export default function ContactPage() {
               transition: "opacity 0.5s ease 0.07s",
             }}
           >
-            Let’s build something <br /> great together.
+            Let's build something <br /> great together.
           </h1>
         </div>
 
@@ -119,12 +119,12 @@ export default function ContactPage() {
                 Contact Details
               </h3>
               <div className="space-y-6">
-                <a href="mailto:hello@darshan.design" className="group block">
+                <a href="mailto:darshanmakwana0896@gmail.com" className="group block">
                   <p className="text-xs text-gray-500 dark:text-gray-400 mb-1">
                     Email
                   </p>
                   <p className="text-xl font-medium text-gray-900 dark:text-white group-hover:text-blue-500 transition-colors">
-                    darshan.makwana0896@gmail.com
+                    darshanmakwana0896@gmail.com
                   </p>
                 </a>
                 <div className="group block">

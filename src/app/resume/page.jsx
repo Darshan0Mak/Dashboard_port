@@ -40,7 +40,7 @@ const EXPERIENCE = [
     company: "Coreway Technologies",
     period: "2021 - 2022",
     type: "Full-time",
-    desc: "As a Senior UI/UX Designer, I deliver end-to-end product strategy for startups across Fintech, EdTech, and E-commerce, shipping 15+ projects from concept to final handoff. I specialize in high-impact web design, transforming complex wireframes into polished, developer-ready interfaces. By managing direct client relationships, I ensure every SaaS solution aligns with business goals and premium aesthetic standards.",
+    desc: "Led the design of high-impact user interfaces and cohesive brand visuals, while developing and executing social media strategies, user journeys, and cross-platform visual identities. Crafted intuitive application experiences that enhanced user engagement and overall user satisfaction.",
     tags: ["Figma", "Photoshop", "Prototyping", "Branding"],
   },
   {

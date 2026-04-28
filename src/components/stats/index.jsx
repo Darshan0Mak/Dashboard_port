@@ -5,7 +5,7 @@ import { useRef } from "react";
 
 const stats = [
   { value: 6, suffix: "+", label: "Years of Experience" },
-  { value: 100, suffix: "+", label: "Projects Completed" },
+  { value: 120, suffix: "+", label: "Projects Completed" },
   {
     value: 100,
     suffix: "+",
@@ -113,7 +113,7 @@ export default function StatsCard() {
       className="relative w-full flex items-center justify-center overflow-hidden rounded-2xl px-4 py-6 sm:px-6 sm:py-8"
     >
       {/* Background Glow (Premium feel) */}
-      <div className="absolute inset-0 bg-gradient-to-r from-blue-500/10 to-purple-500/10 blur-2xl opacity-30" />
+      <div className="absolute inset-0 bg-linear-to-r from-blue-500/10 to-purple-500/10 blur-2xl opacity-30" />
 
       {/* Stats Grid */}
       <div className="relative z-10 grid w-full grid-cols-3 gap-4 sm:gap-6">
