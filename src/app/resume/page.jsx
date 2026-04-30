@@ -90,8 +90,8 @@ const SKILLS_GROUPS = [
 const CONTACT = [
   {
     icon: "mail",
-    label: "darshanmakwana0896@email.com",
-    href: "mailto:darshanmakwana0896@email.com",
+    label: "darshanmakwana0896@gmail.com",
+    href: "mailto:darshanmakwana0896@gmail.com",
   },
   {
     icon: "linkedin",
