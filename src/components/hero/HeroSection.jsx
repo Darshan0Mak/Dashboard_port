@@ -58,14 +58,15 @@ export default function HeroSection() {
 
       <div className="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-24 sm:py-32 text-center">
         {/* ── Eyebrow ── */}
-        <div
-          style={line(0.1)}
-          className="mb-6 sm:mb-8 flex items-center gap-3 mx-auto justify-center"
-        >
-          <div className="flex items-center gap-2 px-3 py-1.5 rounded-full border border-black/8 dark:border-white/10 bg-white/60 dark:bg-white/4 backdrop-blur-sm">
-            <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
-            <span className="text-[11px] font-semibold uppercase tracking-[0.15em] text-gray-500 dark:text-gray-400">
-              Senior UX / UI Designer
+        <div style={line(0.05)} className="mb-7">
+          <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full border border-white/10 bg-white/5 backdrop-blur-sm">
+            {/* Pulsing green availability dot */}
+            <span className="relative flex h-2 w-2">
+              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-60" />
+              <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-400" />
+            </span>
+            <span className="text-[11px] font-semibold uppercase tracking-[0.14em] text-white/45">
+              Senior UX / UI Designer · Available for work
             </span>
           </div>
         </div>
@@ -98,56 +99,115 @@ export default function HeroSection() {
           className="flex flex-col items-center gap-8 max-w-7xl mx-auto px-6 sm:px-8"
         >
           {/* Description */}
-          <div className="max-w-2xl text-center">
-            <p className="text-base sm:text-lg text-gray-500 dark:text-[#C7D2FE] leading-relaxed">
-              6+ years designing user-centered digital products for startups and
-              scaling brands. Specialized in SaaS and web apps, with expertise
-              in AI-powered UX research, prototyping, and modern design systems.
-            </p>
-          </div>
+          <p
+            className="mb-2 max-w-2xl text-base sm:text-[1.05rem] leading-relaxed text-white/42"
+            style={line(0.4)}
+          >
+            <strong className="text-white/65 font-medium">6+ years</strong>{" "}
+            designing user-centered digital products for startups and scaling
+            brands. Specialized in{" "}
+            <strong className="text-white/65 font-medium">
+              SaaS and web apps
+            </strong>
+            , with expertise in AI-powered UX research, prototyping, and modern
+            design systems.
+          </p>
 
           {/* CTA group */}
-          <div className="flex items-center gap-4">
+          <div className="flex items-center gap-3 mb-4" style={line(0.5)}>
+            {/* PRIMARY — gradient filled, glowing on hover */}
             <Link
               href="/portfolio"
-              className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-gray-900 dark:bg-white text-white dark:text-gray-900 text-sm font-bold hover:opacity-80 transition-opacity"
+              className="group inline-flex items-center gap-2.5 px-6 py-3 rounded-xl text-sm font-bold text-white transition-all duration-200"
+              style={{
+                background: "linear-gradient(135deg, #3b82f6 0%, #6366f1 100%)",
+                boxShadow: "0 0 0 0 rgba(99,102,241,0)",
+              }}
+              onMouseEnter={(e) => {
+                e.currentTarget.style.transform = "translateY(-2px)";
+                e.currentTarget.style.boxShadow =
+                  "0 8px 32px rgba(99,102,241,0.45)";
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.transform = "translateY(0)";
+                e.currentTarget.style.boxShadow = "0 0 0 0 rgba(99,102,241,0)";
+              }}
             >
               View Work
-              <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
-                <path
-                  d="M2.5 7h9M7 2.5l4.5 4.5L7 11.5"
-                  stroke="currentColor"
-                  strokeWidth="1.5"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                />
-              </svg>
+              {/* Arrow in a small pill — moves on hover */}
+              <span className="flex items-center justify-center w-5 h-5 rounded-md bg-white/20 transition-transform duration-200 group-hover:translate-x-0.5">
+                <svg width="10" height="10" viewBox="0 0 10 10" fill="none">
+                  <path
+                    d="M2 5h6M5 2l3 3-3 3"
+                    stroke="currentColor"
+                    strokeWidth="1.6"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  />
+                </svg>
+              </span>
             </Link>
 
+            {/* SECONDARY — ghost, clearly lighter */}
             <Link
               href="/contact"
-              className="inline-flex items-center gap-2 px-6 py-3 rounded-xl border border-black/10 dark:border-white/10 text-sm font-bold text-gray-700 dark:text-gray-300 hover:bg-black/5 dark:hover:bg-white/5 transition-colors"
+              className="inline-flex items-center gap-2 px-6 py-3 rounded-xl border border-white/12 bg-white/4 text-sm font-medium text-white/55 hover:border-white/25 hover:text-white/80 hover:bg-white/7 transition-all duration-200"
             >
               Let&apos;s Talk
             </Link>
           </div>
-        </div>
-
-        {/* ── Scroll indicator ── */}
-        {/* <div style={line(0.65)} className="mt-16 sm:mt-20">
-          <a
-            href="#bento"
-            className="inline-flex items-center gap-2 text-[11px] font-semibold uppercase tracking-[0.15em] text-gray-300 dark:text-gray-600 hover:text-gray-500 dark:hover:text-gray-400 transition-colors"
+          <div
+            className="flex flex-wrap items-center justify-center gap-5 pt-7 w-full max-w-xl"
+            style={{
+              borderTop: "0.5px solid rgba(255,255,255,0.08)",
+              ...line(0.6),
+            }}
           >
-            <div className="w-4 h-7 border border-current rounded-full flex justify-center relative overflow-hidden">
-              <span
-                className="w-0.5 h-1.5 bg-current rounded-full absolute top-1.5"
-                style={{ animation: "scrollDot 1.5s ease-in-out infinite" }}
-              />
+            {/* Client avatars */}
+            <div className="flex items-center gap-3">
+              <div className="flex">
+                {["#3b82f6", "#8b5cf6", "#ec4899", "#f59e0b"].map((bg, i) => (
+                  <div
+                    key={i}
+                    className="w-7 h-7 rounded-full border-2 border-[#0a0a0f] flex items-center justify-center text-[10px] font-bold text-white"
+                    style={{ background: bg, marginLeft: i === 0 ? 0 : "-8px" }}
+                  >
+                    {["M", "R", "S", "K"][i]}
+                  </div>
+                ))}
+              </div>
+              <span className="text-xs text-white/38 leading-tight">
+                <span className="text-white/60 font-semibold">
+                  20+ happy clients
+                </span>
+                <br />
+                across Fintech, EdTech & SaaS
+              </span>
             </div>
-            Scroll
-          </a>
-        </div> */}
+
+            {/* Divider */}
+            <div className="hidden sm:block w-px h-6 bg-white/10" />
+
+            {/* Stat — conversion lift */}
+            <div className="text-center">
+              <div className="text-base font-bold text-white">28%</div>
+              <div className="text-[10px] text-white/35 uppercase tracking-wide">
+                avg. lift
+              </div>
+            </div>
+
+            {/* Divider */}
+            <div className="hidden sm:block w-px h-6 bg-white/10" />
+
+            {/* Stat — products shipped */}
+            <div className="text-center">
+              <div className="text-base font-bold text-white">50+</div>
+              <div className="text-[10px] text-white/35 uppercase tracking-wide">
+                products shipped
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
 
       <style jsx>{`
