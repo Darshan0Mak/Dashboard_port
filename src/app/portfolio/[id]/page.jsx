@@ -33,6 +33,8 @@ import ThemeComparison from "@/components/Project/App Interface/ThemeComparison"
 import MicroInteractions from "@/components/Project/App Interface/MicroInteractions";
 import ComponentLibrary from "@/components/Project/App Interface/ComponentLibrary";
 import AppStorePreview from "@/components/Project/App Interface/AppStorePreview";
+import FrontHeroBanner from "@/components/Project/Frontend Development/FrontendHeroBanner";
+import FEProjectOverview from "@/components/Project/Frontend Development/FEProjectOverview";
 
 const scrollToSection = (id) => {
   const el = document.getElementById(id);
@@ -74,6 +76,8 @@ export default function ProjectDetail({ params }) {
       return <AppDesignHero project={project} />;
     } else if (project.category === "Brand Identity") {
       return <BrandHero project={project} />;
+    } else if (project.category === "Frontend Development") {
+      return <FrontHeroBanner project={project} />;
     } else {
       return null;
     }
@@ -88,6 +92,8 @@ export default function ProjectDetail({ params }) {
       return <CoreFeatureWalkthrough project={project} />;
     } else if (project.category === "Brand Identity") {
       return <LogoGrid project={project} />;
+    } else if (project.category === "Frontend Development") {
+      return <FEProjectOverview project={project} />;
     } else {
       return null;
     }

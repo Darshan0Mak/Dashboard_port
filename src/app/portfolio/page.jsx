@@ -69,6 +69,11 @@ const CAT_COLORS = {
     bg: "rgba(239,159,39,0.10)",
     border: "rgba(239,159,39,0.25)",
   },
+  "Frontend Development": {
+    text: "#378ADD",
+    bg: "rgba(55,138,221,0.10)",
+    border: "rgba(55,138,221,0.25)",
+  },
   "Visual Design": {
     text: "#D4537E",
     bg: "rgba(212,83,126,0.10)",

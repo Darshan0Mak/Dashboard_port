@@ -714,7 +714,7 @@ const projects = [
   // Logo Design
   {
     id: "brand-identity-design",
-    title: "Brand Identity Design",
+    title: "UniCred Visual Identity",
     category: "Brand Identity",
     summary:
       "UniCred is a modern FinTech brand for the academic sector, blending financial services with university credentials. Its identity features a geometric logo combining a shield and mortarboard, symbolizing security and achievement. A clean “Trust-Blue” visual system ensures clarity, reliability, and a professional dashboard experience.",
@@ -774,6 +774,207 @@ const projects = [
     banner: "/images/unuicred-banner.webp",
 
     liveLink: "https://www.behance.net/gallery/247687015/Unicred-Logo-Design",
+  },
+  {
+    id: "krisdha-technolabs",
+    title: "Krisdha Technolabs",
+    category: "Brand Identity",
+    summary:
+      "Crafted a modern brand identity for Krisdha Technolabs that balances technical precision with high-end aesthetic appeal. The project focused on a geometric logo construction and a scalable UI-ready system designed for a professional tech presence. This identity ensures consistent brand impact across all digital and physical touchpoints.",
+
+    //Thumbnail
+    thumbnail: "/images/UniCredLogo.webp",
+
+    constructionImage: "/images/Unicred-geometric.webp",
+
+    //year
+    year: "2025",
+
+    Behance: "https://www.behance.net/gallery/247687015/Unicred-Logo-Design",
+
+    // 🔥 Logo images
+    logoPrimary: "/images/unicred-primary.webp",
+    logoSecondary: "/images/unicred-secondary.webp",
+    logoMono: "/images/unicred-mono.webp",
+
+    mockups: [
+      {
+        image: "/images/unicred-mockup01.webp",
+        label: "Signage",
+      },
+      {
+        image: "/images/unicred-mockup02.webp",
+        label: "Signage",
+      },
+      {
+        image: "/images/unicred-mockup03.webp",
+        label: "Signage",
+      },
+      {
+        image: "/images/unicred-mockup04.webp",
+        label: "Signage",
+      },
+    ],
+
+    patternImage: "/images/unicred-pattern.webp",
+    textureImage: "/images/unicred-texture-overlay.webp",
+
+    landingPreview: "/images/UniCredLanding.webp",
+    appIconImage: "/images/UniCredAppIcon.webp",
+
+    dos: [
+      "Display the construction grids to highlight your technical precision in logo design.",
+      "Present the logo on high-end digital interfaces or tech-related hardware to provide professional context.",
+      "Keep descriptions concise and use clear headings to ensure recruiters can digest the project quickly.",
+    ],
+    donts: [
+      "Do not overcrowd the case study with too many secondary elements that distract from the main logo.",
+      `Steer clear of basic stock mockups that don't align with the "Technolabs" professional aesthetic.`,
+      "Do not use overly complex terminology that might alienate non-design stakeholders or recruiters.",
+    ],
+
+    // 🔥 Hero banner
+    banner: "/images/unuicred-banner.webp",
+
+    liveLink: "https://www.behance.net/gallery/247687015/Unicred-Logo-Design",
+  },
+  //Front end Development
+
+  {
+    id: "google-search-clone",
+    title: "Google Search Engine Clone",
+    category: "Frontend Development",
+    summary:
+      "Architected and built a responsive search engine application replicating core Google Search interactions. Integrated custom search query handling with server-side rendering, tabbed media filtering (Web, Images, Videos), instant auto-complete suggestions, and dynamic pagination.",
+
+    // Thumbnail
+    thumbnail: "/images/google-search-engine-clone.webp",
+
+    constructionImage: "/images/google-search-engine-clone-banner.webp",
+
+    // Year
+    year: "2025",
+
+    // 🔥 Hero banner
+    banner: "/images/google-search-engine-clone-banner.webp",
+
+    liveLink: "https://google-search-clone-chi.vercel.app/",
+
+    techStack: [
+      {
+        name: "Next.js 14",
+        category: "Core Framework",
+        desc: "App Router & SSR",
+      },
+      {
+        name: "TypeScript",
+        category: "Language",
+        desc: "Strict Type Safety",
+      },
+      {
+        name: "Tailwind CSS",
+        category: "Styling",
+        desc: "Utility-first Tokens",
+      },
+      {
+        name: "Google Custom Search API",
+        category: "Data & Search",
+        desc: "Live Web & Image Indexing",
+      },
+      {
+        name: "Lucide React",
+        category: "Iconography",
+        desc: "Pixel-perfect UI Icons",
+      },
+      {
+        name: "Figma",
+        category: "UI Design",
+        desc: "Visual System & Layout Tokens",
+      },
+    ],
+    specs: [
+      {
+        label: "Search Latency",
+        value: "< 120ms",
+        detail: "Optimized SSR query caching",
+      },
+      {
+        label: "Responsive Layout",
+        value: "Adaptive UI",
+        detail: "Pixel-perfect desktop & mobile viewpoints",
+      },
+      {
+        label: "Lighthouse Score",
+        value: "98/100",
+        detail: "SEO, Performance & Accessibility",
+      },
+    ],
+  },
+  {
+    id: "Netflix-clone",
+    title: "Netflix Clone",
+    category: "Frontend Development",
+    summary:
+      "Designed and built a responsive streaming web application replicating the Netflix browse experience. Integrated real-time movie/TV metadata via TMDB with server-side caching, dynamic media pages, and authentication-gated routing.",
+
+    //Thumbnail
+    thumbnail: "/images/netflix-clone.webp",
+
+    constructionImage: "/images/Unicred-geometric.webp",
+
+    //year
+    year: "2025",
+
+    // 🔥 Hero banner
+    banner: "/images/netflix-clone-banner.webp",
+
+    liveLink: "https://netflix-clone-eight-iota-94.vercel.app/",
+
+    techStack: [
+      {
+        name: "Next.js 14",
+        category: "Core Framework",
+        desc: "App Router & SSR",
+      },
+      { name: "TypeScript", category: "Language", desc: "Strict Type Safety" },
+      {
+        name: "Tailwind CSS",
+        category: "Styling",
+        desc: "Utility-first Tokens",
+      },
+      {
+        name: "Framer Motion",
+        category: "Animation",
+        desc: "Micro-interactions",
+      },
+      {
+        name: "Radix UI",
+        category: "Primitives",
+        desc: "Accessible Headless Components",
+      },
+      {
+        name: "Figma",
+        category: "Design System",
+        desc: "Auto-layout & Token Sync",
+      },
+    ],
+    specs: [
+      {
+        label: "Lighthouse Score",
+        value: "99/100",
+        detail: "Performance & Best Practices",
+      },
+      {
+        label: "Responsive Layout",
+        value: "Mobile First",
+        detail: "Fluid breakpoints across all devices",
+      },
+      {
+        label: "Component System",
+        value: "Atomic",
+        detail: "Fully modular reusable UI blocks",
+      },
+    ],
   },
 ];
 

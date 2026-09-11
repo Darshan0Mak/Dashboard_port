@@ -10,6 +10,8 @@ export default function ProjectStats({ project }) {
         return "text-emerald-600 dark:text-emerald-500";
       case "Brand Identity":
         return "text-amber-600 dark:text-amber-500";
+      case "Frontend Development":
+        return "text-cyan-600 dark:text-cyan-500";
       default:
         return "text-indigo-600 dark:text-indigo-500";
     }
