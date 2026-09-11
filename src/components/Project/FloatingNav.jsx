@@ -32,6 +32,10 @@ const NAV_CONFIG = {
     { label: "Mockups", id: "mockups" },
     { label: "Guidelines", id: "guidelines" },
   ],
+  "Frontend Development": [
+    { label: "Info", id: "info" },
+    { label: "Tech Stack", id: "project-specs" },
+  ],
 };
 
 const getCtaColor = (cat) => {
@@ -44,6 +48,8 @@ const getCtaColor = (cat) => {
       return "bg-emerald-600";
     case "Brand Identity":
       return "bg-amber-600";
+    case "Frontend Development":
+      return "bg-cyan-600";
     default:
       return "bg-[#443dfc]";
   }

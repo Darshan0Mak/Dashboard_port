@@ -30,7 +30,10 @@ export default function ProjectSpecsSection({ project }) {
   if (!stack.length && !specs.length) return null;
 
   return (
-    <section className="relative w-full max-w-5xl mx-auto px-4 py-16 sm:px-6 lg:px-8 text-neutral-100">
+    <section
+      className="relative w-full max-w-5xl mx-auto px-4 py-16 sm:px-6 lg:px-8 text-neutral-100"
+      id="project-specs"
+    >
       {/* Ambient background bloom */}
       <div className="absolute top-1/3 left-1/4 -translate-y-1/2 w-96 h-96 bg-cyan-500/10 rounded-full blur-3xl pointer-events-none -z-10" />
 
