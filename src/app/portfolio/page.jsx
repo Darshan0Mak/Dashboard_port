@@ -59,7 +59,7 @@ const CAT_COLORS = {
     bg: "rgba(127,119,221,0.10)",
     border: "rgba(127,119,221,0.25)",
   },
-  "App Interfaces": {
+  "Mobile Product Design": {
     text: "#1D9E75",
     bg: "rgba(29,158,117,0.10)",
     border: "rgba(29,158,117,0.25)",
@@ -520,7 +520,7 @@ export default function PortfolioPage() {
               transition: "opacity 0.5s ease 0.14s, transform 0.5s ease 0.14s",
             }}
           >
-            A collection of UX & product design work — from research to final
+            A collection of UX & product design work - from research to final
             pixel.
           </p>
         </div>

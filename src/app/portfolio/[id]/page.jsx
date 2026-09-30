@@ -35,6 +35,7 @@ import ComponentLibrary from "@/components/Project/App Interface/ComponentLibrar
 import AppStorePreview from "@/components/Project/App Interface/AppStorePreview";
 import FrontHeroBanner from "@/components/Project/Frontend Development/FrontendHeroBanner";
 import FEProjectOverview from "@/components/Project/Frontend Development/FEProjectOverview";
+import ProductArchitecture from "@/components/Project/App Interface/ProductArchitecture";
 
 const scrollToSection = (id) => {
   const el = document.getElementById(id);
@@ -72,7 +73,7 @@ export default function ProjectDetail({ params }) {
       return <UIUXHeroBanner project={project} />;
     } else if (project.category === "Visual Design") {
       return <VisualDesignHero project={project} />;
-    } else if (project.category === "App Interfaces") {
+    } else if (project.category === "Mobile Product Design") {
       return <AppDesignHero project={project} />;
     } else if (project.category === "Brand Identity") {
       return <BrandHero project={project} />;
@@ -88,8 +89,8 @@ export default function ProjectDetail({ params }) {
       return <ProjectOverview project={project} />;
     } else if (project.category === "Visual Design") {
       return <VisualConcept project={project} />;
-    } else if (project.category === "App Interfaces") {
-      return <CoreFeatureWalkthrough project={project} />;
+    } else if (project.category === "Mobile Product Design") {
+      return <ProductArchitecture project={project} />;
     } else if (project.category === "Brand Identity") {
       return <LogoGrid project={project} />;
     } else if (project.category === "Frontend Development") {
@@ -103,8 +104,8 @@ export default function ProjectDetail({ params }) {
       return <UserFlow project={project} />;
     } else if (project.category === "Visual Design") {
       return <HeroBillboard project={project} />;
-    } else if (project.category === "App Interfaces") {
-      return <ThemeComparison project={project} />;
+    } else if (project.category === "Mobile Product Design") {
+      return <CoreFeatureWalkthrough project={project} />;
     } else if (project.category === "Brand Identity") {
       return <LogoSuite project={project} />;
     } else {
@@ -116,8 +117,8 @@ export default function ProjectDetail({ params }) {
       return <UIUXStyleGuide project={project} />;
     } else if (project.category === "Visual Design") {
       return <BentoAssetGrid project={project} />;
-    } else if (project.category === "App Interfaces") {
-      return <MicroInteractions project={project} />;
+    } else if (project.category === "Mobile Product Design") {
+      return <ThemeComparison project={project} />;
     } else if (project.category === "Brand Identity") {
       return <StationaryMockups project={project} />;
     } else {
@@ -129,8 +130,8 @@ export default function ProjectDetail({ params }) {
       return <DesignSolution project={project} />;
     } else if (project.category === "Visual Design") {
       return <MacroDetails project={project} />;
-    } else if (project.category === "App Interfaces") {
-      return <ComponentLibrary project={project} />;
+    } else if (project.category === "Mobile Product Design") {
+      return <MicroInteractions project={project} />;
     } else if (project.category === "Brand Identity") {
       return <BrandPatterns project={project} />;
     } else {
@@ -142,8 +143,8 @@ export default function ProjectDetail({ params }) {
       return <InteractivePrototype project={project} />;
     } else if (project.category === "Visual Design") {
       return <ColorTypeStudy project={project} />;
-    } else if (project.category === "App Interfaces") {
-      return <AppStorePreview project={project} />;
+    } else if (project.category === "Mobile Product Design") {
+      return <ComponentLibrary project={project} />;
     } else if (project.category === "Brand Identity") {
       return <DigitalPresence project={project} />;
     } else {
@@ -155,8 +156,8 @@ export default function ProjectDetail({ params }) {
       return <KeyLearnings project={project} />;
     } else if (project.category === "Visual Design") {
       return <MotionReel project={project} />;
-    } else if (project.category === "App Interfaces") {
-      return null;
+    } else if (project.category === "Mobile Product Design") {
+      return <AppStorePreview project={project} />;
     } else if (project.category === "Brand Identity") {
       return <BrandManualSnippet project={project} />;
     } else {

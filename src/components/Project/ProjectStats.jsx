@@ -1,9 +1,9 @@
 export default function ProjectStats({ project }) {
-  // Logic to match the hero colors based on category
   const getCategoryColor = (cat) => {
     switch (cat) {
+      case "Mobile Product Design":
       case "UI / UX Designer":
-        return "text-indigo-600 dark:text-indigo-500";
+        return "text-indigo-600 dark:text-indigo-400";
       case "Visual Design":
         return "text-pink-600 dark:text-pink-500";
       case "App Interfaces":
@@ -13,34 +13,46 @@ export default function ProjectStats({ project }) {
       case "Frontend Development":
         return "text-cyan-600 dark:text-cyan-500";
       default:
-        return "text-indigo-600 dark:text-indigo-500";
+        return "text-indigo-600 dark:text-indigo-400";
     }
   };
 
   const accentColor = getCategoryColor(project.category);
 
+  // 4 high-impact stats for hiring managers
   const stats = [
-    { num: project.year ?? "2024", label: "Year", highlight: true },
-    { num: project.duration ?? "—", label: "Duration", highlight: true },
-    { num: project.category, label: "Category", highlight: true },
+    {
+      num: project.role ?? "Senior UI Designer",
+      label: "Role",
+    },
+    {
+      num: project.duration ?? "48-Hour Sprint",
+      label: "Timeline",
+    },
+    {
+      num: project.platform ?? "iOS / Android",
+      label: "Platform",
+    },
+    {
+      num: project.deliverable ?? "Figma System",
+      label: "Deliverable",
+    },
   ];
 
   return (
-    <section className="max-w-250 mx-auto px-6 mt-16 transition-colors fade-in">
-      <div className="grid grid-cols-1 md:grid-cols-3 divide-y md:divide-y-0 md:divide-x border border-slate-200 dark:border-white/10 rounded-3xl overflow-hidden shadow-sm dark:shadow-none">
-        {stats.map(({ num, label, highlight }) => (
+    <section className="max-w-5xl mx-auto px-4 sm:px-6 mt-16 transition-colors fade-in">
+      <div className="grid grid-cols-2 md:grid-cols-4 divide-y md:divide-y-0 md:divide-x border border-slate-200 dark:border-white/10 rounded-3xl overflow-hidden shadow-sm dark:shadow-none bg-white dark:bg-[#0C0C0F]">
+        {stats.map(({ num, label }) => (
           <div
             key={label}
-            className="bg-white dark:bg-[#0C0C0F] py-8 md:py-10 text-center flex flex-col justify-center px-4"
+            className="py-6 sm:py-8 md:py-10 text-center flex flex-col justify-center px-4"
           >
             <div
-              className={`text-3xl md:text-[2.2rem] font-black leading-tight tracking-tight wrap-break-words
-                ${highlight ? accentColor : "text-slate-900 dark:text-white/90"}
-              `}
+              className={`text-xl sm:text-2xl md:text-2xl font-black leading-tight tracking-tight break-words ${accentColor}`}
             >
               {num}
             </div>
-            <div className="text-slate-400 dark:text-white/30 text-[10px] md:text-[11px] font-bold uppercase tracking-[0.25em] mt-3">
+            <div className="text-slate-400 dark:text-white/40 text-[10px] md:text-[11px] font-bold uppercase tracking-[0.2em] mt-2">
               {label}
             </div>
           </div>

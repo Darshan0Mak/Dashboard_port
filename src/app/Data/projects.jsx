@@ -612,102 +612,154 @@ const projects = [
   // Mobile App
   {
     id: "app-ui-design",
-    title: "Application UI Design",
-    category: "App Interfaces",
+    title: "Inboxcat - Email Cleaner App",
+    category: "Mobile Product Design",
 
-    //Thumbnail
-    thumbnail: "/images/App01.webp",
+    // Metadata stats (ProjectStats component mate)
+    role: "Sr UI / UX Designer",
+    duration: "48-Hour Sprint",
+    platform: "iOS / Mobile",
+    deliverable: "Figma System",
+
+    // Thumbnail (Portfolio Listing Card)
+    thumbnail: "/images/inbox-cat/01_Screen_Splash_thumbnail.webp",
 
     // 🔥 Hero banner
-    banner: "/images/SocialBanner.webp",
+    banner: "/images/inbox-cat/Inboxcat-Hero-Banner.webp",
 
-    // 🔥 Short intro (use first paragraph)
+    // 🔥 Short intro
     summary:
-      "Transforming ideas into scroll-stopping visuals. My social media designs are built to spark curiosity, boost engagement, and make brands stand out in a crowded digital space.",
+      "A clean, trust-first mobile email management app designed to help users declutter unwanted subscriptions, newsletters, and mailing lists with seamless OAuth 2.0 authorization and non-blocking actions.",
 
-    // 🔥 Elements section
-    elementsText:
-      "The website elements focus on strong typography, clear hierarchy, and impactful imagery to create a memorable first impression while maintaining usability.",
-
-    elementImages: [
-      "/images/e-grapevine-01.webp",
-      "/images/e-grapevine-02.webp", // duplicate or second layout image
-    ],
+    // 🔥 Product Architecture & UX Rationale Section
+    architectureImage:
+      "/images/inbox-cat/Inboxcat-Product-Architecture-&-User-Journey.webp",
+    architectureSection: {
+      tag: "Product Strategy",
+      title: "Architecture & User Journey.",
+      description:
+        "Mapping the complete cleanup lifecycle, cognitive load mitigation, and heuristic error-prevention patterns before pixel design.",
+    },
 
     // 🔥 Tech / tools
-    tech: ["UI Design", "Web Design", "Figma", "Photoshop", "Illustrator"],
+    tech: [
+      "Product Design",
+      "Mobile UI",
+      "UX Logic",
+      "Figma",
+      "Design Systems",
+    ],
 
-    // liveLink: "https://www.behance.net/gallery/130396259/landing-page-Design",
+    // Optional: Figma live embed or prototype view
+    liveLink: "https://www.figma.com/proto/...",
 
+    // 🔥 Core Feature Walkthrough Section
+    workflowSection: {
+      tag: "Core Workflow",
+      title: "Designed for Trust & Zero Friction.",
+    },
     features: [
       {
-        image: "/images/mobile-ui-1.webp",
-        title: "Real-Time Crypto Swap Engine",
+        image: "/images/inbox-cat/03_Screen_Connect_Email.webp",
+        title: "Trust-First Provider Connection",
         description:
-          "Easily swap assets with live rate calculations, slippage control, and transparent fee breakdown. The interface ensures users understand every detail before confirming transactions, reducing errors and building trust.",
+          "Addresses data privacy upfront with clear 'read-only headers' disclosure and official OAuth 2.0 badges, significantly reducing drop-off during email authentication.",
+        stats: [
+          { value: "OAuth 2.0", label: "Official Protocol" },
+          { value: "Zero Storage", label: "No Email Bodies Read" },
+        ],
       },
       {
-        image: "/images/mobile-ui-2.webp",
-        title: "Market Insights & Asset Tracking",
+        image: "/images/inbox-cat/04_Screen_Scanning.webp",
+        title: "Real-Time Scan Engine & Clutter Insights",
         description:
-          "Stay updated with real-time market data, including price trends, gainers, and losers. Users can quickly scan performance and make informed decisions through clean, data-driven visuals.",
+          "Displays dynamic circular progress, live email counters, and transparent scanning status to maintain user trust and engagement during the processing phase.",
+        stats: [
+          { value: "1,420+", label: "Emails Analyzed" },
+          { value: "Live Counter", label: "Active Audit Loop" },
+        ],
       },
       {
-        image: "/images/mobile-ui-3.webp",
-        title: "Portfolio Analytics Dashboard",
+        image: "/images/inbox-cat/05_Home_Unsubscribed.webp",
+        title: "Smart Cleanup & Non-Blocking Undo",
         description:
-          "Visualize your investments with interactive charts, asset distribution, and profit tracking. The dashboard simplifies complex financial data into an intuitive overview for better financial management.",
+          "Quickly categorizes senders with smart filter pills. Unsubscribe triggers an immediate removal paired with an accessible 5-second Undo snackbar for error prevention.",
+        stats: [
+          { value: "5s Window", label: "Undo Reversibility" },
+          { value: "Smart Pills", label: "Zero Decision Fatigue" },
+        ],
       },
     ],
-    lightImage: "/images/app-light.webp",
-    darkImage: "/images/app-dark.webp",
+
+    // 🔥 Theme / Surface Comparison Section
+    lightImage: "/images/inbox-cat/05_Screen_Home.webp", // Default clean review list
+    darkImage: "/images/inbox-cat/01_Screen_Splash.webp", // Dark splash identity
+    themeComparisonData: {
+      tag: "Surface Hierarchy",
+      title: "Brand Identity vs. Clean Workspace.",
+      description:
+        "A deep navy slate splash for brand recognition, transitioning into a clutter-free daylight workspace for comfortable scanning.",
+      card1Label: "Day Workspace (Light)",
+      card1Desc: "High-contrast daylight layout for rapid sender reviews.",
+      card2Label: "Splash Identity (Dark)",
+      card2Desc: "Deep slate launch atmosphere establishing platform security.",
+    },
+
+    // 🔥 Micro-interactions & State Handling Section
+    interactionSection: {
+      tag: "State Architecture",
+      title: "Micro-interactions & States.",
+    },
     interactions: [
       {
-        title: "Responsive Button Feedback",
+        title: "Optimistic Action & Undo Snackbar",
         description:
-          "Buttons provide instant visual feedback through smooth scaling and color transitions on hover and tap. This reinforces user actions and improves overall interaction clarity.",
-        videoSrc: "/images/mobile-micro-01.webp",
+          "Tapping 'Unsubscribe' immediately removes the item from the active feed with a floating 5-second reversible snackbar, eliminating disruptive modal popups.",
+        videoSrc: "/images/inbox-cat/05_Home_Unsubscribed_micro.webp",
       },
       {
-        title: "Input Validation States",
+        title: "Persistent 'Kept' State Feedback",
         description:
-          "Input fields dynamically respond with clear success and error states, guiding users in real-time. Subtle color changes and messages help reduce mistakes and enhance usability.",
-        videoSrc: "/images/mobile-micro-02.webp",
+          "Marking a sender as 'Keep' provides clear green visual confirmation while keeping it organized, giving users complete confidence in their subscription choices.",
+        videoSrc: "/images/inbox-cat/05_Home_Kept_micro.webp",
       },
       {
-        title: "Live Data & Status Indicators",
+        title: "Zero-Clutter Win State",
         description:
-          "Market changes and transaction statuses update with smooth transitions and animated highlights. These micro-interactions keep users informed without overwhelming the interface.",
-        videoSrc: "/images/mobile-micro-03.webp",
+          "Once all senders are handled, users are greeted with a rewarding completion screen summarizing total space saved and verified cleanup metrics.",
+        videoSrc: "/images/inbox-cat/06_Screen_Home_State_Handling_micro.webp",
       },
     ],
-    primaryColor: "#575cfc",
-    progress: 3,
 
-    components: [
-      {
-        title: "Custom Button",
-        description:
-          "A uniquely styled button component that stands out with its bold colors and smooth animations, designed to encourage user interaction and drive conversions.",
-        image: "/images/button-component.webp",
-      },
-      {
-        title: "Card Layout",
-        description:
-          "A card-based layout for displaying content in a visually appealing and organized manner, with consistent spacing, typography, and imagery to enhance readability and engagement.",
-        image: "/images/card-component.webp",
-      },
-    ],
+    primaryColor: "#6366F1", // Inboxcat Primary Indigo
+
+    // 🔥 Design System Section
+    designSystemImage:
+      "/images/inbox-cat/Inboxcat-Design-System-Component-Library.webp",
+    systemSection: {
+      tag: "Scalability",
+      title: "Design System & Components.",
+      description:
+        "Engineered with atomic principles: strict 4px/8px layout grid, accessible WCAG contrast tokens, and reusable interactive components.",
+    },
+
+    // 🔥 Real-World Preview Section
+    previewSection: {
+      tag: "Contextualization",
+      title: "Real-world Application.",
+      description:
+        "Validating visual ergonomics, legibility under varied lighting, and touch target accessibility across real-world screen contexts.",
+    },
     lifestyleMockups: [
       {
         id: "lifestyle-01",
-        img: "/images/lifestyle-01.webp",
-        // label: "Lifestyle Render 01",
+        img: "/images/inboxcat/02_Screen_Onboarding.webp",
+        label: "Onboarding Flow",
       },
       {
-        img: "/images/lifestyle-02.webp",
         id: "lifestyle-02",
-        label: "Lifestyle Render 02",
+        img: "/images/inboxcat/06_Screen_Home_State_Handling.webp",
+        label: "100% Clean Audit View",
       },
     ],
   },
