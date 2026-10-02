@@ -15,9 +15,9 @@ const CATEGORIES = [
 
 const STATS = [
   { value: "6+", label: "Years Experience" },
-  { value: "20+", label: "End-to-End Products Designed" },
+  { value: "20+", label: "Complete Web & Mobile Apps" },
   { value: "3", label: "Design Systems Built" },
-  { value: "50+", label: "Products Shipped" },
+  { value: "50+", label: "Commercial Releases & Client Features" },
 ];
 
 const SKILLS = [
@@ -177,7 +177,7 @@ const SKILLS = [
     proficiency: 90,
     tier: "Primary",
     useCase:
-      "UX copy, research synthesis, user persona drafting, brainstorming",
+      "UX microcopy, prompt engineering, and qualitative research synthesis.",
     description: "AI assistant for research & copy",
     color: "#1D9E75",
     colorBg: "rgba(29,158,117,0.08)",
@@ -190,7 +190,8 @@ const SKILLS = [
     years: "1 yr",
     proficiency: 95,
     tier: "Primary",
-    useCase: "UX writing, design critique, accessibility audits, code review",
+    useCase:
+      "Heuristic evaluations, design critique, complex user journey mapping, and accessibility auditing.",
     description: "AI for design thinking & writing",
     color: "#EF9F27",
     colorBg: "rgba(239,159,39,0.08)",
@@ -204,7 +205,7 @@ const SKILLS = [
     proficiency: 75,
     tier: "Secondary",
     useCase:
-      "Creating and launching simple web apps or landing pages quickly without deep coding knowledge.",
+      "Rapid MVP prototyping, interactive proof-of-concepts, and agile design validation.",
     description: "Creating web apps or landing pages",
     color: "#D4537E",
     colorBg: "rgba(212,83,126,0.08)",

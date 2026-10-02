@@ -6,43 +6,43 @@ const projects = [
     id: "minddeft-technologies-pvt-ltd",
     title: "Minddeft Technologies Pvt Ltd",
     category: "UI / UX Design",
-
+    // --- New Fields Added ---
+    role: "Lead UI/UX Designer",
+    duration: "3 Months (2023)",
+    platform: "Web (Desktop & Mobile)",
+    deliverables: [
+      "Market Research",
+      "Information Architecture",
+      "Wireframes",
+      "High-Fidelity UI Design",
+      "Interactive Prototype",
+    ],
+    // ------------------------
     thumbnail: "/images/minddeft.webp",
     banner: "/images/minddeft-banner.webp",
     Behance:
       "https://www.behance.net/gallery/247693737/Minddeft-Technologies-website-Design",
-
     colorselement: "#8046e8",
-
     summary:
       "A clean and modern corporate website design for Minddeft Technologies, focused on building trust, showcasing services, and improving user engagement through a structured and professional interface.",
-
     problem:
       "The existing website lacked clarity, modern aesthetics, and a strong user flow, making it difficult for users to understand services and take action.",
-
     solution:
       "I redesigned the website with a clean layout, strong visual hierarchy, and structured sections to clearly communicate services and improve user navigation.",
-
     outcome:
       "The redesigned experience enhances credibility, improves readability, and creates a more professional digital presence aligned with the company's goals.",
-
     elementImages: ["/images/e-minddeft-01.webp", "/images/e-minddeft-02.webp"],
-
     challenge:
       "Balancing a corporate and modern look while ensuring the website remains engaging and easy to navigate for diverse users.",
-
     flowImage: "/images/minddeft-IA.webp",
-
     colors: [
       { name: "Deep Blue", hex: "#8046e8" },
       { name: "Sky Blue", hex: "#38BDF8" },
       { name: "Light Gray", hex: "#E5E7EB" },
     ],
-
     typography: {
       fontName: "Inter",
     },
-
     features: [
       {
         title: "Clean Corporate Aesthetic",
@@ -78,12 +78,9 @@ const projects = [
         image: "/images/minddeft-feature-03.webp",
       },
     ],
-
     figmaUrl:
       "https://www.figma.com/proto/xyz123/minddeft-design?node-id=0-1&scaling=scale-down&page-id=0%3A1",
-
     videoSrc: "/videos/minddeft-prototype.mp4",
-
     learnings: [
       {
         title: "Clarity Over Complexity",
@@ -101,7 +98,6 @@ const projects = [
           "Maintaining consistent spacing, typography, and components creates a polished experience.",
       },
     ],
-
     tech: [
       "UI Design",
       "Responsive Design",
@@ -109,10 +105,8 @@ const projects = [
       "Photoshop",
       "Figma",
     ],
-
     behance:
       "https://www.behance.net/gallery/247693737/Minddeft-Technologies-website-Design",
-
     liveLink: "https://minddeft.com/",
   },
   {
@@ -120,35 +114,36 @@ const projects = [
     title: "Barbaros Barbers Davos",
     category: "UI / UX Design",
     year: "2020",
-
+    // --- New Fields Added ---
+    role: "UI/UX Designer",
+    duration: "2 Months (2020)",
+    platform: "Web (Landing Page)",
+    deliverables: [
+      "Visual Identity",
+      "Responsive UI Design",
+      "Interaction Design",
+    ],
+    // ------------------------
     thumbnail: "/images/ui-1.jpg",
     banner: "/images/barbaros-barber-banner.jpg",
     flowImage: "/images/barbaros-IA.webp",
-
     summary:
       "Barbaros Barbers Davos is a premium landing page that blends traditional craftsmanship with a modern, dark-themed experience to build brand authority and drive bookings.",
-
     outcome:
       "The final design delivers a premium look and feel, improving brand perception and creating a strong visual identity online.",
-
     elementImages: ["/images/e-barbaros-01.jpg", "/images/e-barbaros-02.jpg"],
-
     challenge:
       "Create a high-end digital experience that showcases services and craftsmanship without overwhelming users or losing the brand's rugged yet refined identity.",
-
     solution:
       "Designed a sleek dark UI with strong hierarchy, impactful imagery, and clear CTAs to guide users smoothly from exploration to booking.",
-
     colors: [
       { name: "Racing Red", hex: "#E61E25" },
       { name: "Onyx Black", hex: "#0B0B0B" },
       { name: "Silver Mist", hex: "#C0C0C0" },
     ],
-
     typography: {
       fontName: "Playfair Display , Montserrat",
     },
-
     features: [
       {
         title: "Visual Proof Engine",
@@ -183,11 +178,9 @@ const projects = [
         image: "/images/bb-features-03.webp",
       },
     ],
-
     figmaUrl:
       "https://www.figma.com/proto/abc123/barbaros-barbers?node-id=0-1&scaling=scale-down&page-id=0%3A1&starting-point-node-id=0%3A1",
     videoSrc: "/videos/barbaros-prototype.mp4",
-
     learnings: [
       {
         title: "The Power of Negative Space",
@@ -205,7 +198,6 @@ const projects = [
           "Initially, I wanted to show every detail at once, but I learned that progressive disclosure (showing information as the user scrolls) leads to a better user experience and less cognitive load.",
       },
     ],
-
     tech: [
       "UI Design",
       "Responsive Design",
@@ -213,56 +205,52 @@ const projects = [
       "Photoshop",
       "Figma",
     ],
-
     liveLink:
       "https://www.behance.net/gallery/130100457/Creative-Homepage-Design",
   },
-
   {
     id: "grapevine",
     title: "Grapevine",
     category: "UI / UX Design",
-
+    // --- New Fields Added ---
+    role: "Senior UI/UX Designer",
+    duration: "4 Months (2022)",
+    platform: "Web (SaaS Platform)",
+    deliverables: [
+      "User Research",
+      "Heuristic Evaluation",
+      "UI Design System",
+      "Prototyping",
+    ],
+    // ------------------------
     thumbnail: "/images/ui-2.jpg",
     banner: "/images/grapevine-banner.jpg",
-
     colorselement: "#ff514a",
-
     summary:
       "A modern, dark-themed SaaS landing page designed for a data-driven financial platform, focusing on clarity, trust, and conversion through strong visual hierarchy and immersive dashboard visuals.",
-
     problem:
       "Financial platforms often struggle with presenting complex data in a simple and engaging way, leading to user confusion and lower conversion rates.",
-
     solution:
       "I designed a clean, structured layout with bold typography, clear sections, and dashboard-focused visuals to simplify information and guide users effectively.",
-
     outcome:
       "The final design improves readability, builds trust through a modern interface, and enhances user engagement with a strong focus on conversion.",
-
     elementsText:
       "The website elements focus on strong typography, clear hierarchy, and impactful visuals to create a balance between aesthetics and usability.",
-
     elementImages: [
       "/images/e-grapevine-01.webp",
       "/images/e-grapevine-02.webp",
     ],
-
     challenge:
       "Balancing complex financial data with a clean and minimal design while ensuring the interface remains intuitive and user-friendly.",
-
     flowImage: "/images/grapevine-IA.webp",
-
     colors: [
       { name: "Midnight Slate", hex: "#21202e" },
       { name: "Tomato Red", hex: "#ff514a" },
       { name: "Pure White", hex: "#ffffff" },
     ],
-
     typography: {
       fontName: "Inter",
     },
-
     features: [
       {
         title: "Data-Focused Visual Design",
@@ -298,12 +286,9 @@ const projects = [
         image: "/images/grapevine-features-03.webp",
       },
     ],
-
     figmaUrl:
       "https://www.figma.com/proto/demo123/grapevine?node-id=0-1&scaling=scale-down&page-id=0%3A1",
-
     videoSrc: "/videos/grapevine-prototype.mp4",
-
     learnings: [
       {
         title: "Simplifying Complex Data",
@@ -321,52 +306,49 @@ const projects = [
           "Following proven SaaS UI patterns helps improve familiarity and user trust.",
       },
     ],
-
     tech: ["UI Design", "Web Design", "Figma", "Photoshop", "Illustrator"],
-
     behance: "https://www.behance.net/gallery/130396259/landing-page-Design",
-
     liveLink: "https://example-saas-landing.com",
   },
   {
     id: "rnmkr",
     title: "RNMKR",
     category: "UI / UX Design",
-
+    // --- New Fields Added ---
+    role: "Lead UI/UX Designer",
+    duration: "3 Months (2024)",
+    platform: "Web (Conversion Funnel)",
+    deliverables: [
+      "Brand Strategy",
+      "Conversion Rate Optimization (CRO)",
+      "High-Fidelity UI",
+      "Prototype",
+    ],
+    // ------------------------
     thumbnail: "/images/ui-3.webp",
     banner: "/images/RNMKR-banner.webp",
     colorselement: "#D4AF37",
     flowImage: "/images/grapevine-IA.webp",
-
     summary:
       "A sleek, high-impact landing page designed for a premium, results-driven program. The interface combines a dark luxury aesthetic with gold accents, strong typography, and structured storytelling to build trust, highlight value, and drive conversions.",
-
     problem:
       "High-ticket programs often struggle with conveying value, trust, and credibility, especially when messaging lacks clarity and visual hierarchy.",
-
     solution:
       "I designed a conversion-focused layout with bold typography, premium visuals, and clear sectioning to guide users through the value proposition and encourage action.",
-
     outcome:
       "The final design enhances perceived value, builds trust, and improves engagement, increasing the likelihood of user conversion.",
-
     elementImages: ["/images/e-RNMKR-01.webp", "/images/e-RNMKR-02.webp"],
-
     challenge:
       "Creating a premium and trustworthy experience while maintaining a strong focus on conversion and clarity of messaging.",
-
     flowImage: "/images/rnmkr-IA.webp",
-
     colors: [
       { name: "Jet Black", hex: "#0A0A0A" },
       { name: "Luxury Gold", hex: "#D4AF37" },
       { name: "Soft Gray", hex: "#A1A1AA" },
     ],
-
     typography: {
       fontName: "Clash Display",
     },
-
     features: [
       {
         title: "Premium Visual Identity",
@@ -402,12 +384,9 @@ const projects = [
         image: "/images/rnmkr-feature-03.webp",
       },
     ],
-
     figmaUrl:
       "https://www.figma.com/proto/demo456/rnmkr?node-id=0-1&scaling=scale-down&page-id=0%3A1",
-
     videoSrc: "/videos/rnmkr-prototype.mp4",
-
     learnings: [
       {
         title: "Designing for High-Ticket Users",
@@ -425,7 +404,6 @@ const projects = [
           "A well-structured layout can significantly impact user decision-making and engagement.",
       },
     ],
-
     tech: [
       "UI Design",
       "Responsive Design",
@@ -433,9 +411,7 @@ const projects = [
       "Photoshop",
       "Figma",
     ],
-
     behance: "https://www.behance.net/gallery/247683441/RNMKR",
-
     liveLink: "https://example-rnmkr.com",
   },
 
