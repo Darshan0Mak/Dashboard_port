@@ -5,6 +5,13 @@ import Link from "next/link";
 import Image from "next/image";
 import projects from "../Data/projects";
 
+// ─── Analytics Helper ─────────────────────────────────────────────────────────
+const trackEvent = (eventName, params = {}) => {
+  if (typeof window !== "undefined" && window.gtag) {
+    window.gtag("event", eventName, params);
+  }
+};
+
 // ─── useInView ─────────────────────────────────────────────────────────────────
 function useInView(threshold = 0.1) {
   const ref = useRef(null);
@@ -28,76 +35,76 @@ function useInView(threshold = 0.1) {
 }
 
 // ─── useMagnet ─────────────────────────────────────────────────────────────────
-function useMagnet(strength = 0.35) {
-  const ref = useRef(null);
-  const [offset, setOffset] = useState({ x: 0, y: 0 });
+// function useMagnet(strength = 0.35) {
+//   const ref = useRef(null);
+//   const [offset, setOffset] = useState({ x: 0, y: 0 });
 
-  const onMove = useCallback(
-    (e) => {
-      const el = ref.current;
-      if (!el) return;
-      const rect = el.getBoundingClientRect();
-      const cx = rect.left + rect.width / 2;
-      const cy = rect.top + rect.height / 2;
-      setOffset({
-        x: (e.clientX - cx) * strength,
-        y: (e.clientY - cy) * strength,
-      });
-    },
-    [strength],
-  );
+//   const onMove = useCallback(
+//     (e) => {
+//       const el = ref.current;
+//       if (!el) return;
+//       const rect = el.getBoundingClientRect();
+//       const cx = rect.left + rect.width / 2;
+//       const cy = rect.top + rect.height / 2;
+//       setOffset({
+//         x: (e.clientX - cx) * strength,
+//         y: (e.clientY - cy) * strength,
+//       });
+//     },
+//     [strength],
+//   );
 
-  const onLeave = useCallback(() => setOffset({ x: 0, y: 0 }), []);
+//   const onLeave = useCallback(() => setOffset({ x: 0, y: 0 }), []);
 
-  return { ref, offset, onMove, onLeave };
-}
+//   return { ref, offset, onMove, onLeave };
+// }
 
-// ─── Category pill ─────────────────────────────────────────────────────────────
+// ─── Category Colors (Clean Syntax) ───
 const CAT_COLORS = {
   "UI / UX Design": {
     text: "#7F77DD",
-    bg: "rgba(127,119,221,0.10)",
-    border: "rgba(127,119,221,0.25)",
+    bg: "rgba(127, 119, 221, 0.10)",
+    border: "rgba(127, 119, 221, 0.25)",
   },
   "Mobile Product Design": {
     text: "#1D9E75",
-    bg: "rgba(29,158,117,0.10)",
-    border: "rgba(29,158,117,0.25)",
+    bg: "rgba(29, 158, 117, 0.10)",
+    border: "rgba(29, 158, 117, 0.25)",
   },
   "Brand Identity": {
     text: "#EF9F27",
-    bg: "rgba(239,159,39,0.10)",
-    border: "rgba(239,159,39,0.25)",
+    bg: "rgba(239, 159, 39, 0.10)",
+    border: "rgba(239, 159, 39, 0.25)",
   },
   "Frontend Development": {
     text: "#378ADD",
-    bg: "rgba(55,138,221,0.10)",
-    border: "rgba(55,138,221,0.25)",
+    bg: "rgba(55, 138, 221, 0.10)",
+    border: "rgba(55, 138, 221, 0.25)",
   },
   "Visual Design": {
     text: "#D4537E",
-    bg: "rgba(212,83,126,0.10)",
-    border: "rgba(212,83,126,0.25)",
+    bg: "rgba(212, 83, 126, 0.10)",
+    border: "rgba(212, 83, 126, 0.25)",
   },
   "Web Design": {
     text: "#378ADD",
-    bg: "rgba(55,138,221,0.10)",
-    border: "rgba(55,138,221,0.25)",
+    bg: "rgba(55, 138, 221, 0.10)",
+    border: "rgba(55, 138, 221, 0.25)",
   },
   Research: {
     text: "#D85A30",
-    bg: "rgba(216,90,48,0.10)",
-    border: "rgba(216,90,48,0.25)",
+    bg: "rgba(216, 90, 48, 0.10)",
+    border: "rgba(216, 90, 48, 0.25)",
   },
   default: {
-    text: "#888",
-    bg: "rgba(136,136,136,0.08)",
-    border: "rgba(136,136,136,0.20)",
+    text: "#888888",
+    bg: "rgba(136, 136, 136, 0.08)",
+    border: "rgba(136, 136, 136, 0.20)",
   },
 };
 
 function getCatStyle(cat) {
-  return CAT_COLORS[cat] || CAT_COLORS.default;
+  return CAT_COLORS[cat] || CAT_COLORS["default"];
 }
 
 // ─── Project Card ──────────────────────────────────────────────────────────────
@@ -113,11 +120,20 @@ function ProjectCard({ project, index, visible }) {
     setCursorPos({ x: e.clientX - rect.left, y: e.clientY - rect.top });
   };
 
-  // Stagger by column (mod 3 for lg grid)
   const delay = (index % 3) * 0.08 + Math.floor(index / 3) * 0.04;
 
   return (
-    <Link href={`/portfolio/${project.id}`} className="group block">
+    <Link
+      href={`/portfolio/${project.id}`}
+      onClick={() =>
+        trackEvent("project_view", {
+          project_id: project.id,
+          project_title: project.title,
+          category: project.category,
+        })
+      }
+      className="group block"
+    >
       <div
         ref={cardRef}
         className="relative rounded-2xl overflow-hidden flex flex-col h-full border transition-all duration-500"
@@ -144,7 +160,6 @@ function ProjectCard({ project, index, visible }) {
         onMouseLeave={() => setHovered(false)}
         onMouseMove={handleMouseMove}
       >
-        {/* Spotlight glow that follows cursor */}
         <div
           className="absolute inset-0 pointer-events-none z-10 transition-opacity duration-300 rounded-2xl"
           style={{
@@ -153,21 +168,19 @@ function ProjectCard({ project, index, visible }) {
           }}
         />
 
-        {/* Thumbnail */}
         <div
           className="relative overflow-hidden"
           style={{ aspectRatio: "16/10" }}
         >
           <Image
             src={project.thumbnail}
-            alt={project.title}
+            alt={`${project.title} - UI/UX Design Case Study`}
             fill
             className="object-cover transition-transform duration-700 ease-out"
             style={{ transform: hovered ? "scale(1.07)" : "scale(1)" }}
             sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
           />
 
-          {/* Dark overlay on hover */}
           <div
             className="absolute inset-0 transition-opacity duration-400"
             style={{
@@ -176,7 +189,6 @@ function ProjectCard({ project, index, visible }) {
             }}
           />
 
-          {/* "View Project" pill that appears on hover */}
           <div
             className="absolute bottom-3 left-3 flex items-center gap-2 px-3 py-1.5 rounded-lg text-[11px] font-medium text-white transition-all duration-300 backdrop-blur-md"
             style={{
@@ -198,7 +210,6 @@ function ProjectCard({ project, index, visible }) {
             </svg>
           </div>
 
-          {/* Index number top-right */}
           <div
             className="absolute top-3 right-3 w-7 h-7 rounded-full flex items-center justify-center text-[10px] font-bold transition-opacity duration-300"
             style={{
@@ -212,9 +223,7 @@ function ProjectCard({ project, index, visible }) {
           </div>
         </div>
 
-        {/* Content */}
         <div className="flex flex-col flex-1 p-5 gap-3">
-          {/* Category */}
           <span
             className="text-[10px] font-bold uppercase tracking-widest px-2.5 py-1 rounded-full w-fit"
             style={{
@@ -226,7 +235,6 @@ function ProjectCard({ project, index, visible }) {
             {project.category}
           </span>
 
-          {/* Title */}
           <h3
             className="text-base sm:text-lg font-bold leading-snug text-gray-900 dark:text-white transition-colors duration-200"
             style={{ color: hovered ? cs.text : undefined }}
@@ -234,14 +242,12 @@ function ProjectCard({ project, index, visible }) {
             {project.title}
           </h3>
 
-          {/* Description */}
           {project.shortDescription && (
             <p className="text-xs sm:text-sm text-gray-400 dark:text-gray-500 leading-relaxed line-clamp-2">
               {project.shortDescription}
             </p>
           )}
 
-          {/* Tools tags */}
           {project.tools && (
             <div className="flex flex-wrap gap-1.5 mt-auto pt-2 border-t border-black/5 dark:border-white/5">
               {project.tools.slice(0, 3).map((tool) => (
@@ -273,6 +279,14 @@ function FeaturedCard({ project, visible }) {
   return (
     <Link
       href={`/portfolio/${project.id}`}
+      onClick={() =>
+        trackEvent("project_view", {
+          project_id: project.id,
+          project_title: project.title,
+          category: project.category,
+          featured: true,
+        })
+      }
       className="group block col-span-1 sm:col-span-2 lg:col-span-2"
     >
       <div
@@ -293,7 +307,7 @@ function FeaturedCard({ project, visible }) {
       >
         <Image
           src={project.thumbnail}
-          alt={project.title}
+          alt={`${project.title} - Featured Case Study`}
           fill
           className="object-cover transition-transform duration-700"
           style={{ transform: hovered ? "scale(1.05)" : "scale(1)" }}
@@ -301,7 +315,6 @@ function FeaturedCard({ project, visible }) {
           sizes="(max-width: 1024px) 100vw, 66vw"
         />
 
-        {/* Gradient overlay */}
         <div
           className="absolute inset-0 transition-opacity duration-400"
           style={{
@@ -310,7 +323,6 @@ function FeaturedCard({ project, visible }) {
           }}
         />
 
-        {/* Bottom content */}
         <div
           className="absolute bottom-0 left-0 right-0 p-6 sm:p-8"
           style={{
@@ -357,7 +369,6 @@ function FeaturedCard({ project, visible }) {
           </div>
         </div>
 
-        {/* Featured badge */}
         <div
           className="absolute top-4 left-4 px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-widest text-white"
           style={{ background: cs.text, boxShadow: `0 4px 16px ${cs.text}55` }}
@@ -371,7 +382,6 @@ function FeaturedCard({ project, visible }) {
 
 // ─── Filter Button ─────────────────────────────────────────────────────────────
 function FilterBtn({ label, active, count, onClick }) {
-  const cs = getCatStyle(label);
   return (
     <button
       onClick={onClick}
@@ -379,9 +389,7 @@ function FilterBtn({ label, active, count, onClick }) {
     relative flex items-center gap-2 px-4 py-2 rounded-full 
     text-xs font-semibold uppercase tracking-wider 
     transition-all duration-200 whitespace-nowrap shrink-0 cursor-pointer
-
     border
-
     ${
       active
         ? `
@@ -414,7 +422,7 @@ function FilterBtn({ label, active, count, onClick }) {
 // ─── Page ──────────────────────────────────────────────────────────────────────
 export default function PortfolioPage() {
   const [activeTab, setActiveTab] = useState("All");
-  const [view, setView] = useState("grid"); // "grid" | "list"
+  const [view, setView] = useState("grid");
   const [headerRef, headerVisible] = useInView(0.2);
   const [gridRef, gridVisible] = useInView(0.05);
 
@@ -424,13 +432,16 @@ export default function PortfolioPage() {
       ? projects
       : projects.filter((p) => p.category === activeTab);
 
-  // Separate featured (first) from rest in grid view
+  const handleFilterClick = (cat) => {
+    setActiveTab(cat);
+    trackEvent("filter_click", { category: cat });
+  };
+
   const featured = filtered[0];
   const rest = filtered.slice(1);
 
   return (
     <div className="w-full min-h-screen">
-      {/* ── Subtle dot grid background ── */}
       <div
         className="fixed inset-0 pointer-events-none"
         style={{
@@ -443,7 +454,6 @@ export default function PortfolioPage() {
       <div className="relative z-10 w-full max-w-300 mx-auto px-4 sm:px-6 my-14 py-20 sm:py-20">
         {/* ── Header ── */}
         <div ref={headerRef} className="mb-14 sm:mb-18">
-          {/* Eyebrow */}
           <p
             className="text-xs font-bold uppercase tracking-[0.2em] text-gray-400 dark:text-gray-500 mb-4"
             style={{
@@ -452,10 +462,9 @@ export default function PortfolioPage() {
               transition: "opacity 0.5s ease, transform 0.5s ease",
             }}
           >
-            Selected Work
+            Design Portfolio & Case Studies
           </p>
 
-          {/* Title row */}
           <div
             className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4"
             style={{
@@ -464,8 +473,8 @@ export default function PortfolioPage() {
               transition: "opacity 0.5s ease 0.08s, transform 0.5s ease 0.08s",
             }}
           >
-            <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold font-heading uppercase leading-none tracking-tighter text-gray-900 dark:text-white">
-              My Work.
+            <h1 className="text-4xl sm:text-6xl lg:text-7xl font-bold font-heading uppercase leading-none tracking-tighter text-gray-900 dark:text-white">
+              Selected Works.
             </h1>
 
             {/* View toggle */}
@@ -473,8 +482,11 @@ export default function PortfolioPage() {
               {["grid", "list"].map((v) => (
                 <button
                   key={v}
-                  onClick={() => setView(v)}
-                  className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-semibold transition-all duration-200"
+                  onClick={() => {
+                    setView(v);
+                    trackEvent("view_toggle", { mode: v });
+                  }}
+                  className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-semibold transition-all duration-200 cursor-pointer"
                   style={
                     view === v
                       ? { background: "#111", color: "#fff" }
@@ -511,7 +523,6 @@ export default function PortfolioPage() {
             </div>
           </div>
 
-          {/* Description */}
           <p
             className="mt-4 text-sm sm:text-base text-gray-600 dark:text-[#C7D2FE] max-w-lg leading-relaxed"
             style={{
@@ -520,8 +531,8 @@ export default function PortfolioPage() {
               transition: "opacity 0.5s ease 0.14s, transform 0.5s ease 0.14s",
             }}
           >
-            A collection of UX & product design work - from research to final
-            pixel.
+            A curated collection of UI/UX, product design, and digital
+            experiences solving real-world problems.
           </p>
         </div>
 
@@ -545,7 +556,7 @@ export default function PortfolioPage() {
                     ? projects.length
                     : projects.filter((p) => p.category === cat).length
                 }
-                onClick={() => setActiveTab(cat)}
+                onClick={() => handleFilterClick(cat)}
               />
             ))}
           </div>
@@ -567,7 +578,6 @@ export default function PortfolioPage() {
         {/* ── GRID VIEW ── */}
         {view === "grid" && filtered.length > 0 && (
           <div ref={gridRef} className="flex flex-col gap-4 sm:gap-6">
-            {/* Featured row */}
             {featured && (
               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
                 <FeaturedCard project={featured} visible={gridVisible} />
@@ -581,7 +591,6 @@ export default function PortfolioPage() {
               </div>
             )}
 
-            {/* Remaining grid */}
             {rest.length > 1 && (
               <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
                 {rest.slice(1).map((project, i) => (
@@ -609,6 +618,14 @@ export default function PortfolioPage() {
                 <Link
                   key={project.id}
                   href={`/portfolio/${project.id}`}
+                  onClick={() =>
+                    trackEvent("project_view", {
+                      project_id: project.id,
+                      project_title: project.title,
+                      category: project.category,
+                      view_type: "list",
+                    })
+                  }
                   className="group flex items-center gap-5 py-5 transition-all duration-200"
                   style={{
                     opacity: gridVisible ? 1 : 0,
@@ -618,23 +635,20 @@ export default function PortfolioPage() {
                     transition: `opacity 0.4s ease ${i * 0.05}s, transform 0.4s ease ${i * 0.05}s`,
                   }}
                 >
-                  {/* Thumbnail */}
                   <div className="relative w-20 h-14 sm:w-28 sm:h-18 rounded-xl overflow-hidden flex-shrink-0 border border-black/6 dark:border-white/6">
                     <Image
                       src={project.thumbnail}
-                      alt={project.title}
+                      alt={`${project.title} - UI/UX Design`}
                       fill
                       className="object-cover transition-transform duration-400 group-hover:scale-105"
                       sizes="112px"
                     />
                   </div>
 
-                  {/* Index */}
                   <span className="text-xs font-bold text-gray-200 dark:text-gray-700 w-6 flex-shrink-0 hidden sm:block">
                     {String(i + 1).padStart(2, "0")}
                   </span>
 
-                  {/* Text */}
                   <div className="flex-1 min-w-0">
                     <h3
                       className="text-sm sm:text-base font-bold text-gray-900 dark:text-white truncate group-hover:text-[var(--accent)] transition-colors"
@@ -649,7 +663,6 @@ export default function PortfolioPage() {
                     )}
                   </div>
 
-                  {/* Category */}
                   <span
                     className="text-[10px] font-bold uppercase tracking-wider px-2.5 py-1 rounded-full hidden sm:inline-block flex-shrink-0"
                     style={{
@@ -661,7 +674,6 @@ export default function PortfolioPage() {
                     {project.category}
                   </span>
 
-                  {/* Arrow */}
                   <div
                     className="w-8 h-8 rounded-full flex items-center justify-center flex-shrink-0 transition-all duration-200 group-hover:scale-110"
                     style={{ background: cs.bg, color: cs.text }}
@@ -690,6 +702,12 @@ export default function PortfolioPage() {
             </p>
             <Link
               href="/contact"
+              onClick={() =>
+                trackEvent("navigation_click", {
+                  destination: "/contact",
+                  from: "portfolio_footer_cta",
+                })
+              }
               className="inline-flex items-center gap-2 px-6 py-3 rounded-xl text-sm font-semibold bg-gray-900 dark:bg-white text-white dark:text-gray-900 hover:opacity-80 transition-opacity"
             >
               Get in Touch

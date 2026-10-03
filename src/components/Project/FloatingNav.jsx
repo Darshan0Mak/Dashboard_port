@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import Logo from "@/../public/images/logo.svg";
+import Logo from "@/public/images/logo.svg";
 import { useState } from "react";
 
 const NAV_CONFIG = {
