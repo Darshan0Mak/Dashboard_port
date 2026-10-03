@@ -14,6 +14,13 @@ import ArticleCard from "../linkedInArticle/page";
 import Headshot from "../../../public/images/headshot-image-01.webp";
 import ProjectImage from "../../../public/images/portfolio-2.webp";
 
+// ─── Analytics Helper ────────────────────────────────────────────────────────
+const trackEvent = (eventName, params = {}) => {
+  if (typeof window !== "undefined" && window.gtag) {
+    window.gtag("event", eventName, params);
+  }
+};
+
 // ─── useInView ────────────────────────────────────────────────────────────────
 function useInView(threshold = 0.1) {
   const ref = useRef(null);
@@ -63,28 +70,23 @@ function ProfileCard() {
       delay={0}
     >
       <div className="flex flex-col h-full gap-8 relative overflow-hidden p-1">
-        {/* 1. Background "Fill": Oversized Initials */}
         <div className="absolute -top-12 -right-12 text-[180px] font-black text-gray-900/3 dark:text-white/3 select-none pointer-events-none uppercase italic">
           DM
         </div>
 
-        {/* 2. Top Section: Headshot + Name */}
         <div className="flex flex-col lg:flex-row gap-8 items-center lg:items-center relative z-10">
-          {/* Large Headshot with "Floating" effect */}
           <div className="relative shrink-0">
             <div className="w-32 h-32 sm:w-44 sm:h-44 lg:w-56 lg:h-56 rounded-3xl overflow-hidden border-4 border-white dark:border-zinc-800 shadow-2xl transition-transform duration-500 hover:scale-[1.02]">
               <Image
                 src={Headshot}
-                alt="Darshan Makwana"
+                alt="Darshan Makwana - Senior UI/UX Designer"
                 className="w-full h-full object-cover"
                 priority
               />
             </div>
-            {/* Subtle glow behind image to fill space */}
             <div className="absolute -inset-2 bg-emerald-500/10 rounded-3xl blur-2xl -z-10" />
           </div>
 
-          {/* Name & Availability */}
           <div className="text-center lg:text-left flex-1">
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-50 dark:bg-emerald-950/30 border border-emerald-200 dark:border-emerald-800/50 mb-4">
               <span className="relative flex h-2 w-2">
@@ -108,14 +110,12 @@ function ProfileCard() {
           </div>
         </div>
 
-        {/* 3. Middle Section: Bio (Split into columns to fill horizontal space) */}
         <div className="grid grid-cols-1 md:grid-cols-12 gap-6 items-start flex-1">
           <div className="md:col-span-8 space-y-4">
             <p className="text-lg sm:text-xl text-gray-600 dark:text-gray-300 leading-snug">
               Designing intuitive digital experiences that feel effortless. 6+
               years crafting user-focused products for startups & brands.
             </p>
-            {/* Decorative pills to add visual density */}
             <div className="flex flex-wrap gap-2">
               {["SaaS", "Web Apps", "UI Systems", "Product Design"].map(
                 (tag) => (
@@ -130,10 +130,15 @@ function ProfileCard() {
             </div>
           </div>
 
-          {/* 4. Bottom Section: CTA Actions */}
           <div className="md:col-span-4 flex flex-col gap-2 w-full">
             <Link
               href="/portfolio"
+              onClick={() =>
+                trackEvent("navigation_click", {
+                  destination: "/portfolio",
+                  from: "bento_profile",
+                })
+              }
               className="flex items-center justify-between px-6 py-4 rounded-2xl dark:bg-white/10 bg-black/10 text-gray text-sm font-bold transition-all hover:bg-[#3b82f6] hover:dark:bg-[#3b82f6] hover:text-white group"
             >
               View Work
@@ -157,12 +162,24 @@ function ProfileCard() {
             <div className="flex gap-2">
               <Link
                 href="/contact"
+                onClick={() =>
+                  trackEvent("navigation_click", {
+                    destination: "/contact",
+                    from: "bento_profile",
+                  })
+                }
                 className="flex-1 text-center px-4 py-3 rounded-2xl border border-gray-200 dark:border-white/10 text-xs font-bold text-gray-600 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-white/5 transition-colors"
               >
                 Contact
               </Link>
               <Link
                 href="/skills"
+                onClick={() =>
+                  trackEvent("navigation_click", {
+                    destination: "/skills",
+                    from: "bento_profile",
+                  })
+                }
                 className="flex-1 text-center px-4 py-3 rounded-2xl border border-gray-200 dark:border-white/10 text-xs font-bold text-gray-600 dark:text-gray-300 hover:bg-gray-50 dark:hover:bg-white/5 transition-colors"
               >
                 Skills
@@ -207,20 +224,12 @@ function ProjectsCard() {
       >
         <Image
           src={ProjectImage}
-          alt="Projects"
+          alt="UI UX Design Projects and Case Studies - Darshan Makwana"
           fill
           className="object-cover transition-transform duration-500"
           style={{ transform: hovered ? "scale(1.06)" : "scale(1)" }}
           quality={100}
         />
-        {/* <div
-          className="absolute inset-0 flex items-center justify-center transition-opacity duration-300"
-          style={{ background: "rgba(0,0,0,0.5)", opacity: hovered ? 1 : 0 }}
-        >
-          <span className="text-white text-xs font-bold uppercase tracking-widest">
-            Browse All
-          </span>
-        </div> */}
       </div>
       <div className="flex items-end justify-between gap-3">
         <div>
@@ -247,11 +256,9 @@ function LinkedInCard() {
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
     >
-      {/* Decorative HUD corners */}
       <div className="absolute top-0 left-0 h-2 w-2 border-t border-l border-white/20 transition-colors group-hover:border-orange-500" />
       <div className="absolute bottom-0 right-0 h-2 w-2 border-b border-r border-white/20 transition-colors group-hover:border-orange-500" />
 
-      {/* Top Section: Action Area */}
       <div className="relative z-10 mb-8">
         <div className="flex items-center justify-between mb-4">
           <div className="flex items-center gap-2">
@@ -265,53 +272,34 @@ function LinkedInCard() {
           </div>
         </div>
 
-        {/* The Main "Button" Interface */}
         <a
-          href="https://linkedin.com"
+          href="https://www.linkedin.com/in/darshan0makwana/"
           target="_blank"
           rel="noopener noreferrer"
-          className="relative flex items-center gap-4 
-  border border-black/10 dark:border-white/10 
-  bg-black/5 dark:bg-white/5 
-  p-4 rounded-2xl 
-  transition-all duration-300 
-  group-hover:bg-[#0A66C2]/10 group-hover:border-[#0A66C2]/30"
+          onClick={() =>
+            trackEvent("social_click", {
+              platform: "LinkedIn",
+              url: "https://www.linkedin.com/in/darshan0makwana/",
+            })
+          }
+          className="relative flex items-center gap-4 border border-black/10 dark:border-white/10 bg-black/5 dark:bg-white/5 p-4 rounded-2xl transition-all duration-300 group-hover:bg-[#0A66C2]/10 group-hover:border-[#0A66C2]/30"
         >
-          {/* Icon */}
-          <div
-            className="flex h-10 w-10 shrink-0 items-center justify-center 
-    bg-zinc-200 dark:bg-zinc-800 
-    transition-colors 
-    group-hover:bg-[#0A66C2] 
-    rounded-lg"
-          >
+          <div className="flex h-10 w-10 shrink-0 items-center justify-center bg-zinc-200 dark:bg-zinc-800 transition-colors group-hover:bg-[#0A66C2] rounded-lg">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               viewBox="0 0 24 24"
-              className="h-5 w-5 
-      text-black dark:text-white 
-      group-hover:text-white"
+              className="h-5 w-5 text-black dark:text-white group-hover:text-white"
               fill="currentColor"
             >
               <path d="M19 0h-14c-2.76 0-5 2.24-5 5v14c0 2.76 2.24 5 5 5h14c2.762 0 5-2.24 5-5v-14c0-2.76-2.238-5-5-5zm-11.5 20h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.784 1.764-1.75 1.764zm13 12.268h-3v-5.604c0-1.337-.027-3.059-1.865-3.059-1.867 0-2.155 1.459-2.155 2.965v5.698h-3v-11h2.881v1.507h.041c.401-.759 1.381-1.557 2.845-1.557 3.043 0 3.603 2.004 3.603 4.611v6.439z" />
             </svg>
           </div>
 
-          {/* Text */}
           <div className="overflow-hidden">
-            <p
-              className="text-xs font-bold tracking-tight uppercase 
-      text-black dark:text-white"
-            >
+            <p className="text-xs font-bold tracking-tight uppercase text-black dark:text-white">
               LINKEDIN // PROFILE
             </p>
-
-            <p
-              className="text-[9px] 
-      text-black/50 dark:text-white/40 
-      group-hover:text-[#0A66C2] dark:group-hover:text-[#93c5fd] 
-      transition-colors truncate"
-            >
+            <p className="text-[9px] text-black/50 dark:text-white/40 group-hover:text-[#0A66C2] dark:group-hover:text-[#93c5fd] transition-colors truncate">
               {hovered
                 ? "VIEW_PROFESSIONAL_GRAPH.EXE"
                 : "Explore Case Studies & Articles"}
@@ -320,22 +308,18 @@ function LinkedInCard() {
         </a>
       </div>
 
-      {/* Bottom Section: Meta Data */}
       <div className="relative z-10 flex items-end justify-between border-t border-black/5 dark:border-white/5 pt-4">
         <div>
-          <p className=" text-[10px] font-bold uppercase tracking-[0.2em] text-gray-400 dark:text-gray-500 mb-1">
+          <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-gray-400 dark:text-gray-500 mb-1">
             UI Design Specialist
           </p>
           <h3 className="text-2xl font-bold text-gray-900 dark:text-white">
             Darshan<span className="text-[#1769FF]">.</span>M
           </h3>
         </div>
-
-        {/* Animated Icon replacement */}
         <AnimatedIconButton href="/portfolio" />
       </div>
 
-      {/* Subtle Scanline Overlay */}
       <div className="pointer-events-none absolute inset-0 opacity-[0.03] bg-[linear-gradient(rgba(18,16,16,0)_50%,rgba(0,0,0,0.25)_50%),linear-gradient(90deg,rgba(255,0,0,0.06),rgba(0,255,0,0.02),rgba(0,0,255,0.06))] bg-[length:100%_2px,3px_100%]" />
     </BentoCard>
   );
@@ -352,11 +336,9 @@ function BehanceCard() {
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
     >
-      {/* Decorative HUD corners */}
       <div className="absolute top-0 left-0 h-2 w-2 border-t border-l border-white/20 transition-colors group-hover:border-[#1769FF]" />
       <div className="absolute bottom-0 right-0 h-2 w-2 border-b border-r border-white/20 transition-colors group-hover:border-[#1769FF]" />
 
-      {/* Top Section: Action Area */}
       <div className="relative z-10 mb-8">
         <div className="flex items-center justify-between mb-4">
           <div className="flex items-center gap-2">
@@ -370,46 +352,30 @@ function BehanceCard() {
           </div>
         </div>
 
-        {/* The Main "Button" Interface */}
         <a
           href="https://www.behance.net/darshanmakwana0896"
           target="_blank"
           rel="noopener noreferrer"
-          className="relative flex items-center gap-4 border border-black/10 dark:border-white/10 
-  bg-black/5 dark:bg-white/5 
-  p-4 rounded-2xl 
-  transition-all duration-300 
-  group-hover:bg-[#1769FF]/10 group-hover:border-[#1769FF]/30"
+          onClick={() =>
+            trackEvent("social_click", {
+              platform: "Behance",
+              url: "https://www.behance.net/darshanmakwana0896",
+            })
+          }
+          className="relative flex items-center gap-4 border border-black/10 dark:border-white/10 bg-black/5 dark:bg-white/5 p-4 rounded-2xl transition-all duration-300 group-hover:bg-[#1769FF]/10 group-hover:border-[#1769FF]/30"
         >
-          {/* Icon */}
-          <div
-            className="flex h-10 w-10 shrink-0 items-center justify-center 
-    bg-zinc-200 dark:bg-zinc-800 
-    transition-colors 
-    group-hover:bg-[#1769FF] 
-    rounded-lg"
-          >
+          <div className="flex h-10 w-10 shrink-0 items-center justify-center bg-zinc-200 dark:bg-zinc-800 transition-colors group-hover:bg-[#1769FF] rounded-lg">
             <FontAwesomeIcon
               icon={faBehance}
               className="text-black dark:text-white group-hover:text-white h-5 w-5"
             />
           </div>
 
-          {/* Text */}
           <div className="overflow-hidden">
-            <p
-              className="text-xs font-bold tracking-tight uppercase 
-      text-black dark:text-white"
-            >
+            <p className="text-xs font-bold tracking-tight uppercase text-black dark:text-white">
               Behance // Showcase
             </p>
-
-            <p
-              className="text-[9px] 
-      text-black/50 dark:text-white/40 
-      group-hover:text-[#1769FF] dark:group-hover:text-[#93c5fd] 
-      transition-colors truncate"
-            >
+            <p className="text-[9px] text-black/50 dark:text-white/40 group-hover:text-[#1769FF] dark:group-hover:text-[#93c5fd] transition-colors truncate">
               {hovered
                 ? "FETCHING_PORTFOLIO_DATA.EXE"
                 : "View full UI/UX Case Studies"}
@@ -418,7 +384,6 @@ function BehanceCard() {
         </a>
       </div>
 
-      {/* Bottom Section: Meta Data */}
       <div className="relative z-10 flex items-end justify-between border-t border-black/5 dark:border-white/5 pt-4">
         <div>
           <p className="text-[10px] uppercase tracking-[0.2em] font-bold text-gray-400 dark:text-gray-500 mb-1">
@@ -428,12 +393,9 @@ function BehanceCard() {
             Portfolio<span className="text-[#1769FF]">.</span>UI
           </h3>
         </div>
-
-        {/* Animated Icon replacement */}
         <AnimatedIconButton href="https://www.behance.net/darshanmakwana0896" />
       </div>
 
-      {/* Subtle Scanline Overlay */}
       <div className="pointer-events-none absolute inset-0 opacity-[0.03] bg-[linear-gradient(rgba(18,16,16,0)_50%,rgba(0,0,0,0.25)_50%),linear-gradient(90deg,rgba(255,0,0,0.06),rgba(0,255,0,0.02),rgba(0,0,255,0.06))] bg-[length:100%_2px,3px_100%]" />
     </BentoCard>
   );
@@ -517,18 +479,11 @@ function TechStackCard() {
     },
   ];
 
-  const tierStyles = {
-    daily: "bg-[#1769FF]/10 border-[#1769FF]/30 text-[#7EB3FF]",
-    proficient: "bg-[#C7D2FE]/[0.05] border-[#C7D2FE]/20 text-[#C7D2FE]/65",
-  };
-
   return (
     <BentoCard className="group relative col-span-1 flex flex-col justify-between overflow-hidden border border-white/5 bg-[#0a0a0a] p-5 transition-all duration-500 hover:border-[#C7D2FE]/30 sm:p-6">
-      {/* HUD corners */}
       <div className="absolute top-0 left-0 h-2 w-2 border-t border-l border-white/20 group-hover:border-[#C7D2FE]" />
       <div className="absolute bottom-0 right-0 h-2 w-2 border-b border-r border-white/20 group-hover:border-[#C7D2FE]" />
 
-      {/* Header */}
       <div className="relative z-10 mb-5">
         <div className="flex items-center gap-2 mb-4">
           <span className="h-1.5 w-1.5 animate-pulse bg-[#C7D2FE] rounded-full" />
@@ -537,14 +492,12 @@ function TechStackCard() {
           </span>
         </div>
 
-        {/* Tool rows */}
         <div className="divide-y divide-gray-200 dark:divide-white/10">
           {tools.map((tool) => (
             <div
               key={tool.name}
               className="flex items-center gap-2.5 py-2 first:pt-0 last:pb-0"
             >
-              {/* Icon */}
               <div
                 className="w-6.5 h-6.5 rounded-md flex items-center justify-center shrink-0"
                 style={{
@@ -555,7 +508,6 @@ function TechStackCard() {
                 {tool.icon}
               </div>
 
-              {/* Name + category */}
               <div className="flex-1 min-w-0">
                 <p className="font-mono text-[11px] font-bold text-gray-900 dark:text-white leading-none">
                   {tool.name}
@@ -565,14 +517,12 @@ function TechStackCard() {
                 </p>
               </div>
 
-              {/* Tier badge */}
               <span
-                className={`font-mono text-[8px] px-2 py-0.5 rounded-full border uppercase tracking-wider shrink-0
-        ${
-          tool.tier === "daily"
-            ? "border-green-500/30 text-green-600 dark:text-green-400"
-            : "border-blue-500/30 text-blue-600 dark:text-blue-400"
-        }`}
+                className={`font-mono text-[8px] px-2 py-0.5 rounded-full border uppercase tracking-wider shrink-0 ${
+                  tool.tier === "daily"
+                    ? "border-green-500/30 text-green-600 dark:text-green-400"
+                    : "border-blue-500/30 text-blue-600 dark:text-blue-400"
+                }`}
               >
                 {tool.tier === "daily" ? "Daily" : "Proficient"}
               </span>
@@ -581,7 +531,6 @@ function TechStackCard() {
         </div>
       </div>
 
-      {/* Footer */}
       <div className="relative z-10 flex items-end justify-between border-t border-white/5 pt-4">
         <div>
           <p className="text-[10px] uppercase tracking-[0.2em] font-bold text-gray-400 dark:text-gray-500 mb-1">
@@ -594,13 +543,12 @@ function TechStackCard() {
         <AnimatedIconButton href="/skills" />
       </div>
 
-      {/* Grid BG */}
       <div className="pointer-events-none absolute inset-0 opacity-[0.05] bg-[linear-gradient(to_right,#808080_1px,transparent_1px),linear-gradient(to_bottom,#808080_1px,transparent_1px)] bg-[size:14px_24px]" />
-      {/* Scanline */}
       <div className="pointer-events-none absolute inset-0 opacity-[0.03] bg-[linear-gradient(rgba(18,16,16,0)_50%,rgba(0,0,0,0.25)_50%)] bg-[length:100%_2px]" />
     </BentoCard>
   );
 }
+
 // ─── Stats Card ───────────────────────────────────────────────────────────────
 function StatsBento() {
   return (
@@ -620,7 +568,6 @@ function CTACard() {
       className="col-span-1 sm:col-span-2 lg:col-span-2 p-6 sm:p-8 relative overflow-hidden group"
       delay={0.22}
     >
-      {/* Ambient glow */}
       <div
         className="absolute -right-8 -top-8 w-40 h-40 rounded-full pointer-events-none transition-all duration-500"
         style={{
@@ -630,7 +577,6 @@ function CTACard() {
       />
 
       <div className="relative z-10 flex flex-col h-full justify-between gap-8">
-        {/* Icon */}
         <div className="w-10 h-10 rounded-xl border border-black/8 dark:border-white/8 bg-white dark:bg-white/5 flex items-center justify-center shadow-sm">
           <svg
             width="18"
@@ -649,7 +595,6 @@ function CTACard() {
           </svg>
         </div>
 
-        {/* Text + CTA */}
         <div className="flex flex-col sm:flex-row items-start sm:items-end justify-between gap-4">
           <div>
             <p className="text-[10px] font-bold uppercase tracking-widest text-gray-400 dark:text-gray-500 mb-1">
@@ -665,7 +610,8 @@ function CTACard() {
     </BentoCard>
   );
 }
-// ─── Article feature card (the one with title/desc/link) ──────────────────────
+
+// ─── Article feature card ─────────────────────────────────────────────────────
 function ArticleFeatureCard() {
   return (
     <BentoCard
@@ -681,24 +627,11 @@ function ArticleFeatureCard() {
   );
 }
 
-// ─── Services (full width) ───────────────────────────────────────────────────
-function ServicesBento() {
-  return (
-    <BentoCard
-      className="col-span-1 sm:col-span-2 lg:col-span-4 p-0"
-      delay={0.3}
-    >
-      <ServicesOffering />
-    </BentoCard>
-  );
-}
-
 // ─── Main Grid ────────────────────────────────────────────────────────────────
 export default function BentoGrid() {
   return (
-    <section id="bento" className="w-full py-6 sm:py-8">
+    <section id="works" className="w-full py-6 sm:py-8 scroll-mt-20">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-6">
-        {/* Section label */}
         <div className="flex items-center gap-3 mb-6 sm:mb-8">
           <div className="h-px flex-1 bg-black/5 dark:bg-white/5" />
           <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-gray-300 dark:text-gray-600">
@@ -707,28 +640,18 @@ export default function BentoGrid() {
           <div className="h-px flex-1 bg-black/5 dark:bg-white/5" />
         </div>
 
-        {/*
-          Responsive grid strategy:
-          - mobile  (1 col):  everything stacks
-          - tablet  (2 cols): pairs of cards
-          - desktop (4 cols): full bento layout
-        */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-5">
-          {/* Row 1: Profile (2×2) + RecentWork (2×1) + Article (2×1) */}
           <ProfileCard />
           <RecentWorkBento />
           <ArticleFeatureCard />
 
-          {/* Row 2 (desktop): Projects + LinkedIn + Behance + CTA */}
           <ProjectsCard />
           <LinkedInCard />
           <BehanceCard />
           <TechStackCard />
           <CTACard />
 
-          {/* Row 3: Stats + Services */}
           <StatsBento />
-          {/* <ServicesBento /> */}
         </div>
       </div>
     </section>

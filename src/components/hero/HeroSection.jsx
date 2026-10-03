@@ -7,26 +7,41 @@ export default function HeroSection() {
   const [visible, setVisible] = useState(false);
 
   useEffect(() => {
-    // Subtle delay to start animations
     const t = setTimeout(() => setVisible(true), 80);
     return () => clearTimeout(t);
   }, []);
 
-  // Simplified animation utility
   const line = (delay) => ({
     opacity: visible ? 1 : 0,
-    transform: visible ? "translateY(0)" : "translateY(16px)", // Shorter translate for a sleeker reveal
+    transform: visible ? "translateY(0)" : "translateY(16px)",
     transition: `opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1) ${delay}s, transform 0.8s cubic-bezier(0.16, 1, 0.3, 1) ${delay}s`,
   });
 
+  const trackCtaClick = (label, destination) => {
+    if (typeof window !== "undefined" && window.gtag) {
+      window.gtag("event", "cta_click", {
+        event_category: "engagement",
+        event_label: label,
+        destination: destination,
+      });
+    }
+  };
+
+  const handleScrollToWorks = () => {
+    trackCtaClick("Hero View Work", "#works");
+    const element = document.getElementById("works");
+    if (element) {
+      element.scrollIntoView({ behavior: "smooth" });
+    }
+  };
+
   return (
     <section
-      className="relative w-full min-h-screen flex flex-col justify-center items-center overflow-hidden pt-28 pb-16 sm:pt-36 sm:pb-24 bg-white dark:bg-[#0a0a0f]" // Ensure base bg is clear for banne theme
+      className="relative w-full min-h-screen flex flex-col justify-center items-center overflow-hidden pt-28 pb-16 sm:pt-36 sm:pb-24 bg-white dark:bg-[#0a0a0f]"
       id="hero"
     >
-      {/* ── 1. UNIQUE DUAL-THEME BACKGROUND ── */}
+      {/* ── 1. DUAL-THEME BACKGROUND ── */}
       <div className="absolute inset-0 pointer-events-none overflow-hidden">
-        {/* Pattern: Minimal Dot Matrix (shant and sleek) */}
         <div
           className="absolute inset-0 opacity-40 dark:opacity-[0.05]"
           style={{
@@ -35,7 +50,6 @@ export default function HeroSection() {
           }}
         />
 
-        {/* Ambient Top Spotlight (no pattern, pure cinematic depth) */}
         <div
           className="absolute -top-40 left-1/2 -translate-x-1/2 w-[60rem] h-[32rem] rounded-full blur-3xl opacity-30 dark:opacity-20"
           style={{
@@ -44,7 +58,6 @@ export default function HeroSection() {
           }}
         />
 
-        {/* Banne Original Radial Glows (retain dark mode depth) */}
         <div
           className="absolute top-0 right-0 w-[48rem] h-[48rem] opacity-70 dark:opacity-100"
           style={{
@@ -62,7 +75,7 @@ export default function HeroSection() {
       </div>
 
       <div className="relative z-10 w-full max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center flex flex-col items-center">
-        {/* ── 1. Eyebrow Badge ── */}
+        {/* ── 1. Eyebrow Badge (SEO Subheading) ── */}
         <div style={line(0.05)} className="mb-6 sm:mb-8">
           <div className="inline-flex items-center gap-2.5 rounded-full border border-black/10 dark:border-white/10 bg-black/[0.04] dark:bg-white/[0.05] backdrop-blur-md px-4 py-1.5 shadow-sm">
             <span className="relative flex h-2 w-2">
@@ -70,15 +83,16 @@ export default function HeroSection() {
               <span className="relative inline-flex h-2 w-2 rounded-full bg-emerald-500" />
             </span>
             <span className="text-xs font-medium tracking-wide text-zinc-700 dark:text-zinc-300">
-              Senior Product Designer · Available for New Projects
+              Senior UI/UX Designer & Product Specialist · Available for
+              Projects
             </span>
           </div>
         </div>
 
-        {/* ── 2. Main Heading (Now sleek Sentence Case) ── */}
+        {/* ── 2. SEO-Optimized Main Heading ── */}
         <div style={line(0.15)} className="max-w-4xl mx-auto mb-6 sm:mb-8">
-          <h1 className="text-4xl sm:text-6xl lg:text-[72px] font-bold tracking-tighter text-zinc-900 dark:text-white leading-[1.08]">
-            Designing digital products that feel{" "}
+          <h1 className="text-4xl sm:text-6xl lg:text-[70px] font-bold tracking-tighter text-zinc-900 dark:text-white leading-[1.1]">
+            Senior UI/UX Designer crafting products that feel{" "}
             <span className="bg-gradient-to-r from-blue-600 via-indigo-600 to-violet-600 dark:from-blue-400 dark:via-indigo-300 dark:to-indigo-400 bg-clip-text text-transparent">
               effortless.
             </span>
@@ -91,20 +105,22 @@ export default function HeroSection() {
             <span className="font-semibold text-zinc-900 dark:text-zinc-200">
               6+ years
             </span>{" "}
-            crafting scalable design systems, SaaS platforms, and intuitive web
-            apps. Bridging user behavior with business metrics.
+            specializing in design systems, high-converting SaaS interfaces, and
+            user-centered web applications. Bridging intuitive design with
+            measurable business outcomes.
           </p>
         </div>
 
-        {/* ── 4. CTA Buttons ── */}
+        {/* ── 4. High-Conversion CTA Buttons ── */}
         <div
           style={line(0.4)}
           className="flex flex-row items-center justify-center gap-4 mb-16"
         >
-          {/* Primary CTA */}
-          <Link
-            href="/portfolio"
-            className="group relative inline-flex items-center gap-2.5 px-6 py-3 rounded-xl text-sm font-semibold text-white bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-500 hover:to-indigo-500 shadow-lg shadow-indigo-500/25 dark:shadow-indigo-500/15 hover:shadow-indigo-500/40 hover:-translate-y-0.5 transition-all duration-200"
+          {/* Primary CTA: Smooth scrolls to BentoGrid or Portfolio */}
+          <button
+            type="button"
+            onClick={handleScrollToWorks}
+            className="group relative inline-flex items-center gap-2.5 px-6 py-3 rounded-xl text-sm font-semibold text-white bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-500 hover:to-indigo-500 shadow-lg shadow-indigo-500/25 dark:shadow-indigo-500/15 hover:shadow-indigo-500/40 hover:-translate-y-0.5 transition-all duration-200 cursor-pointer"
           >
             <span>View Selected Work</span>
             <span className="flex items-center justify-center w-5 h-5 rounded-md bg-white/20 transition-transform duration-200 group-hover:translate-x-0.5">
@@ -118,11 +134,12 @@ export default function HeroSection() {
                 />
               </svg>
             </span>
-          </Link>
+          </button>
 
           {/* Secondary CTA */}
           <Link
             href="/contact"
+            onClick={() => trackCtaClick("Hero Contact", "/contact")}
             className="inline-flex items-center justify-center px-6 py-3 rounded-xl text-sm font-medium text-zinc-700 dark:text-zinc-300 border border-zinc-300 dark:border-white/10 bg-white/60 dark:bg-white/[0.03] backdrop-blur-sm hover:bg-zinc-100 dark:hover:bg-white/[0.08] hover:border-zinc-400 dark:hover:border-white/20 transition-all duration-200"
           >
             Get in Touch
@@ -137,14 +154,12 @@ export default function HeroSection() {
           <div className="relative rounded-xl overflow-hidden border border-black/10 dark:border-white/10 bg-white dark:bg-[#0b0c13] flex flex-col shadow-inner">
             {/* ── Chrome Header ── */}
             <div className="h-10 border-b border-black/5 dark:border-white/5 bg-zinc-50/80 dark:bg-[#11131c]/90 px-4 flex items-center justify-between backdrop-blur-md">
-              {/* Window Controls */}
               <div className="flex items-center gap-1.5">
                 <span className="w-2.5 h-2.5 rounded-full bg-[#ff5f56]" />
                 <span className="w-2.5 h-2.5 rounded-full bg-[#ffbd2e]" />
                 <span className="w-2.5 h-2.5 rounded-full bg-[#27c93f]" />
               </div>
 
-              {/* URL / Active Workspace */}
               <div className="flex items-center gap-2 px-3 py-1 rounded-md bg-black/[0.03] dark:bg-white/[0.04] border border-black/5 dark:border-white/5 text-[11px] font-mono text-zinc-600 dark:text-zinc-400">
                 <svg
                   width="11"
@@ -160,7 +175,6 @@ export default function HeroSection() {
                 <span>design-tokens.v3 / tokens.config.ts</span>
               </div>
 
-              {/* Status Pill */}
               <div className="flex items-center gap-1.5 px-2 py-0.5 rounded-full bg-emerald-500/10 text-[10px] text-emerald-600 dark:text-emerald-400 font-semibold border border-emerald-500/20">
                 <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
                 <span>SYNCED</span>
@@ -169,10 +183,9 @@ export default function HeroSection() {
 
             {/* ── Interactive Dashboard Body ── */}
             <div className="p-5 sm:p-7 grid grid-cols-1 lg:grid-cols-12 gap-5 relative select-none">
-              {/* Background Subtle Gradient Lighting */}
               <div className="absolute -top-20 -right-20 w-80 h-80 rounded-full bg-gradient-to-br from-indigo-500/15 via-blue-500/10 to-transparent blur-3xl pointer-events-none" />
 
-              {/* ── Left Sidebar (Tokens & Components) ── */}
+              {/* Left Sidebar */}
               <div className="hidden lg:flex lg:col-span-4 flex-col gap-3 border-r border-black/5 dark:border-white/5 pr-5">
                 <div className="flex items-center justify-between mb-1">
                   <span className="text-[11px] font-semibold uppercase tracking-wider text-zinc-400 dark:text-zinc-500 font-mono">
@@ -183,7 +196,6 @@ export default function HeroSection() {
                   </span>
                 </div>
 
-                {/* Token Items */}
                 {[
                   { name: "primary-accent", hex: "#4F46E5", tag: "Brand" },
                   { name: "surface-elevated", hex: "#11131C", tag: "UI" },
@@ -216,7 +228,6 @@ export default function HeroSection() {
                   </div>
                 ))}
 
-                {/* Mini Flow Chart Activity */}
                 <div className="mt-2 p-3 rounded-lg border border-black/5 dark:border-white/5 bg-zinc-50/40 dark:bg-white/[0.015]">
                   <div className="flex items-center justify-between text-[11px] mb-2 font-medium text-zinc-600 dark:text-zinc-400">
                     <span>Component Velocity</span>
@@ -228,9 +239,8 @@ export default function HeroSection() {
                 </div>
               </div>
 
-              {/* ── Right Main Area (Visual Canvas & Telemetry) ── */}
+              {/* Right Telemetry Area */}
               <div className="col-span-12 lg:col-span-8 flex flex-col gap-4">
-                {/* Top 3 High-Density Metrics */}
                 <div className="grid grid-cols-3 gap-3">
                   {[
                     {
@@ -268,7 +278,6 @@ export default function HeroSection() {
                   ))}
                 </div>
 
-                {/* Interactive Canvas Simulator Card */}
                 <div className="relative p-5 rounded-xl border border-black/5 dark:border-white/5 bg-zinc-50/40 dark:bg-white/[0.015] flex flex-col justify-between overflow-hidden">
                   <div className="flex items-center justify-between mb-3 z-10">
                     <div className="flex items-center gap-2">
@@ -284,7 +293,6 @@ export default function HeroSection() {
                     </span>
                   </div>
 
-                  {/* SVG Smooth Telemetry Line */}
                   <div className="relative h-28 w-full flex items-center justify-center">
                     <svg
                       viewBox="0 0 500 100"
@@ -312,14 +320,12 @@ export default function HeroSection() {
                         </linearGradient>
                       </defs>
 
-                      {/* Area Under Curve */}
                       <path
                         d="M 0,80 Q 70,10 160,50 T 320,30 T 500,10 L 500,100 L 0,100 Z"
                         fill="url(#gradientCurve)"
                         className="opacity-70 dark:opacity-90"
                       />
 
-                      {/* Main Glowing Stroke */}
                       <path
                         d="M 0,80 Q 70,10 160,50 T 320,30 T 500,10"
                         strokeWidth="2.5"
@@ -328,7 +334,6 @@ export default function HeroSection() {
                       />
                     </svg>
 
-                    {/* Simulated Figma Floating Cursor */}
                     <div className="absolute top-4 left-1/2 -translate-x-10 pointer-events-none flex items-start gap-1 cursor-float">
                       <svg
                         width="16"
@@ -346,7 +351,6 @@ export default function HeroSection() {
                     </div>
                   </div>
 
-                  {/* Bottom Component Chips */}
                   <div className="mt-3 pt-3 border-t border-black/5 dark:border-white/5 flex items-center justify-between text-[11px] text-zinc-500 font-mono">
                     <span>state: hover:active</span>
                     <span>render: optimal</span>
@@ -355,7 +359,6 @@ export default function HeroSection() {
               </div>
             </div>
 
-            {/* Bottom Glass Edge */}
             <div className="h-2 bg-gradient-to-t from-black/5 dark:from-black/40 to-transparent pointer-events-none" />
           </div>
         </div>
@@ -384,7 +387,7 @@ export default function HeroSection() {
           }
         `}</style>
 
-        {/* ── 6. Metrics & Social Proof (Clean, balanced banne theme mate) ── */}
+        {/* ── 6. Metrics & Social Proof ── */}
         <div
           style={line(0.6)}
           className="w-full max-w-3xl mx-auto mt-12 pt-8 border-t border-zinc-200 dark:border-white/10 flex flex-wrap items-center justify-around gap-x-8 gap-y-6 text-center"
