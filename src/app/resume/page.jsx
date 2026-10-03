@@ -335,6 +335,16 @@ function DownloadButton() {
   const handleClick = () => {
     setClicked(true);
     setTimeout(() => setClicked(false), 2000);
+
+    // ── GA4 Event Tracking ──
+    if (typeof window !== "undefined" && window.gtag) {
+      window.gtag("event", "resume_download", {
+        event_category: "engagement",
+        event_label: "Darshan Makwana Resume PDF",
+        file_name: "DarshanMakwana_Sr.UI-UX_Designer_6_Years.pdf",
+      });
+    }
+
     // Triggers download of /public/resume.pdf
     const a = document.createElement("a");
     a.href = "/DarshanMakwana_Sr.UI-UX_Designer_6_Years.pdf";
@@ -737,6 +747,14 @@ export default function ResumePage() {
             Or reach out directly at{" "}
             <a
               href="mailto:darshanmakwana0896@gmail.com"
+              onClick={() => {
+                if (typeof window !== "undefined" && window.gtag) {
+                  window.gtag("event", "email_click", {
+                    event_category: "contact",
+                    event_label: "Direct Email Click",
+                  });
+                }
+              }}
               className="text-blue-500 hover:underline"
             >
               darshanmakwana0896@gmail.com

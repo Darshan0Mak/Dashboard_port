@@ -6,7 +6,7 @@ import Image from "next/image";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBehance } from "@fortawesome/free-brands-svg-icons";
 
-import AnimatedIconButton from "@/components/animatedButton/animatedButton";
+import AnimatedIconButton from "../../components/animatedButton/animatedButton";
 import StatsCard from "../stats";
 import ServicesOffering from "../serviceOffering/page";
 import RecentWorkCard from "../RecentWorkCard/page";
