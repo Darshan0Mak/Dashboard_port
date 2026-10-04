@@ -3,6 +3,13 @@
 import { useEffect, useState } from "react";
 import Link from "next/link";
 
+// ─── Analytics Helper ──────────────────────────────────────────────────────────
+const trackEvent = (eventName, params = {}) => {
+  if (typeof window !== "undefined" && window.gtag) {
+    window.gtag("event", eventName, params);
+  }
+};
+
 // ─── Helpers ───────────────────────────────────────────────────────────────────
 
 function extractDriveId(url) {
@@ -52,7 +59,6 @@ async function loadArticles() {
     .map((h) => h.trim().replace(/^"|"$/g, ""));
 
   const rows = lines.slice(1).map((line) => {
-    // Handle quoted fields with commas inside
     const cols = [];
     let current = "";
     let inQuotes = false;
@@ -125,11 +131,21 @@ function ArticleCard({ article, index }) {
     return () => clearTimeout(t);
   }, [index]);
 
+  const handleCardClick = () => {
+    trackEvent("article_click", {
+      article_title: article.title,
+      article_date: article.date,
+      destination_url: article.url,
+      position_index: index + 1,
+    });
+  };
+
   return (
     <Link
       href={article.url || "#"}
       target="_blank"
       rel="noopener noreferrer"
+      onClick={handleCardClick}
       className="group block focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 rounded-2xl"
       style={{
         opacity: visible ? 1 : 0,
@@ -315,6 +331,16 @@ export default function ArticlesPage() {
       .finally(() => setLoading(false));
   }, []);
 
+  useEffect(() => {
+    if (!search.trim()) return;
+    const t = setTimeout(() => {
+      trackEvent("search_articles", {
+        search_term: search.trim(),
+      });
+    }, 700);
+    return () => clearTimeout(t);
+  }, [search]);
+
   const filtered = articles.filter(
     (a) =>
       !search ||
@@ -358,8 +384,6 @@ export default function ArticlesPage() {
             }}
           >
             Insights &amp; Articles
-            {/* <br />
-            <span className="text-gray-300 dark:text-white/20">Articles</span> */}
           </h1>
 
           <p
@@ -491,6 +515,13 @@ export default function ArticlesPage() {
               href="https://www.linkedin.com/in/darshan0makwana/"
               target="_blank"
               rel="noopener noreferrer"
+              onClick={() =>
+                trackEvent("social_click", {
+                  platform: "linkedin",
+                  destination: "https://www.linkedin.com/in/darshan0makwana/",
+                  source: "articles_footer_cta",
+                })
+              }
               className="inline-flex items-center gap-2.5 px-5 py-2.5 rounded-xl text-sm font-semibold bg-[#0A66C2] text-white hover:bg-[#004182] transition-colors"
             >
               <svg width="14" height="14" viewBox="0 0 24 24" fill="white">
