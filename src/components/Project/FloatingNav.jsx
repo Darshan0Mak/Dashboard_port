@@ -19,11 +19,13 @@ const NAV_CONFIG = {
     { label: "Details", id: "details" },
     { label: "Motion", id: "motion" },
   ],
-  "App Interfaces": [
+  "Mobile Product Design": [
     { label: "Overview", id: "overview" },
-    { label: "Features", id: "features" },
-    { label: "Interface", id: "interface" },
-    { label: "System", id: "system" },
+    { label: "Strategy", id: "architecture" },
+    { label: "Workflows", id: "workflow" },
+    { label: "Interactions", id: "interactions" },
+    { label: "Design System", id: "system" },
+    { label: "Preview", id: "preview" },
   ],
   "Brand Identity": [
     { label: "Info", id: "brandinfo" },

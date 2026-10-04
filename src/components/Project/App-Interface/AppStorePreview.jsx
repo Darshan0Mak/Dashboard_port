@@ -15,10 +15,7 @@ export default function AppStorePreview({ project }) {
     "Validating visual ergonomics, legibility under varied lighting, and touch target accessibility across real-world screen contexts.";
 
   return (
-    <section
-      id="marketing"
-      className="py-24 transition-colors max-w-5xl mx-auto"
-    >
+    <section id="preview" className="py-24 transition-colors max-w-5xl mx-auto">
       <div className="max-w-7xl mx-auto px-4 sm:px-6">
         {/* Section Header */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center mb-16">

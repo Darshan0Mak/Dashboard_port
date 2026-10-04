@@ -547,7 +547,7 @@ export const projects = [
     behance: "https://www.behance.net/gallery/130396259/landing-page-Design",
   },
   {
-    id: "app-ui-design",
+    id: "inboxcat",
     title: "Inboxcat - Email Cleaner App",
     category: "Mobile Product Design",
     role: "Sr UI / UX Designer",

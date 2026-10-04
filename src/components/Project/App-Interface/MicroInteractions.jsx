@@ -12,7 +12,10 @@ export default function MicroInteractions({ project }) {
   const title = interactionSection?.title ?? "Micro-interactions & States.";
 
   return (
-    <section id="system" className="py-24 transition-colors max-w-5xl mx-auto">
+    <section
+      id="interactions"
+      className="py-24 transition-colors max-w-5xl mx-auto"
+    >
       <div className="max-w-7xl mx-auto px-4 sm:px-6">
         {/* Section Header */}
         <div className="mb-16">
