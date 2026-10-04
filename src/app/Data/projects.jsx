@@ -1,12 +1,10 @@
-import { features } from "node:process";
+// app/Data/projects.jsx
 
-// app/data/projects.js
-const projects = [
+export const projects = [
   {
     id: "minddeft-technologies-pvt-ltd",
     title: "Minddeft Technologies Pvt Ltd",
     category: "UI / UX Design",
-    // --- New Fields Added ---
     role: "Lead UI/UX Designer",
     duration: "3 Months (2023)",
     platform: "Web (Desktop & Mobile)",
@@ -17,7 +15,6 @@ const projects = [
       "High-Fidelity UI Design",
       "Interactive Prototype",
     ],
-    // ------------------------
     thumbnail: "/images/minddeft.webp",
     banner: "/images/minddeft-banner.webp",
     Behance:
@@ -114,7 +111,6 @@ const projects = [
     title: "Barbaros Barbers Davos",
     category: "UI / UX Design",
     year: "2020",
-    // --- New Fields Added ---
     role: "UI/UX Designer",
     duration: "2 Months (2020)",
     platform: "Web (Landing Page)",
@@ -123,7 +119,6 @@ const projects = [
       "Responsive UI Design",
       "Interaction Design",
     ],
-    // ------------------------
     thumbnail: "/images/ui-1.jpg",
     banner: "/images/barbaros-barber-banner.jpg",
     flowImage: "/images/barbaros-IA.webp",
@@ -212,7 +207,6 @@ const projects = [
     id: "grapevine",
     title: "Grapevine",
     category: "UI / UX Design",
-    // --- New Fields Added ---
     role: "Senior UI/UX Designer",
     duration: "4 Months (2022)",
     platform: "Web (SaaS Platform)",
@@ -222,7 +216,6 @@ const projects = [
       "UI Design System",
       "Prototyping",
     ],
-    // ------------------------
     thumbnail: "/images/ui-2.jpg",
     banner: "/images/grapevine-banner.jpg",
     colorselement: "#ff514a",
@@ -314,7 +307,6 @@ const projects = [
     id: "rnmkr",
     title: "RNMKR",
     category: "UI / UX Design",
-    // --- New Fields Added ---
     role: "Lead UI/UX Designer",
     duration: "3 Months (2024)",
     platform: "Web (Conversion Funnel)",
@@ -324,11 +316,10 @@ const projects = [
       "High-Fidelity UI",
       "Prototype",
     ],
-    // ------------------------
     thumbnail: "/images/ui-3.webp",
     banner: "/images/RNMKR-banner.webp",
     colorselement: "#D4AF37",
-    flowImage: "/images/grapevine-IA.webp",
+    flowImage: "/images/rnmkr-IA.webp",
     summary:
       "A sleek, high-impact landing page designed for a premium, results-driven program. The interface combines a dark luxury aesthetic with gold accents, strong typography, and structured storytelling to build trust, highlight value, and drive conversions.",
     problem:
@@ -340,7 +331,6 @@ const projects = [
     elementImages: ["/images/e-RNMKR-01.webp", "/images/e-RNMKR-02.webp"],
     challenge:
       "Creating a premium and trustworthy experience while maintaining a strong focus on conversion and clarity of messaging.",
-    flowImage: "/images/rnmkr-IA.webp",
     colors: [
       { name: "Jet Black", hex: "#0A0A0A" },
       { name: "Luxury Gold", hex: "#D4AF37" },
@@ -414,34 +404,23 @@ const projects = [
     behance: "https://www.behance.net/gallery/247683441/RNMKR",
     liveLink: "https://example-rnmkr.com",
   },
-
-  // Social Media Design
   {
     id: "instagram-campaign",
     title: "Instagram Campaign",
     category: "Visual Design",
-
-    //Thumbnail
     thumbnail: "/images/Social01.webp",
-
-    // 🔥 Hero banner
     banner: "/images/SocialBanner.webp",
-
-    // 🔥 Short intro (use first paragraph)
     summary:
       "Transforming ideas into scroll-stopping visuals. My social media designs are built to spark curiosity, boost engagement, and make brands stand out in a crowded digital space.",
-
-    // 🔥 Elements section
     elementsText:
       "The website elements focus on strong typography, clear hierarchy, and impactful imagery to create a memorable first impression while maintaining usability.",
-
     tags: ["Creative", "Modern", "Vibrant"],
     Sectitle: "A Visual Narrative.",
     conceptText:
       "The inspiration came from 1970s Swiss posters combined with modern glassmorphism. I wanted to create a visual language that felt both structured and ethereal, using heavy typography to anchor the floating glass elements.",
     elementImages: [
       "/images/e-grapevine-01.webp",
-      "/images/e-grapevine-02.webp", // duplicate or second layout image
+      "/images/e-grapevine-02.webp",
     ],
     assets: [
       "/images/social-echo-system-01.webp",
@@ -467,7 +446,6 @@ const projects = [
           "To add a human touch and break the rigidity of the design, I introduced subtle imperfections like grain, scratches, and light leaks. These details give the visuals a tactile quality and enhance the overall narrative.",
       },
     ],
-
     fonts: {
       name: "Clash Display",
       family: "Sans-serif",
@@ -494,38 +472,26 @@ const projects = [
         description: "Dynamic lighting and grain movement.",
       },
     ],
-
-    // 🔥 Tech / tools
     tech: ["UI Design", "Web Design", "Figma", "Photoshop", "Illustrator"],
-
     behance: "https://www.behance.net/gallery/130396259/landing-page-Design",
   },
   {
     id: "article-image",
     title: "Article Image",
     category: "Visual Design",
-
-    //Thumbnail
     thumbnail: "/images/Social01.webp",
-
-    // 🔥 Hero banner
     banner: "/images/article-image-mid.webp",
-
-    // 🔥 Short intro (use first paragraph)
     summary:
       "Transforming ideas into scroll-stopping visuals. My social media designs are built to spark curiosity, boost engagement, and make brands stand out in a crowded digital space.",
-
-    // 🔥 Elements section
     elementsText:
       "The website elements focus on strong typography, clear hierarchy, and impactful imagery to create a memorable first impression while maintaining usability.",
-
     tags: ["Creative", "Modern", "Vibrant"],
     Sectitle: "Designing for Clarity",
     conceptText:
       "Drawing from Swiss design principles, these visuals emphasize structure, readability, and intentional composition. The use of bold typography and minimal elements ensures each article image delivers its message instantly while maintaining a refined visual identity.",
     elementImages: [
       "/images/e-grapevine-01.webp",
-      "/images/e-grapevine-02.webp", // duplicate or second layout image
+      "/images/e-grapevine-02.webp",
     ],
     assets: [
       "/images/article-ecosystem-01.webp",
@@ -551,7 +517,6 @@ const projects = [
           "To add a human touch and break the rigidity of the design, I introduced subtle imperfections like grain, scratches, and light leaks. These details give the visuals a tactile quality and enhance the overall narrative.",
       },
     ],
-
     fonts: {
       name: "Clash Display",
       family: "Sans-serif",
@@ -578,36 +543,21 @@ const projects = [
         description: "Dynamic lighting and grain movement.",
       },
     ],
-
-    // 🔥 Tech / tools
     tech: ["UI Design", "Web Design", "Figma", "Photoshop", "Illustrator"],
-
     behance: "https://www.behance.net/gallery/130396259/landing-page-Design",
   },
-
-  // Mobile App
   {
     id: "app-ui-design",
     title: "Inboxcat - Email Cleaner App",
     category: "Mobile Product Design",
-
-    // Metadata stats (ProjectStats component mate)
     role: "Sr UI / UX Designer",
     duration: "48-Hour Sprint",
     platform: "iOS / Mobile",
     deliverable: "Figma System",
-
-    // Thumbnail (Portfolio Listing Card)
     thumbnail: "/images/inbox-cat/01_Screen_Splash_thumbnail.webp",
-
-    // 🔥 Hero banner
     banner: "/images/inbox-cat/Inboxcat-Hero-Banner.webp",
-
-    // 🔥 Short intro
     summary:
       "A clean, trust-first mobile email management app designed to help users declutter unwanted subscriptions, newsletters, and mailing lists with seamless OAuth 2.0 authorization and non-blocking actions.",
-
-    // 🔥 Product Architecture & UX Rationale Section
     architectureImage:
       "/images/inbox-cat/Inboxcat-Product-Architecture-&-User-Journey.webp",
     architectureSection: {
@@ -616,8 +566,6 @@ const projects = [
       description:
         "Mapping the complete cleanup lifecycle, cognitive load mitigation, and heuristic error-prevention patterns before pixel design.",
     },
-
-    // 🔥 Tech / tools
     tech: [
       "Product Design",
       "Mobile UI",
@@ -625,11 +573,7 @@ const projects = [
       "Figma",
       "Design Systems",
     ],
-
-    // Optional: Figma live embed or prototype view
     liveLink: "https://www.figma.com/proto/...",
-
-    // 🔥 Core Feature Walkthrough Section
     workflowSection: {
       tag: "Core Workflow",
       title: "Designed for Trust & Zero Friction.",
@@ -666,10 +610,8 @@ const projects = [
         ],
       },
     ],
-
-    // 🔥 Theme / Surface Comparison Section
-    lightImage: "/images/inbox-cat/05_Screen_Home.webp", // Default clean review list
-    darkImage: "/images/inbox-cat/01_Screen_Splash.webp", // Dark splash identity
+    lightImage: "/images/inbox-cat/05_Screen_Home.webp",
+    darkImage: "/images/inbox-cat/01_Screen_Splash.webp",
     themeComparisonData: {
       tag: "Surface Hierarchy",
       title: "Brand Identity vs. Clean Workspace.",
@@ -680,8 +622,6 @@ const projects = [
       card2Label: "Splash Identity (Dark)",
       card2Desc: "Deep slate launch atmosphere establishing platform security.",
     },
-
-    // 🔥 Micro-interactions & State Handling Section
     interactionSection: {
       tag: "State Architecture",
       title: "Micro-interactions & States.",
@@ -706,10 +646,7 @@ const projects = [
         videoSrc: "/images/inbox-cat/06_Screen_Home_State_Handling_micro.webp",
       },
     ],
-
-    primaryColor: "#6366F1", // Inboxcat Primary Indigo
-
-    // 🔥 Design System Section
+    primaryColor: "#6366F1",
     designSystemImage:
       "/images/inbox-cat/Inboxcat-Design-System-Component-Library.webp",
     systemSection: {
@@ -718,8 +655,6 @@ const projects = [
       description:
         "Engineered with atomic principles: strict 4px/8px layout grid, accessible WCAG contrast tokens, and reusable interactive components.",
     },
-
-    // 🔥 Real-World Preview Section
     previewSection: {
       tag: "Contextualization",
       title: "Real-world Application.",
@@ -739,29 +674,19 @@ const projects = [
       },
     ],
   },
-  // Logo Design
   {
     id: "brand-identity-design",
     title: "UniCred Visual Identity",
     category: "Brand Identity",
     summary:
       "UniCred is a modern FinTech brand for the academic sector, blending financial services with university credentials. Its identity features a geometric logo combining a shield and mortarboard, symbolizing security and achievement. A clean “Trust-Blue” visual system ensures clarity, reliability, and a professional dashboard experience.",
-
-    //Thumbnail
     thumbnail: "/images/UniCredLogo.webp",
-
     constructionImage: "/images/Unicred-geometric.webp",
-
-    //year
     year: "2025",
-
     Behance: "https://www.behance.net/gallery/247687015/Unicred-Logo-Design",
-
-    // 🔥 Logo images
     logoPrimary: "/images/unicred-primary.webp",
     logoSecondary: "/images/unicred-secondary.webp",
     logoMono: "/images/unicred-mono.webp",
-
     mockups: [
       {
         image: "/images/unicred-mockup01.webp",
@@ -780,13 +705,10 @@ const projects = [
         label: "Signage",
       },
     ],
-
     patternImage: "/images/unicred-pattern.webp",
     textureImage: "/images/unicred-texture-overlay.webp",
-
     landingPreview: "/images/UniCredLanding.webp",
     appIconImage: "/images/UniCredAppIcon.webp",
-
     dos: [
       "Maintain spacing around the logo equal to the cap height to avoid clutter.",
       "Use primary blue on light backgrounds for proper accessibility.",
@@ -797,10 +719,7 @@ const projects = [
       "Use only approved light or dark backgrounds for clear visibility.",
       "Use a minimal shield icon for favicons to maintain clarity.",
     ],
-
-    // 🔥 Hero banner
     banner: "/images/unuicred-banner.webp",
-
     liveLink: "https://www.behance.net/gallery/247687015/Unicred-Logo-Design",
   },
   {
@@ -809,22 +728,13 @@ const projects = [
     category: "Brand Identity",
     summary:
       "Crafted a modern brand identity for Krisdha Technolabs that balances technical precision with high-end aesthetic appeal. The project focused on a geometric logo construction and a scalable UI-ready system designed for a professional tech presence. This identity ensures consistent brand impact across all digital and physical touchpoints.",
-
-    //Thumbnail
     thumbnail: "/images/UniCredLogo.webp",
-
     constructionImage: "/images/Unicred-geometric.webp",
-
-    //year
     year: "2025",
-
     Behance: "https://www.behance.net/gallery/247687015/Unicred-Logo-Design",
-
-    // 🔥 Logo images
     logoPrimary: "/images/unicred-primary.webp",
     logoSecondary: "/images/unicred-secondary.webp",
     logoMono: "/images/unicred-mono.webp",
-
     mockups: [
       {
         image: "/images/unicred-mockup01.webp",
@@ -843,13 +753,10 @@ const projects = [
         label: "Signage",
       },
     ],
-
     patternImage: "/images/unicred-pattern.webp",
     textureImage: "/images/unicred-texture-overlay.webp",
-
     landingPreview: "/images/UniCredLanding.webp",
     appIconImage: "/images/UniCredAppIcon.webp",
-
     dos: [
       "Display the construction grids to highlight your technical precision in logo design.",
       "Present the logo on high-end digital interfaces or tech-related hardware to provide professional context.",
@@ -860,34 +767,20 @@ const projects = [
       `Steer clear of basic stock mockups that don't align with the "Technolabs" professional aesthetic.`,
       "Do not use overly complex terminology that might alienate non-design stakeholders or recruiters.",
     ],
-
-    // 🔥 Hero banner
     banner: "/images/unuicred-banner.webp",
-
     liveLink: "https://www.behance.net/gallery/247687015/Unicred-Logo-Design",
   },
-  //Front end Development
-
   {
     id: "google-search-clone",
     title: "Google Search Engine Clone",
     category: "Frontend Development",
     summary:
       "Architected and built a responsive search engine application replicating core Google Search interactions. Integrated custom search query handling with server-side rendering, tabbed media filtering (Web, Images, Videos), instant auto-complete suggestions, and dynamic pagination.",
-
-    // Thumbnail
     thumbnail: "/images/google-search-engine-clone.webp",
-
     constructionImage: "/images/google-search-engine-clone-banner.webp",
-
-    // Year
     year: "2025",
-
-    // 🔥 Hero banner
     banner: "/images/google-search-engine-clone-banner.webp",
-
     liveLink: "https://google-search-clone-chi.vercel.app/",
-
     techStack: [
       {
         name: "Next.js 14",
@@ -944,20 +837,11 @@ const projects = [
     category: "Frontend Development",
     summary:
       "Designed and built a responsive streaming web application replicating the Netflix browse experience. Integrated real-time movie/TV metadata via TMDB with server-side caching, dynamic media pages, and authentication-gated routing.",
-
-    //Thumbnail
     thumbnail: "/images/netflix-clone.webp",
-
     constructionImage: "/images/Unicred-geometric.webp",
-
-    //year
     year: "2025",
-
-    // 🔥 Hero banner
     banner: "/images/netflix-clone-banner.webp",
-
     liveLink: "https://netflix-clone-eight-iota-94.vercel.app/",
-
     techStack: [
       {
         name: "Next.js 14",
