@@ -3,8 +3,6 @@ import Image from "next/image";
 
 export default function AppStorePreview({ project }) {
   const { lifestyleMockups, previewSection } = project;
-
-  // જો પ્રોજેક્ટમાં મોકઅપ્સ ન હોય તો સેક્શન રેન્ડર નહીં થાય
   if (!lifestyleMockups || lifestyleMockups.length === 0) return null;
 
   // Dynamic Labels
