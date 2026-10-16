@@ -200,7 +200,7 @@ export const projects = [
       "Photoshop",
       "Figma",
     ],
-    liveLink:
+    Behance:
       "https://www.behance.net/gallery/130100457/Creative-Homepage-Design",
   },
   {
@@ -300,8 +300,7 @@ export const projects = [
       },
     ],
     tech: ["UI Design", "Web Design", "Figma", "Photoshop", "Illustrator"],
-    behance: "https://www.behance.net/gallery/130396259/landing-page-Design",
-    liveLink: "https://example-saas-landing.com",
+    Behance: "https://www.behance.net/gallery/130396259/landing-page-Design",
   },
   {
     id: "rnmkr",
@@ -401,8 +400,7 @@ export const projects = [
       "Photoshop",
       "Figma",
     ],
-    behance: "https://www.behance.net/gallery/247683441/RNMKR",
-    liveLink: "https://example-rnmkr.com",
+    Behance: "https://www.behance.net/gallery/247683441/RNMKR",
   },
   {
     id: "instagram-campaign",
@@ -473,7 +471,7 @@ export const projects = [
       },
     ],
     tech: ["UI Design", "Web Design", "Figma", "Photoshop", "Illustrator"],
-    behance: "https://www.behance.net/gallery/130396259/landing-page-Design",
+    Behance: "https://www.behance.net/gallery/130396259/landing-page-Design",
   },
   {
     id: "article-image",
@@ -544,7 +542,7 @@ export const projects = [
       },
     ],
     tech: ["UI Design", "Web Design", "Figma", "Photoshop", "Illustrator"],
-    behance: "https://www.behance.net/gallery/130396259/landing-page-Design",
+    Behance: "https://www.behance.net/gallery/130396259/landing-page-Design",
   },
   {
     id: "inboxcat",
@@ -573,7 +571,8 @@ export const projects = [
       "Figma",
       "Design Systems",
     ],
-    liveLink: "https://www.figma.com/proto/...",
+    liveLink:
+      "https://www.figma.com/proto/2XoCIVgMT2rUG6qJ1QzV3o/Inboxcat-Senior-UI-UX-Task---Darshan-Makwana?node-id=28-392&p=f&t=slQ4hImZAPrX08Ij-1&scaling=scale-down&content-scaling=fixed&page-id=2%3A3&starting-point-node-id=28%3A391",
     workflowSection: {
       tag: "Core Workflow",
       title: "Designed for Trust & Zero Friction.",
@@ -720,55 +719,6 @@ export const projects = [
       "Use a minimal shield icon for favicons to maintain clarity.",
     ],
     banner: "/images/unuicred-banner.webp",
-    liveLink: "https://www.behance.net/gallery/247687015/Unicred-Logo-Design",
-  },
-  {
-    id: "krisdha-technolabs",
-    title: "Krisdha Technolabs",
-    category: "Brand Identity",
-    summary:
-      "Crafted a modern brand identity for Krisdha Technolabs that balances technical precision with high-end aesthetic appeal. The project focused on a geometric logo construction and a scalable UI-ready system designed for a professional tech presence. This identity ensures consistent brand impact across all digital and physical touchpoints.",
-    thumbnail: "/images/UniCredLogo.webp",
-    constructionImage: "/images/Unicred-geometric.webp",
-    year: "2025",
-    Behance: "https://www.behance.net/gallery/247687015/Unicred-Logo-Design",
-    logoPrimary: "/images/unicred-primary.webp",
-    logoSecondary: "/images/unicred-secondary.webp",
-    logoMono: "/images/unicred-mono.webp",
-    mockups: [
-      {
-        image: "/images/unicred-mockup01.webp",
-        label: "Signage",
-      },
-      {
-        image: "/images/unicred-mockup02.webp",
-        label: "Signage",
-      },
-      {
-        image: "/images/unicred-mockup03.webp",
-        label: "Signage",
-      },
-      {
-        image: "/images/unicred-mockup04.webp",
-        label: "Signage",
-      },
-    ],
-    patternImage: "/images/unicred-pattern.webp",
-    textureImage: "/images/unicred-texture-overlay.webp",
-    landingPreview: "/images/UniCredLanding.webp",
-    appIconImage: "/images/UniCredAppIcon.webp",
-    dos: [
-      "Display the construction grids to highlight your technical precision in logo design.",
-      "Present the logo on high-end digital interfaces or tech-related hardware to provide professional context.",
-      "Keep descriptions concise and use clear headings to ensure recruiters can digest the project quickly.",
-    ],
-    donts: [
-      "Do not overcrowd the case study with too many secondary elements that distract from the main logo.",
-      `Steer clear of basic stock mockups that don't align with the "Technolabs" professional aesthetic.`,
-      "Do not use overly complex terminology that might alienate non-design stakeholders or recruiters.",
-    ],
-    banner: "/images/unuicred-banner.webp",
-    liveLink: "https://www.behance.net/gallery/247687015/Unicred-Logo-Design",
   },
   {
     id: "google-search-clone",

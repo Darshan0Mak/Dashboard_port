@@ -38,16 +38,22 @@ export default function AppDesignHero({ project }) {
               rel="noopener noreferrer"
               className="px-8 py-4 bg-indigo-600 hover:bg-indigo-700 text-white rounded-2xl font-bold transition-all shadow-lg shadow-indigo-500/20 active:scale-95"
             >
-              Interactive Prototype ↗
+              Interactive Prototype
             </Link>
           )}
 
-          <a
-            href="#features"
-            className="px-8 py-4 bg-slate-100 hover:bg-slate-200 dark:bg-slate-800/80 dark:hover:bg-slate-800 text-slate-800 dark:text-slate-200 rounded-2xl font-semibold transition-all border border-slate-200 dark:border-slate-700/60"
+          <button
+            type="button"
+            onClick={() => {
+              const section = document.getElementById("workflow");
+              if (section) {
+                section.scrollIntoView({ behavior: "smooth" });
+              }
+            }}
+            className="px-8 py-4 cursor-pointer bg-slate-100 hover:bg-slate-200 dark:bg-slate-800/80 dark:hover:bg-slate-800 text-slate-800 dark:text-slate-200 rounded-2xl font-semibold transition-all border border-slate-200 dark:border-slate-700/60"
           >
-            Core Walkthrough ↓
-          </a>
+            Core Walkthrough
+          </button>
         </div>
       </div>
 
