@@ -1,16 +1,10 @@
 "use client";
 
-import { useState, useRef, useEffect, useCallback } from "react";
+import { useState, useRef, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
 import projects from "../Data/projects";
-
-// ─── Analytics Helper ─────────────────────────────────────────────────────────
-const trackEvent = (eventName, params = {}) => {
-  if (typeof window !== "undefined" && window.gtag) {
-    window.gtag("event", eventName, params);
-  }
-};
+import { trackEvent } from "@/lib/utils";
 
 // ─── useInView ─────────────────────────────────────────────────────────────────
 function useInView(threshold = 0.1) {
@@ -33,31 +27,6 @@ function useInView(threshold = 0.1) {
   }, [threshold]);
   return [ref, inView];
 }
-
-// ─── useMagnet ─────────────────────────────────────────────────────────────────
-// function useMagnet(strength = 0.35) {
-//   const ref = useRef(null);
-//   const [offset, setOffset] = useState({ x: 0, y: 0 });
-
-//   const onMove = useCallback(
-//     (e) => {
-//       const el = ref.current;
-//       if (!el) return;
-//       const rect = el.getBoundingClientRect();
-//       const cx = rect.left + rect.width / 2;
-//       const cy = rect.top + rect.height / 2;
-//       setOffset({
-//         x: (e.clientX - cx) * strength,
-//         y: (e.clientY - cy) * strength,
-//       });
-//     },
-//     [strength],
-//   );
-
-//   const onLeave = useCallback(() => setOffset({ x: 0, y: 0 }), []);
-
-//   return { ref, offset, onMove, onLeave };
-// }
 
 // ─── Category Colors (Clean Syntax) ───
 const CAT_COLORS = {
@@ -126,10 +95,11 @@ function ProjectCard({ project, index, visible }) {
     <Link
       href={`/portfolio/${project.id}`}
       onClick={() =>
-        trackEvent("project_view", {
+        trackEvent("view_project_click", {
           project_id: project.id,
-          project_title: project.title,
+          project_name: project.title,
           category: project.category,
+          view_type: "grid_card",
         })
       }
       className="group block"
@@ -280,9 +250,9 @@ function FeaturedCard({ project, visible }) {
     <Link
       href={`/portfolio/${project.id}`}
       onClick={() =>
-        trackEvent("project_view", {
+        trackEvent("view_project_click", {
           project_id: project.id,
-          project_title: project.title,
+          project_name: project.title,
           category: project.category,
           featured: true,
         })
@@ -619,9 +589,9 @@ export default function PortfolioPage() {
                   key={project.id}
                   href={`/portfolio/${project.id}`}
                   onClick={() =>
-                    trackEvent("project_view", {
+                    trackEvent("view_project_click", {
                       project_id: project.id,
-                      project_title: project.title,
+                      project_name: project.title,
                       category: project.category,
                       view_type: "list",
                     })

@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import { trackEvent } from "@/lib/utils";
 
 export default function ContactPage() {
   const [headerVisible, setHeaderVisible] = useState(false);
@@ -50,6 +51,11 @@ export default function ContactPage() {
         );
         return;
       }
+
+      // GA4 Key Event: Contact Form Submit
+      trackEvent("contact_form_submit", {
+        form_location: "Contact Page",
+      });
 
       setSubmitStatus("success");
       setSubmitResult(
@@ -119,7 +125,15 @@ export default function ContactPage() {
                 Contact Details
               </h3>
               <div className="space-y-6">
-                <a href="mailto:darshanmakwana0896@gmail.com" className="group block">
+                <a
+                  href="mailto:darshanmakwana0896@gmail.com"
+                  onClick={() =>
+                    trackEvent("mailto_click", {
+                      location: "Contact Page",
+                    })
+                  }
+                  className="group block"
+                >
                   <p className="text-xs text-gray-500 dark:text-gray-400 mb-1">
                     Email
                   </p>
@@ -148,6 +162,12 @@ export default function ContactPage() {
                   href="https://www.linkedin.com/in/darshan0makwana/"
                   target="_blank"
                   rel="noopener noreferrer"
+                  onClick={() =>
+                    trackEvent("social_outbound_click", {
+                      platform: "LinkedIn",
+                      location: "Contact Page",
+                    })
+                  }
                   className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full border border-black/10 dark:border-white/10 text-sm font-medium hover:bg-[#0A66C2] hover:text-white transition-all hover:border-[#0A66C2] hover:shadow-lg hover:shadow-blue-500/20"
                 >
                   <svg
@@ -166,6 +186,12 @@ export default function ContactPage() {
                   href="https://www.behance.net/darshanmakwana0896"
                   target="_blank"
                   rel="noopener noreferrer"
+                  onClick={() =>
+                    trackEvent("social_outbound_click", {
+                      platform: "Behance",
+                      location: "Contact Page",
+                    })
+                  }
                   className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full border border-black/10 dark:border-white/10 text-sm font-medium hover:bg-[#0057ff] hover:text-white transition-all hover:border-[#0057ff] hover:shadow-lg hover:shadow-blue-600/20"
                 >
                   <svg
@@ -249,7 +275,6 @@ export default function ContactPage() {
                 className="cursor-pointer disabled:cursor-not-allowed sm:col-span-2 mt-4 bg-blue-600 hover:bg-blue-700 disabled:bg-blue-400 text-white font-bold py-4 rounded-2xl transition-all active:scale-[0.98] shadow-xl shadow-blue-600/20"
                 disabled={isSubmitting}
               >
-                {/* TODO: Add a loader here */}
                 {isSubmitting ? "Sending..." : "Send Message"}
               </button>
 

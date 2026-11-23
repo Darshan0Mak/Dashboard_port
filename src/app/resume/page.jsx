@@ -2,6 +2,7 @@
 
 import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
+import { trackEvent } from "@/lib/utils";
 
 // ─── useInView ────────────────────────────────────────────────────────────────
 function useInView(threshold = 0.12) {
@@ -336,14 +337,13 @@ function DownloadButton() {
     setClicked(true);
     setTimeout(() => setClicked(false), 2000);
 
-    // ── GA4 Event Tracking ──
-    if (typeof window !== "undefined" && window.gtag) {
-      window.gtag("event", "resume_download", {
-        event_category: "engagement",
-        event_label: "Darshan Makwana Resume PDF",
-        file_name: "DarshanMakwana_Sr.UI-UX_Designer_6_Years.pdf",
-      });
-    }
+    // ── GA4 & GTM Event Tracking ──
+    trackEvent("resume_download", {
+      event_category: "conversion",
+      event_label: "Darshan Makwana Resume PDF",
+      file_name: "DarshanMakwana_Sr.UI-UX_Designer_6_Years.pdf",
+      location: "Resume Page",
+    });
 
     // Triggers download of /public/resume.pdf
     const a = document.createElement("a");
@@ -455,6 +455,22 @@ export default function ResumePage() {
     transform: headerVisible ? "translateY(0)" : "translateY(16px)",
     transition: `opacity 0.55s ease ${delay}s, transform 0.55s cubic-bezier(0.22,1,0.36,1) ${delay}s`,
   });
+
+  const handleSidebarContactClick = (icon) => {
+    if (icon === "mail") {
+      trackEvent("mailto_click", { location: "Resume Sidebar" });
+    } else if (icon === "linkedin") {
+      trackEvent("social_outbound_click", {
+        platform: "LinkedIn",
+        location: "Resume Sidebar",
+      });
+    } else if (icon === "behance") {
+      trackEvent("social_outbound_click", {
+        platform: "Behance",
+        location: "Resume Sidebar",
+      });
+    }
+  };
 
   return (
     <div className="w-full min-h-screen">
@@ -572,6 +588,7 @@ export default function ResumePage() {
                             c.href.startsWith("http") ? "_blank" : undefined
                           }
                           rel="noopener noreferrer"
+                          onClick={() => handleSidebarContactClick(c.icon)}
                           className="text-xs text-gray-500 dark:text-gray-400 hover:text-blue-500 transition-colors truncate"
                         >
                           {c.label}
@@ -604,39 +621,6 @@ export default function ResumePage() {
                   ))}
                 </div>
               </div>
-
-              {/* Languages */}
-              {/* <div>
-                <SectionHeading accent="#10b981">Languages</SectionHeading>
-                <div className="flex flex-col gap-3">
-                  {[
-                    { lang: "Gujarati", level: "Native", pct: 100 },
-                    { lang: "Hindi", level: "Fluent", pct: 95 },
-                    { lang: "English", level: "Professional", pct: 88 },
-                  ].map(({ lang, level, pct }) => (
-                    <div key={lang}>
-                      <div className="flex justify-between mb-1">
-                        <span className="text-xs font-semibold text-gray-700 dark:text-gray-300">
-                          {lang}
-                        </span>
-                        <span className="text-[10px] font-medium text-gray-400">
-                          {level}
-                        </span>
-                      </div>
-                      <div className="h-1 rounded-full bg-gray-100 dark:bg-white/6 overflow-hidden">
-                        <div
-                          className="h-full rounded-full"
-                          style={{
-                            width: `${pct}%`,
-                            background:
-                              "linear-gradient(90deg, #3b82f6, #6366f1)",
-                          }}
-                        />
-                      </div>
-                    </div>
-                  ))}
-                </div>
-              </div> */}
             </div>
           </div>
 
@@ -747,14 +731,11 @@ export default function ResumePage() {
             Or reach out directly at{" "}
             <a
               href="mailto:darshanmakwana0896@gmail.com"
-              onClick={() => {
-                if (typeof window !== "undefined" && window.gtag) {
-                  window.gtag("event", "email_click", {
-                    event_category: "contact",
-                    event_label: "Direct Email Click",
-                  });
-                }
-              }}
+              onClick={() =>
+                trackEvent("mailto_click", {
+                  location: "Resume Footer Note",
+                })
+              }
               className="text-blue-500 hover:underline"
             >
               darshanmakwana0896@gmail.com
