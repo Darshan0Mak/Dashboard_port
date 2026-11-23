@@ -26,6 +26,9 @@ const oswald = Oswald({
 // ─── Production SEO Metadata ───
 export const metadata = {
   metadataBase: new URL("https://darshanmakwana.netlify.app"),
+  alternates: {
+    canonical: "./",
+  },
   title: {
     default: "Darshan Makwana | Senior UI/UX Designer & Product Designer",
     template: "%s | Darshan Makwana",
@@ -42,9 +45,6 @@ export const metadata = {
   ],
   authors: [{ name: "Darshan Makwana" }],
   creator: "Darshan Makwana",
-  alternates: {
-    canonical: "/",
-  },
   openGraph: {
     type: "website",
     locale: "en_US",
@@ -99,7 +99,7 @@ export default function RootLayout({ children }) {
 
         <GoogleAnalytics />
 
-        {/* ─── Microsoft Clarity Tracking (તમારો Project ID અહીં ઉમેરવો) ─── */}
+        {/* ─── Microsoft Clarity Tracking ─── */}
         <Script
           id="microsoft-clarity"
           strategy="afterInteractive"
@@ -119,10 +119,11 @@ export default function RootLayout({ children }) {
           <div className="fixed top-0 -left-45 h-full w-auto scale-150 pointer-events-none -z-10 opacity-70">
             <Image
               src={LeftBg}
-              alt="Decorative background left"
+              alt=""
+              aria-hidden="true"
               className="object-contain h-full w-auto"
-              quality={100}
-              priority
+              quality={75}
+              loading="lazy"
             />
           </div>
 
@@ -130,10 +131,11 @@ export default function RootLayout({ children }) {
           <div className="fixed top-0 -right-7.5 h-full w-auto scale-250 pointer-events-none -z-10 opacity-50">
             <Image
               src={RightBg}
-              alt="Decorative background right"
+              alt=""
+              aria-hidden="true"
               className="object-cover h-full w-auto"
-              quality={100}
-              priority
+              quality={75}
+              loading="lazy"
             />
           </div>
 
