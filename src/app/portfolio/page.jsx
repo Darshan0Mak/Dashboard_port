@@ -363,8 +363,8 @@ function FilterBtn({ label, active, count, onClick }) {
     ${
       active
         ? `
-        bg-[var(--accent)] text-white border-transparent 
-        shadow-md shadow-[var(--accent)]/30
+        bg-var(--accent) text-white border-transparent 
+        shadow-md shadow-var(--accent)/30
       `
         : `
         bg-transparent 
@@ -605,7 +605,7 @@ export default function PortfolioPage() {
                     transition: `opacity 0.4s ease ${i * 0.05}s, transform 0.4s ease ${i * 0.05}s`,
                   }}
                 >
-                  <div className="relative w-20 h-14 sm:w-28 sm:h-18 rounded-xl overflow-hidden flex-shrink-0 border border-black/6 dark:border-white/6">
+                  <div className="relative w-20 h-14 sm:w-28 sm:h-18 rounded-xl overflow-hidden shrink-0 border border-black/6 dark:border-white/6">
                     <Image
                       src={project.thumbnail}
                       alt={`${project.title} - UI/UX Design`}
@@ -615,7 +615,7 @@ export default function PortfolioPage() {
                     />
                   </div>
 
-                  <span className="text-xs font-bold text-gray-200 dark:text-gray-700 w-6 flex-shrink-0 hidden sm:block">
+                  <span className="text-xs font-bold text-gray-200 dark:text-gray-700 w-6 shrink-0 hidden sm:block">
                     {String(i + 1).padStart(2, "0")}
                   </span>
 
