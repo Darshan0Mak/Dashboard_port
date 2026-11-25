@@ -1,6 +1,5 @@
 import HeroSection from "../components/hero/HeroSection";
 import BentoGrid from "../components/BentoGrid/BentoGrid";
-import Testimonials from "../components/Testimonials/Testimonials";
 
 export default function Home() {
   return (
